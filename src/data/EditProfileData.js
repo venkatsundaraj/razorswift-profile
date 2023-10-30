@@ -1,0 +1,151 @@
+export const CompanyInformation = [
+  {
+    companyName: 'Vcnr',
+    companyId: 1,
+    jobTitleName: 'Software engineer',
+    jobTitleId: 1,
+    jobProfileType: 2,
+    startDate: null,
+    endDate: null,
+    isCurrentEmployer: false,
+    jobDescription:
+      'PONumber, service layer return lotDetails that participated in that transaction \n \t type and associated with PONumber \n \t Developed service that process the controller layers request that accept the \n \t PONumber, POLineNumber and transaction type, based on the transaction type, \n \t PONumber and POLineNumber the service layer return finalShipQty for each lot \n \t that participated in that type of transaction and associated with that PONumber, \n POLineNumber \n \t Enhanced one service that have new feature for SpecialReleaseCase. \n \t Fixed approx. 60-70 bugs on time that had been raised from client side. \n \t Fixed 1000 of findbug issue for improvement of the codebase. \n \t Enhance the performance of WorkFlowManageService, earlier it used to take \n \t approximately 3 seconds to make instance now after improvement it was \n \t approximately 2 second. \n \n 2.Project Summary :',
+    candidateId: 1,
+  },
+  {
+    companyName: 'Razorswift',
+    companyId: 1,
+    jobTitleName: 'Razorswift',
+    jobTitleId: 1,
+    jobProfileType: 1,
+    startDate: '2023-02-21T00:00:00+05:30',
+    endDate: '2023-03-01T00:00:00+05:30',
+    isCurrentEmployer: true,
+    jobDescription: 'string',
+    candidateId: 1,
+  },
+];
+
+export const ProjectInformation = [
+  {
+    title: 'test',
+    description: 'test',
+    employerId: 1,
+    candidateId: 1,
+    startDate: '2023-02-13T00:00:00+05:30',
+    endDate: '2023-02-13T00:00:00+05:30',
+    projectDescription: [],
+    projectAndSkills: [],
+  },
+  {
+    title: 'abc',
+    description: 'abc',
+    employerId: 1,
+    candidateId: 1,
+    startDate: '2023-02-16T07:36:06.276+05:30',
+    endDate: '2023-02-16T07:36:06.276+05:30',
+    projectDescription: [
+      {
+        description: 'abc',
+        projectId: 15,
+        id: 3,
+      },
+      {
+        description: 'abcssss',
+        projectId: 15,
+        id: 2,
+      },
+    ],
+    projectAndSkills: [
+      {
+        skillName: 'abc',
+        skillId: 107,
+        skill: {
+          name: 'abc',
+          type: 'abc',
+          uniqueGuid: '54d1f336-3f45-4b92-bc7b-53eb732896f1',
+          id: 107,
+        },
+        projectId: 15,
+        id: 106,
+      },
+    ],
+  },
+  {
+    title: 'abcproject',
+    description: 'abcstring',
+    employerId: 1,
+    candidateId: 1,
+    startDate: '2023-02-22T00:00:00+05:30',
+    endDate: '2023-02-22T00:00:00+05:30',
+    projectDescription: [
+      {
+        description: 'test desc',
+        projectId: 16,
+        id: 6,
+      },
+    ],
+    projectAndSkills: [],
+  },
+];
+
+export const EducationInformation = [
+  {
+    educationInstituteId: null,
+    primaryEducationInstitute: null,
+    institutionName:
+      'Govt. Sri Krishnarajendra Silver Jubilee Technological Institute',
+    institutionType: 'Institute',
+    startDate: '2018-01-01T00:00:00+00:00',
+    endDate: '2021-12-31T00:00:00+00:00',
+    degreeId: 1,
+    degree: {
+      name: 'Bachelor of Engineering',
+      duration: 4,
+      uniqueGuid: 'c83f4e37-4a2d-4be9-9db5-5c553098de5f',
+      id: 1,
+    },
+    fieldOfStudyId: null,
+    fieldOfStudy: null,
+    candidateId: 191,
+    id: 61,
+  },
+  {
+    educationInstituteId: null,
+    primaryEducationInstitute: null,
+    institutionName: 'Govt. Polytechnic',
+    institutionType: 'Institute',
+    startDate: null,
+    endDate: '2015-12-31T00:00:00+00:00',
+    degreeId: 8,
+    degree: {
+      name: 'Diploma in Computer Science',
+      duration: 0,
+      uniqueGuid: '210b76bd-0203-4657-be74-97ecb5ed2f33',
+      id: 8,
+    },
+    fieldOfStudyId: null,
+    fieldOfStudy: null,
+    candidateId: 191,
+    id: 62,
+  },
+  {
+    educationInstituteId: null,
+    primaryEducationInstitute: null,
+    institutionName: 'SGS High School',
+    institutionType: 'School',
+    startDate: null,
+    endDate: '2011-12-31T00:00:00+00:00',
+    degreeId: 2,
+    degree: {
+      name: 'Secondary School Certificate',
+      duration: 0,
+      uniqueGuid: '68647cbf-05c7-4b03-9975-cc283ff02734',
+      id: 2,
+    },
+    fieldOfStudyId: null,
+    fieldOfStudy: null,
+    candidateId: 191,
+    id: 63,
+  },
+];

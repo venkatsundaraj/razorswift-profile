@@ -1,0 +1,28 @@
+export const history_AssessmentSchedule = {
+  candidateId: 7,
+  name: 'Manjunath M J',
+  email: 'manjunathmj3105@gmail.com',
+  phone: '918123859520',
+  jobDescriptionId: 2,
+  clientId: 1,
+  clientName: 'Tech dharma',
+  jdCode: 'RS/Jobs/0002',
+  sourcingSequence: [
+    {
+      name: 'Assessment Schedule',
+      description: 'Assessment Schedule',
+      isActive: true,
+      sequenceNumber: 1,
+      jdAndCandidateStatusId: 5,
+      status: 0,
+      remarks: null,
+      details: null,
+      assessmentDetails: null,
+      assessmentResult: null,
+      uniqueGuid: '28e39991-2efc-48a4-8013-aaecc26f59c2',
+      id: 1,
+    },
+  ],
+  uniqueGuid: '00000000-0000-0000-0000-000000000000',
+  id: 0,
+};

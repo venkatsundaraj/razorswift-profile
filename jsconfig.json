@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      //folder name is case sensitive in docker image hence please check it.
+      "@/navigationComponents/*": ["src/Components/Navigation/*"],
+      "@/customHooks/*": ["src/Components/CustomHooks/*"],
+      "@/imageComponents/*": ["src/Components/ImageComponents/*"],
+      "@/pageComponents/*": ["src/Components/PageComponents/*"],
+      "@/layouts/*": ["src/layouts/*"],
+      "@/buttonComponents/*": ["src/Components/ButtonComponents/*"],
+      "@/media/*": ["src/assets/media/*"],
+      "@/cardComponents/*": ["src/Components/CardComponents/*"],
+      "@/headingComponents/*": ["src/Components/TextComponents/*"],
+      "@/assets/*": ["src/assets/*"],
+      "@/formComponents/*": ["src/Components/Forms/*"],
+      "@/reUsableComponents/*": ["src/Components/ReusableComponents/*"],
+      "@/utils/*": ["src/utils/*"],
+      "@/swagger_api/*": ["src/swagger_api"],
+      "@/view/*": ["src/Components/View/*"],
+      "@/store/*": ["src/store/*"],
+      "@/src/*": ["src/*"],
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["src", "src/components/pageComponents/landing/.js"]
+}

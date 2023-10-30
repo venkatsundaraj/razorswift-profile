@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 120 120">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        stroke-width: 0px;
+      }
+
+      .cls-5 {
+        clip-path: url(#clippath-2);
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+
+      .cls-6 {
+        clip-path: url(#clippath-1);
+      }
+
+      .cls-3 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-4 {
+        fill: url(#linear-gradient-3);
+      }
+
+      .cls-7 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <path class="cls-2" d="m57.82,104.88L15.12,62.18c-1.2-1.2-1.2-3.15,0-4.35L57.82,15.12c1.2-1.2,3.15-1.2,4.35,0l42.71,42.71c1.2,1.2,1.2,3.15,0,4.35l-42.71,42.7c-1.2,1.2-3.15,1.2-4.35,0m2.14-93.51c-1.56,0-3.06.63-4.16,1.73L13.1,55.81c-1.1,1.1-1.73,2.6-1.73,4.16v.07c0,1.56.63,3.05,1.73,4.15l42.7,42.71c2.32,2.31,6.06,2.31,8.38,0l42.71-42.71c2.31-2.32,2.31-6.06,0-8.38L64.19,13.1c-1.1-1.1-2.59-1.73-4.15-1.73h-.07Z"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" x1="-423.99" y1="2327.9" x2="-424.56" y2="2327.17" gradientTransform="translate(43904.88 240494.4) scale(103.31 -103.31)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#682376"/>
+      <stop offset="1" stop-color="#a52973"/>
+    </linearGradient>
+    <clipPath id="clippath-1">
+      <path class="cls-2" d="m58.99,19.06l-7.33,7.33c-.56.56-.56,1.46,0,2.01s1.46.56,2.01,0l6.32-6.32,37.92,37.92-37.92,37.92L22.08,60l27.57-27.56c.57-.54.59-1.45.05-2.02s-1.45-.59-2.02-.05c-.02.02-.03.03-.05.05l-28.57,28.57c-.56.55-.56,1.45,0,2.01,0,0,0,0,0,0l39.94,39.94c.55.56,1.46.56,2.01,0,0,0,0,0,0,0l39.94-39.94c.56-.55.56-1.45,0-2.01,0,0,0,0,0,0L61.01,19.06c-.55-.56-1.46-.56-2.01,0,0,0,0,0,0,0"/>
+    </clipPath>
+    <linearGradient id="linear-gradient-2" x1="-423.25" y1="2330.39" x2="-423.82" y2="2329.66" gradientTransform="translate(37286.81 204785.35) scale(87.87 -87.87)" xlink:href="#linear-gradient"/>
+    <clipPath id="clippath-2">
+      <path class="cls-2" d="m57.98,40.72l-8.72,13.22c-.74,1.11-.43,2.61.68,3.35.4.26.86.4,1.34.4h2.06v9.68c0,.79.64,1.42,1.42,1.42s1.42-.64,1.42-1.42v-10.11c0-1.34-1.08-2.42-2.42-2.42h-1.69l7.92-12,7.92,12h-1.69c-1.33,0-2.42,1.08-2.42,2.42v16.41h-7.61v-.6c0-.79-.64-1.42-1.42-1.42s-1.42.64-1.42,1.42v1.03c0,1.33,1.08,2.42,2.42,2.42h8.47c1.33,0,2.42-1.08,2.42-2.42v-16.41h2.06c1.34,0,2.42-1.08,2.42-2.42,0-.47-.14-.94-.4-1.33l-8.72-13.22c-.74-1.12-2.24-1.42-3.35-.69-.27.18-.51.41-.69.69"/>
+    </clipPath>
+    <linearGradient id="linear-gradient-3" x1="-409.95" y1="2351.09" x2="-410.52" y2="2350.36" gradientTransform="translate(9883.56 92132.2) scale(23.94 -39.17)" xlink:href="#linear-gradient"/>
+  </defs>
+  <g id="Layer_2-2" data-name="Layer 2">
+    <g>
+      <rect class="cls-2" width="120" height="120"/>
+      <rect class="cls-2" x="10" y="10" width="100" height="100"/>
+      <g>
+        <g id="Group_1139" data-name="Group 1139">
+          <g class="cls-7">
+            <g id="Group_1138" data-name="Group 1138">
+              <rect id="Rectangle_952" data-name="Rectangle 952" class="cls-1" x="11.37" y="11.37" width="97.26" height="97.26"/>
+            </g>
+          </g>
+        </g>
+        <g id="Group_1141" data-name="Group 1141">
+          <g class="cls-6">
+            <g id="Group_1140" data-name="Group 1140">
+              <rect id="Rectangle_953" data-name="Rectangle 953" class="cls-3" x="18.64" y="18.64" width="82.73" height="82.72"/>
+            </g>
+          </g>
+        </g>
+        <g id="Group_1143" data-name="Group 1143">
+          <g class="cls-5">
+            <g id="Group_1142" data-name="Group 1142">
+              <rect id="Rectangle_954" data-name="Rectangle 954" class="cls-4" x="48.73" y="39.64" width="22.54" height="36.88"/>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
