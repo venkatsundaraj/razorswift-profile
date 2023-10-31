@@ -29,13 +29,6 @@ export default function MenuButton({ headerdData }) {
           '&:hover': {
             backgroundColor: 'transparent',
           },
-          // 'div [data-id="0"]::before': {
-          //   position: 'absolute',
-          //   content: "''",
-          //   width: '100%',
-          //   height: '100%',
-          //   backgroundColor: 'yellow',
-          // },
           '&:hover > div h4': {
             transition: 'transform 0.3s ease, opacity 0.3s ease',
             opacity: '0',
@@ -49,10 +42,6 @@ export default function MenuButton({ headerdData }) {
           '&:hover > div [data-id="-2"]': {
             transform: `translate(-200%)`,
           },
-          // '&:hover > div [data-id="0"]': {
-          //   backgroundColor: '#efd8e670',
-          //   borderRadius: '100vh',
-          // },
         }}
       >
         {headerdData.forMenu.map((item, i) => (
@@ -89,6 +78,12 @@ export default function MenuButton({ headerdData }) {
         open={open}
         onClose={handleClose}
         variant="menu"
+        sx={{
+          '& .MuiPaper-root': {
+            backgroundColor: 'pinkPalette.navLight',
+            width: '240px',
+          },
+        }}
         anchorOrigin={{
           vertical: 'bottom',
           horizontal: 'left',
@@ -99,7 +94,6 @@ export default function MenuButton({ headerdData }) {
         }}
       >
         <MenuItems handleClose={handleClose} headerdData={headerdData} />
-        {/* <SwipeAbleDrawer open={open} /> */}
       </Menu>
     </>
   );
