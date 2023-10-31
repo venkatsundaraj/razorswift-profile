@@ -123,6 +123,7 @@ const ExploreSection = ({ ...props }) => {
                     textAlign: 'justify',
                     width: { xs: '100%' },
                     marginBottom: { xs: '20px', sm: '', md: '30px' },
+                    color: 'black',
                   }}
                 >
                   {data[0].description}

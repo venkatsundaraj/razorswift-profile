@@ -509,7 +509,7 @@ export default function PathwaySection() {
                         }}
                       >
                         <Typography
-                          sx={{ padding: '10px 10px 0 20px' }}
+                          sx={{ padding: '10px 10px 0 20px', color: 'black' }}
                           style={fontdes}
                         >
                           {item.description}
