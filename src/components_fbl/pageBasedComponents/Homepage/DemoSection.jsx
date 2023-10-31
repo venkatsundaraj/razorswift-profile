@@ -69,6 +69,7 @@ const DemoSection = () => {
                 variant="body1"
                 sx={{
                   margin: '20px 0',
+                  color: 'black',
                 }}
               >
                 {demosection.description}

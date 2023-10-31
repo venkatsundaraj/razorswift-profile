@@ -198,6 +198,7 @@ const HeroSection = () => {
                 component="span"
                 sx={{
                   lineHeight: 1.2,
+                  color: 'black',
                 }}
               >
                 {heroSectionData[0].title}
@@ -206,6 +207,7 @@ const HeroSection = () => {
                 component="span"
                 sx={{
                   lineHeight: 1.2,
+                  color: 'black',
                 }}
               >
                 {heroSectionData[0].titletwo}
@@ -248,7 +250,7 @@ const HeroSection = () => {
                   transitionDuration: '0.3s',
                   '&:hover': {
                     backgroundColor: 'white',
-                    color: 'primary.light',
+                    color: 'primary.main',
                     transform: 'translateY(-10px)',
                     transitionDuration: '0.3s',
                     transitionTimingFunction: 'ease',
