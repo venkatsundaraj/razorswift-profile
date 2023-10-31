@@ -139,7 +139,13 @@ function StaticScrollSection({ stickySliderData }) {
                 >
                   <PrimaryHeading
                     variant="h2"
-                    sx={{ mb: { xs: '32px', md: '0' } }}
+                    sx={{
+                      color: 'primaryPalette.white',
+                      mb: {
+                        xs: '32px',
+                        md: '0',
+                      },
+                    }}
                   >
                     GET VERIFIED. GET HIRED.
                   </PrimaryHeading>
@@ -159,7 +165,7 @@ function StaticScrollSection({ stickySliderData }) {
                           key={title.id}
                           style={{ textTransform: 'uppercase' }}
                           sx={{
-                            color: 'primary.white',
+                            color: 'primaryPalette.white',
                             width: '100%',
                             height: '100%',
                             left: '0',
@@ -196,13 +202,13 @@ function StaticScrollSection({ stickySliderData }) {
                         >
                           <ParagraphHeading
                             style={{ fontWeight: '600' }}
-                            sx={{ mb: 2 }}
+                            sx={{ mb: 2, color: 'primaryPalette.white' }}
                           >
                             {title.subtitle}
                           </ParagraphHeading>
                           <SubtitleHeading
                             sx={{
-                              color: 'primary.white',
+                              color: 'primaryPalette.white',
                             }}
                           >
                             {title.paragraph}

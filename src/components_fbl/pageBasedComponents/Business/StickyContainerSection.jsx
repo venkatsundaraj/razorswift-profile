@@ -163,7 +163,7 @@ function StickyContainerSection() {
                       <ExtraParagraphHeading
                         sx={{
                           mb: { xs: 2, md: 4 },
-                          color: 'primary.black',
+                          color: 'primaryPalette.black',
                           textAlign: { xs: 'center', md: 'left' },
                         }}
                       >
@@ -172,6 +172,7 @@ function StickyContainerSection() {
                       <SubtitleHeading
                         sx={{
                           textAlign: { xs: 'center', md: 'left' },
+                          color: 'primaryPalette.black',
                           mb: { xs: 2, md: '0px' },
                         }}
                       >

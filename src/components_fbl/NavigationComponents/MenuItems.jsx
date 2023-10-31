@@ -1,17 +1,17 @@
-import { Box, MenuItem, Stack, Typography } from '@mui/material'
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-
-import PrimaryFillButton from '../buttonComponents/PrimaryFillButton'
-import ParagraphHeading from '../headingComponents/ParagraphHeading'
+import { MenuItem, Stack, Typography } from '@mui/material';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import React from 'react';
+import PrimaryFillButton from '../buttonComponents/PrimaryFillButton';
+import ParagraphHeading from '../headingComponents/ParagraphHeading';
 
 function MenuItems({ headerdData, handleClose }) {
-  const router = useRouter()
+  const router = useRouter();
 
   return (
     <>
       {headerdData.navInItems.map((title, i) => (
-        <Box key={title.id}>
+        <React.Fragment key={title.id}>
           <MenuItem
             onClick={handleClose}
             sx={{
@@ -64,7 +64,7 @@ function MenuItems({ headerdData, handleClose }) {
                   sx={{
                     fontSize: '14px',
 
-                    fontFamily: (theme) => theme.typography.body1,
+                    fontFamily: theme => theme.typography.body1,
                     fontSize: {
                       xs: '14px',
                       md: '16px',
@@ -96,7 +96,7 @@ function MenuItems({ headerdData, handleClose }) {
               gap={1.2}
               sx={{ pb: 1.2, borderBottom: '1px solid #A62973' }}
             >
-              {title.subItems.map((item) => (
+              {title.subItems.map(item => (
                 <ParagraphHeading
                   key={item.id}
                   sx={{
@@ -128,14 +128,14 @@ function MenuItems({ headerdData, handleClose }) {
               ))}
             </Stack>
           )}
-        </Box>
+        </React.Fragment>
       ))}
       <Stack
         flexDirection="row"
         justifyContent="space-between"
         sx={{ marginTop: 1, display: { xs: 'flex', md: 'none' } }}
       >
-        {headerdData.actionButtons.map((item) => (
+        {headerdData.actionButtons.map(item => (
           <PrimaryFillButton
             href={item.link}
             style={{ padding: '4px 20px', borderRadius: '16px' }}
@@ -153,7 +153,7 @@ function MenuItems({ headerdData, handleClose }) {
         ))}
       </Stack>
     </>
-  )
+  );
 }
 
-export default MenuItems
+export default MenuItems;

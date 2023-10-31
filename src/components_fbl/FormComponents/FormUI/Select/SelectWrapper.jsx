@@ -47,9 +47,30 @@ function SelectWrapper({ name, placeholder, nameValue, ...props }) {
           sx={{
             color: 'pinkPalette.dark',
             position: 'relative',
+            background: 'transparent',
             '& .MuiSelect-icon': {
               transition: 'all 0.265s ease',
               top: 'calc(50% - 16px)',
+              width: '16px',
+            },
+            '.MuiSelect-outlined': {
+              background: 'transparent',
+            },
+            '.MuiTypography-root': {
+              color: 'pinkPalette.dark',
+            },
+            '.MuiOutlinedInput-notchedOutline': { border: 0 },
+            '&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline': {
+              border: 0,
+            },
+            '&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline':
+              {
+                border: 0,
+              },
+            '& .MuiSelect-icon': {
+              top: 'calc(50% - 16px)',
+
+              transition: 'all 0.265s ease',
               width: '20px',
             },
             '&:after': {
@@ -77,6 +98,7 @@ function SelectWrapper({ name, placeholder, nameValue, ...props }) {
                 sx={{
                   textAlign: 'center',
                   width: '100%',
+                  color: 'primaryPalette.black',
                 }}
               >
                 {item.name}

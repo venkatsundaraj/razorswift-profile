@@ -43,7 +43,6 @@ function FormSection() {
           try {
             setSubmitting(true);
             await callApi('contactRequest', reverseCheckAndSet(values));
-            // await new Promise((resolve) => setTimeout(resolve, 4000))
           } catch (err) {
             if (err instanceof AxiosError) {
               console.log(err);

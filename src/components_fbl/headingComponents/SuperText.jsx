@@ -3,6 +3,7 @@ import { Typography } from '@mui/material';
 
 const Heading = styled(Typography)(({ theme }) => ({
   lineHeight: 1.05,
+  fontWeight: 'normal',
   fontSize: '46px',
   width: 'fit-content',
   [theme.breakpoints.up('md')]: {

@@ -1,3 +1,5 @@
+import Navigation from '@/components_fbl/NavigationComponents/Navigation';
+import CustomImage from '@/components_fbl/globalComponents/CustomImage/CustomImage';
 import { headerdData } from '@/constants/Aspirants/aspirantPageData';
 import {
   AppBar,
@@ -8,8 +10,6 @@ import {
   useScrollTrigger,
 } from '@mui/material';
 import Link from 'next/link';
-import CustomImage from '../globalComponents/CustomImage/CustomImage';
-import Navigation from './Navigation';
 const HideOnScroll = function ({ window, children }) {
   const trigger = useScrollTrigger({
     target: window ? window() : undefined,

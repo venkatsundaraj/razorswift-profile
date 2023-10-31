@@ -36,14 +36,19 @@ function GetStartedSection({ readyToStartData }) {
         >
           {readyToStartData.title}
         </SuperText>
-        <TertiaryHeading style={{ fontWeight: '500', textAlign: 'center' }}>
+        <TertiaryHeading
+          sx={{ color: 'primaryPalette.black' }}
+          style={{ fontWeight: '500', textAlign: 'center' }}
+        >
           {readyToStartData.description}
         </TertiaryHeading>
         {readyToStartData.longDescription && (
           <Grid container>
             <Grid item xs={12} sm={1}></Grid>
             <Grid item xs={12} sm={10}>
-              <ParagraphHeading sx={{ textAlign: 'center' }}>
+              <ParagraphHeading
+                sx={{ textAlign: 'center', color: 'primaryPalette.black' }}
+              >
                 {readyToStartData.longDescription}
               </ParagraphHeading>
             </Grid>

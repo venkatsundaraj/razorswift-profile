@@ -31,7 +31,7 @@ function WhyRazorswiftSection() {
               <PrimaryHeading sx={{ color: 'violetPalette.dark' }}>
                 {whyRazorswiftSection.title}
               </PrimaryHeading>
-              <ParagraphHeading>
+              <ParagraphHeading sx={{ color: 'primaryPalette.black' }}>
                 {whyRazorswiftSection.description}
               </ParagraphHeading>
               <PrimaryFillButton

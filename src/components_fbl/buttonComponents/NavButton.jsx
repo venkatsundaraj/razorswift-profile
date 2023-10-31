@@ -1,14 +1,13 @@
-import React from 'react'
-import { Button } from '@mui/material'
-import styled from '@emotion/styled'
-import NextLink from 'next/link'
-import Link from '@mui/material/Link'
+import styled from '@emotion/styled';
+import Link from '@mui/material/Link';
+import NextLink from 'next/link';
 
 const FillButton = styled(Link)(({ theme }) => ({
   borderRadius: theme.spacing(3),
   padding: theme.spacing(0.4, 1.6),
   border: '1px solid #A62973',
   textDecoration: 'none',
+  lineHeight: '27px',
   background: 'transparent',
   textTransform: 'inherit',
   [theme.breakpoints.up('md')]: {
@@ -20,14 +19,14 @@ const FillButton = styled(Link)(({ theme }) => ({
   [theme.breakpoints.up('xl')]: {
     fontSize: '20px',
   },
-}))
+}));
 
 const NavButton = function ({ children, href, ...props }) {
   return (
     <FillButton {...props} href={href} component={NextLink}>
       {children}
     </FillButton>
-  )
-}
+  );
+};
 
-export default NavButton
+export default NavButton;

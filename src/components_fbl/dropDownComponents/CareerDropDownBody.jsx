@@ -1,10 +1,10 @@
+import PrimaryFillButton from '@/components_fbl/buttonComponents/PrimaryFillButton';
+import CustomImage from '@/components_fbl/globalComponents/CustomImage/CustomImage';
+import ExtraParagraphHeading from '@/components_fbl/headingComponents/ExtraParagraphHeading';
+import SecondaryHeading from '@/components_fbl/headingComponents/SecondaryHeading';
+import SubtitleHeading from '@/components_fbl/headingComponents/SubtitleHeading';
 import { Box, Container, Grid, Paper, Stack, Typography } from '@mui/material';
 import Image from 'next/image';
-import PrimaryFillButton from '../buttonComponents/PrimaryFillButton';
-import CustomImage from '../globalComponents/CustomImage/CustomImage';
-import ExtraParagraphHeading from '../headingComponents/ExtraParagraphHeading';
-import SecondaryHeading from '../headingComponents/SecondaryHeading';
-import SubtitleHeading from '../headingComponents/SubtitleHeading';
 
 function CareerDropDownBody({ dropDownBodyData, ...props }) {
   return (
@@ -122,6 +122,7 @@ function CareerDropDownBody({ dropDownBodyData, ...props }) {
               style={{ fontWeight: 500 }}
               sx={{
                 flexBasis: 'clamp(40px,15vw,250px)',
+                color: 'primaryPalette.black',
                 mb: { xs: 2, md: 0 },
               }}
             >
@@ -187,10 +188,17 @@ function CareerDropDownBody({ dropDownBodyData, ...props }) {
                       justifyContent="center"
                       gap="8px"
                     >
-                      <ExtraParagraphHeading sx={{ fontWeight: '600' }}>
+                      <ExtraParagraphHeading
+                        sx={{
+                          fontWeight: '600',
+                          color: 'primaryPalette.black',
+                        }}
+                      >
                         {item.title}
                       </ExtraParagraphHeading>
-                      <SubtitleHeading>{item.description}</SubtitleHeading>
+                      <SubtitleHeading sx={{ color: 'primaryPalette.black' }}>
+                        {item.description}
+                      </SubtitleHeading>
                     </Stack>
                   </Paper>
                 </Grid>

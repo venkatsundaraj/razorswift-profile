@@ -1,10 +1,11 @@
-import { Typography } from '@mui/material';
-import React from 'react';
 import styled from '@emotion/styled';
+import { Typography } from '@mui/material';
 
 const Paragraph = styled(Typography)(({ theme }) => ({
   fontSize: '14px',
   fontWeight: 500,
+  lineHeight: '1.5',
+  letterSpacing: 'normal',
   display: 'block',
   fontFamily: theme.typography.subtitle1,
   [theme.breakpoints.up('md')]: {

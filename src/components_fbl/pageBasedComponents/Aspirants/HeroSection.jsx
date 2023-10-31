@@ -69,6 +69,7 @@ function HeroSection({ heroSectionData, TickerBoxData }) {
                 sx={{
                   textAlign: { xs: 'left' },
                   width: { xs: '60%' },
+                  color: 'primaryPalette.black',
                 }}
               >
                 {heroSectionData.description}

@@ -4,6 +4,7 @@ import { Typography } from '@mui/material';
 const Heading = styled(Typography)(({ theme }) => ({
   fontSize: '52px',
   lineHeight: 1.05,
+  fontWeight: 'normal',
   width: 'fit-content',
   [theme.breakpoints.up('sm')]: {
     fontSize: '58px',

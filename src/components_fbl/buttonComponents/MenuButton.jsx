@@ -1,18 +1,18 @@
-import { Box, Button, Typography } from '@mui/material'
-import Menu from '@mui/material/Menu'
-import * as React from 'react'
-import MenuItems from '../NavigationComponents/MenuItems'
-import CustomImage from '../globalComponents/CustomImage/CustomImage'
+import { Box, Button, Typography } from '@mui/material';
+import Menu from '@mui/material/Menu';
+import * as React from 'react';
+import MenuItems from '../NavigationComponents/MenuItems';
+import CustomImage from '../globalComponents/CustomImage/CustomImage';
 
 export default function MenuButton({ headerdData }) {
-  const [anchorEl, setAnchorEl] = React.useState(null)
-  const open = Boolean(anchorEl)
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget)
-  }
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = event => {
+    setAnchorEl(event.currentTarget);
+  };
   const handleClose = () => {
-    setAnchorEl(null)
-  }
+    setAnchorEl(null);
+  };
 
   return (
     <>
@@ -29,6 +29,13 @@ export default function MenuButton({ headerdData }) {
           '&:hover': {
             backgroundColor: 'transparent',
           },
+          // 'div [data-id="0"]::before': {
+          //   position: 'absolute',
+          //   content: "''",
+          //   width: '100%',
+          //   height: '100%',
+          //   backgroundColor: 'yellow',
+          // },
           '&:hover > div h4': {
             transition: 'transform 0.3s ease, opacity 0.3s ease',
             opacity: '0',
@@ -42,6 +49,10 @@ export default function MenuButton({ headerdData }) {
           '&:hover > div [data-id="-2"]': {
             transform: `translate(-200%)`,
           },
+          // '&:hover > div [data-id="0"]': {
+          //   backgroundColor: '#efd8e670',
+          //   borderRadius: '100vh',
+          // },
         }}
       >
         {headerdData.forMenu.map((item, i) => (
@@ -52,6 +63,7 @@ export default function MenuButton({ headerdData }) {
                 variant="h4"
                 sx={{
                   fontSize: '36px',
+                  fontWeight: 'normal',
                   color: 'violetPalette.dark',
                   transition: 'transform 0.3s ease',
                 }}
@@ -79,7 +91,7 @@ export default function MenuButton({ headerdData }) {
         variant="menu"
         anchorOrigin={{
           vertical: 'bottom',
-          horizontal: 'center',
+          horizontal: 'left',
         }}
         transformOrigin={{
           vertical: 'top',
@@ -90,5 +102,5 @@ export default function MenuButton({ headerdData }) {
         {/* <SwipeAbleDrawer open={open} /> */}
       </Menu>
     </>
-  )
+  );
 }

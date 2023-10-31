@@ -1,7 +1,8 @@
 import { FormControl, MenuItem, Select } from '@mui/material';
 import { useState } from 'react';
-import CustomDropDownIcon from '../globalComponents/CustomDropDown/CustomDropDownIcon';
-import TertiaryHeading from '../headingComponents/TertiaryHeading';
+
+import CustomDropDownIcon from '@/components_fbl/globalComponents/CustomDropDown/CustomDropDownIcon';
+import TertiaryHeading from '@/components_fbl/headingComponents/TertiaryHeading';
 
 function CareerDropDown({ dropDownData, changeHandler }) {
   const [profession, setProfession] = useState('1');
@@ -27,6 +28,7 @@ function CareerDropDown({ dropDownData, changeHandler }) {
               '& .MuiMenuItem-root': {
                 padding: 2,
                 borderRadius: 6,
+                color: 'violetPalette.dark',
                 fontSize: '18px',
               },
             },
@@ -40,8 +42,19 @@ function CareerDropDown({ dropDownData, changeHandler }) {
           boxShadow: '0px 10px 15px -3px rgba(0,0,0,0.1)',
           backgroundColor: 'primaryPalette.white',
           borderRadius: theme => theme.spacing(5),
-          color: 'violetPalette.dark',
+          color: 'blue',
           position: 'relative',
+          '.MuiTypography-root': {
+            color: 'violetPalette.dark',
+          },
+          '.MuiOutlinedInput-notchedOutline': { border: 0 },
+          '&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline': {
+            border: 0,
+          },
+          '&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline':
+            {
+              border: 0,
+            },
           '& .MuiSelect-icon': {
             top: 'calc(50% - 16px)',
             right: { xs: '12px', md: '24px' },
@@ -64,7 +77,7 @@ function CareerDropDown({ dropDownData, changeHandler }) {
             <TertiaryHeading
               style={{ width: '100%' }}
               sx={{
-                color: 'primaryPalette.dark',
+                color: 'primaryPalette.black',
                 fontWeight: '600',
                 textAlign: 'center',
               }}
