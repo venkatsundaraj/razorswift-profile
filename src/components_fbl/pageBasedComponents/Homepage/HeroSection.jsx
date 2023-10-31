@@ -1,5 +1,5 @@
-import TickerComponent from '@/components_fbl/TickerComponent/TickerComponent';
 import ParagraphHeading from '@/components_fbl/headingComponents/ParagraphHeading';
+import TickerComponent from '@/components_fbl/TickerComponent/TickerComponent';
 import { TickerBoxData } from '@/constants/Homepage/TickerBoxData';
 import styled from '@emotion/styled';
 import { Stack, Typography } from '@mui/material';
@@ -115,17 +115,21 @@ const HeroSection = () => {
                     sm: '40px',
                     xs: '40px',
                   },
+                  fontWeight: '500',
                 }}
               >
-                <Box
+                <Typography
+                  variant="h1"
                   component="span"
                   sx={{
                     color: 'primary.main',
                     pr: '12px',
+                    fontSize: 'inherit',
+                    fontWeight: '500',
                   }}
                 >
                   EMPOWERING
-                </Box>
+                </Typography>
                 TALENT.
               </Typography>
             </motion.div>
@@ -147,14 +151,21 @@ const HeroSection = () => {
                     sm: '40px',
                     xs: '40px',
                   },
+                  fontWeight: '500',
                 }}
               >
-                <Box
+                <Typography
+                  variant="h1"
                   component="span"
-                  sx={{ color: 'primary.main', pr: '12px' }}
+                  sx={{
+                    color: 'primary.main',
+                    pr: '12px',
+                    fontSize: 'inherit',
+                    fontWeight: '500',
+                  }}
                 >
                   ENABLINGING
-                </Box>
+                </Typography>
                 GROWTH.
               </Typography>
             </motion.div>
@@ -295,7 +306,7 @@ const HeroSection = () => {
             bottom: {
               xs: '50px',
               sm: '745px',
-              md: '58px',
+              md: '125px',
               lg: '58px',
               xl: '58px',
             },
