@@ -49,7 +49,7 @@ export const headerdData = {
     {
       id: 3,
       name: 'About',
-      link: '/aboutus',
+      link: '/about',
     },
     ,
     {

@@ -1,4 +1,4 @@
-import homePageImagePaths from '../ImagePaths/Homepage/homePageImagePaths'
+import homePageImagePaths from '../ImagePaths/Homepage/homePageImagePaths';
 const footerdata = [
   {
     id: 1,
@@ -41,7 +41,7 @@ const footerdata = [
       },
       {
         title: 'About',
-        href: '/aboutus',
+        href: '/about',
       },
       {
         title: 'Contact Us',
@@ -49,5 +49,5 @@ const footerdata = [
       },
     ],
   },
-]
-export default footerdata
+];
+export default footerdata;
