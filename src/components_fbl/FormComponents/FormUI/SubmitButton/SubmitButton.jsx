@@ -18,21 +18,7 @@ const FillButton = styled(Button)(({ theme }) => ({
 }));
 
 function SubmitButton({ children, ...props }) {
-  return (
-    <FillButton
-      sx={{
-        backgroundColor: '#EE5064',
-        color: '#fff',
-        '&:hover': {
-          backgroundColor: '#EE5064',
-          color: '#fff',
-        },
-      }}
-      {...props}
-    >
-      {children}
-    </FillButton>
-  );
+  return <FillButton {...props}>{children}</FillButton>;
 }
 
 export default SubmitButton;

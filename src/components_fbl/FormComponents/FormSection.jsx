@@ -1,6 +1,7 @@
 import SubmitButton from '@/components_fbl/FormComponents/FormUI/SubmitButton/SubmitButton';
-import { reverseCheckAndSet } from '@/utils/helpers/CommonFunctions/Functions';
-import { callApi } from '@/utils/helpers/apiRequest';
+import { solutionsData } from '@/constants/Aspirants/aspirantPageData';
+import { reverseCheckAndSet } from '@/utils/CommonFunctions/Functions';
+import { callApi } from '@/utils/apirequest';
 import {
   alphabetsValidationSchema,
   emailValidation,
@@ -11,6 +12,7 @@ import {
 import { Box, Stack } from '@mui/material';
 import { AxiosError } from 'axios';
 import { Form, Formik } from 'formik';
+import toast from 'react-hot-toast';
 import * as Yup from 'yup';
 import ExtraParagraphHeading from '../headingComponents/ExtraParagraphHeading';
 import InputField from './FormUI/InputField/InputField';
@@ -34,6 +36,7 @@ const validationSchema = Yup.object().shape({
 });
 
 function FormSection() {
+  console.log(solutionsData);
   return (
     <Box sx={{ padding: '16px 0' }}>
       <Formik
@@ -42,14 +45,24 @@ function FormSection() {
         onSubmit={async (values, { resetForm, setSubmitting }) => {
           try {
             setSubmitting(true);
-            await callApi('contactRequest', reverseCheckAndSet(values));
+            const response = await callApi(
+              'contactRequest',
+              reverseCheckAndSet(values)
+            );
+
+            if (response?.data) {
+              resetForm();
+              return toast.success(response.data);
+            }
           } catch (err) {
             if (err instanceof AxiosError) {
               console.log(err);
             }
+            return toast.error(
+              'Something went wrong. Please try after some time'
+            );
           } finally {
             setSubmitting(false);
-            resetForm();
           }
         }}
       >
@@ -80,6 +93,50 @@ function FormSection() {
                 label="Reason"
                 textlabel="Reason"
                 required
+                solutionsData={solutionsData}
+                sx={{
+                  color: 'pinkPalette.dark',
+                  position: 'relative',
+                  background: 'transparent',
+                  '& .MuiSelect-icon': {
+                    transition: 'all 0.265s ease',
+                    top: 'calc(50% - 16px)',
+                    width: '16px',
+                  },
+                  '.MuiSelect-outlined': {
+                    background: 'transparent',
+                  },
+                  '.MuiTypography-root': {
+                    color: 'pinkPalette.dark',
+                  },
+                  '.MuiOutlinedInput-notchedOutline': { border: 0 },
+                  '&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline':
+                    {
+                      border: 0,
+                    },
+                  '&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline':
+                    {
+                      border: 0,
+                    },
+                  '& .MuiSelect-icon': {
+                    top: 'calc(50% - 16px)',
+
+                    transition: 'all 0.265s ease',
+                    width: '20px',
+                  },
+                  '&:after': {
+                    content: "''",
+                    position: 'absolute',
+                    width: '98%',
+                    zIndex: '-1',
+                    backgroundColor: 'pinkPalette.navLight',
+                    height: '50%',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%,-50%) rotate(-4deg)',
+                    borderRadius: 4,
+                  },
+                }}
               />
             </Stack>
             <Stack flexDirection="column" gap={3} alignItems="start">
@@ -155,7 +212,18 @@ function FormSection() {
                 error={errors.moreInfo}
               />
 
-              <SubmitButton disabled={isSubmitting} type="submit">
+              <SubmitButton
+                disabled={isSubmitting}
+                type="submit"
+                sx={{
+                  backgroundColor: '#EE5064',
+                  color: '#fff',
+                  '&:hover': {
+                    backgroundColor: '#EE5064',
+                    color: '#fff',
+                  },
+                }}
+              >
                 Submit
               </SubmitButton>
             </Stack>

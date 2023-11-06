@@ -153,7 +153,7 @@ const HeroSection = () => {
                   component="span"
                   sx={{ color: 'primary.main', pr: '12px' }}
                 >
-                  ENABLINGING
+                  ENABLING
                 </Box>
                 GROWTH.
               </Typography>

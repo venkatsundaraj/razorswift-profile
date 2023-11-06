@@ -50,6 +50,7 @@
     "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "^18.2.0",
     "react-gtm-module": "^2.0.11",
+    "react-hot-toast": "^2.4.1",
     "react-redux": "^8.0.5",
     "redux-persist": "^6.0.0",
     "sass": "^1.57.1",

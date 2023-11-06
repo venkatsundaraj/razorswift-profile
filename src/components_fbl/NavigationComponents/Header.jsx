@@ -33,7 +33,7 @@ function Header(props) {
             zIndex: '1200',
           }}
         >
-          <Toolbar>
+          <Toolbar sx={{ padding: '0' }}>
             <Stack
               alignItems="center"
               justifyContent="space-between"

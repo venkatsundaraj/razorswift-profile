@@ -1,24 +1,28 @@
+import CustomSection from '@/components_fbl/globalComponents/CustomContainer/CustomSection';
 import CustomImage from '@/components_fbl/globalComponents/CustomImage/CustomImage';
+import SignupForm from '@/components_fbl/pageBasedComponents/Signup/SignupForm';
 import { bannerSection } from '@/constants/Signup/signupPageData';
-import { Box, Container, Grid } from '@mui/material';
+import { Container, Grid } from '@mui/material';
 
 function BannerSection() {
   return (
-    <Box sx={{ minHeight: '100vh' }} component="section">
+    <CustomSection style={{ padding: 'clamp(40px,7vw, 76px) 0 ' }}>
       <Container>
         <Grid container alignItems="center">
-          <Grid item xs={12} md={6}></Grid>
+          <Grid item xs={12} md={6}>
+            <SignupForm />
+          </Grid>
           <Grid item xs={12} md={6}>
             <CustomImage
               src={bannerSection.bannerImage}
               width="100%"
               height="100%"
-              aspectRatio="1/1"
+              aspectRatio="31/30"
             />
           </Grid>
         </Grid>
       </Container>
-    </Box>
+    </CustomSection>
   );
 }
 

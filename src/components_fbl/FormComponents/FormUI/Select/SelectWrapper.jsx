@@ -1,11 +1,19 @@
 import { CustomDropDownIconWhite } from '@/components_fbl/globalComponents/CustomDropDown/CustomDropDownIcon';
 import ParagraphHeading from '@/components_fbl/headingComponents/ParagraphHeading';
-import { solutionsData } from '@/constants/Aspirants/aspirantPageData';
+
 import { FormControl, MenuItem, Select, Stack } from '@mui/material';
 import { useFormikContext } from 'formik';
 import { useEffect, useState } from 'react';
 
-function SelectWrapper({ name, placeholder, nameValue, ...props }) {
+function SelectWrapper({
+  name,
+  placeholder,
+  nameValue,
+  solutionsData,
+  ...props
+}) {
+  console.log(solutionsData);
+  const [solutionItems, setSolutionItems] = useState(solutionsData || []);
   const [value, setValue] = useState('2');
   const { setFieldValue, values } = useFormikContext();
 
@@ -16,7 +24,7 @@ function SelectWrapper({ name, placeholder, nameValue, ...props }) {
   const handleChange = function (event) {
     setValue(event.target.value);
 
-    const getData = solutionsData.find(
+    const getData = solutionItems.find(
       item => item.id.toString() === event.target.value.toString()
     );
 
@@ -44,50 +52,8 @@ function SelectWrapper({ name, placeholder, nameValue, ...props }) {
               },
             },
           }}
-          sx={{
-            color: 'pinkPalette.dark',
-            position: 'relative',
-            background: 'transparent',
-            '& .MuiSelect-icon': {
-              transition: 'all 0.265s ease',
-              top: 'calc(50% - 16px)',
-              width: '16px',
-            },
-            '.MuiSelect-outlined': {
-              background: 'transparent',
-            },
-            '.MuiTypography-root': {
-              color: 'pinkPalette.dark',
-            },
-            '.MuiOutlinedInput-notchedOutline': { border: 0 },
-            '&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline': {
-              border: 0,
-            },
-            '&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline':
-              {
-                border: 0,
-              },
-            '& .MuiSelect-icon': {
-              top: 'calc(50% - 16px)',
-
-              transition: 'all 0.265s ease',
-              width: '20px',
-            },
-            '&:after': {
-              content: "''",
-              position: 'absolute',
-              width: '98%',
-              zIndex: '-1',
-              backgroundColor: 'pinkPalette.navLight',
-              height: '50%',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%,-50%) rotate(-4deg)',
-              borderRadius: 4,
-            },
-          }}
         >
-          {solutionsData.map(item => (
+          {solutionItems.map(item => (
             <MenuItem
               value={item.id}
               name={item.name}

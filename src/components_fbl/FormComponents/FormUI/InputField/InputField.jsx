@@ -1,9 +1,8 @@
 import SubtitleHeading from '@/components_fbl/headingComponents/SubtitleHeading';
-import styled from '@emotion/styled';
 import { FormControl, Stack, TextField } from '@mui/material';
 import { ErrorMessage, useField } from 'formik';
 
-const Input = styled(TextField)(({ theme }) => ({}));
+// const TextField = styled(TextField)(({ theme }) => ({}));
 
 function InputField({ error, ...props }) {
   const [field, meta] = useField(props.name);
@@ -11,14 +10,14 @@ function InputField({ error, ...props }) {
   return (
     <FormControl fullWidth error={Boolean(meta.touched && meta.error)}>
       <Stack flexDirection="column" gap={1}>
-        <Input
+        <TextField
           {...field}
           {...props}
-          InputProps={{
-            sx: {
-              color: `${error ? 'pinkPalette.light' : 'primaryColor.black'}`,
-            },
-          }}
+          // InputProps={{
+          //   sx: {
+          //     color: `${error ? 'pinkPalette.light' : 'primaryColor.black'}`,
+          //   },
+          // }}
         />
         {meta && meta.error && meta.touched && (
           <ErrorMessage
