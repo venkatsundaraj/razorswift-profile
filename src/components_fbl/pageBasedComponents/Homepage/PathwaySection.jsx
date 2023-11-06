@@ -1,19 +1,20 @@
+'use client';
 import pathwayheads from '@/constants/Homepage/pathwayheads.js';
+import { bebasNeue } from '@/utils/themes/typography';
 import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
 import { Grid } from '@mui/material';
 import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import Link from '@mui/material/Link';
-import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
+import { styled } from '@mui/material/styles';
 import { Box } from '@mui/system';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import * as React from 'react';
 import { useState } from 'react';
 import datatwo from '../../../constants/Homepage/pathwaytwo.js';
-
 const Accordion = styled(props => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -25,7 +26,6 @@ const Accordion = styled(props => (
     display: 'none',
   },
 }));
-
 const AccordionSummary = styled(props => (
   <MuiAccordionSummary
     expandIcon={<ArrowForwardIosSharpIcon sx={{ display: 'none' }} />}
@@ -42,38 +42,30 @@ const AccordionSummary = styled(props => (
     marginLeft: theme.spacing(1),
   },
 }));
-
 const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   padding: theme.spacing(2),
   borderTop: '1px solid rgba(0, 0, 0, .125)',
 }));
-
 const fonttitle = {
   fontWeight: 'bold',
 };
-
 const fontdes = {
   fontSize: 'clamp(15px, 1.2vw, 20px)',
-
   fontWeight: '500',
   height: 'clamp(75px, 5.5vw, 110px)',
 };
-
 const fontaspithree = {
   textDecoration: 'none',
   fontWeight: '500',
 };
-
 const fontaspithreemob = {
   textDecoration: 'none',
   fontWeight: '500',
   display: 'flex',
   justifyContent: 'center',
 };
-
 const accordimg = {
   width: 'clamp(280px, 21.7vw, 360px)',
-
   height: 'auto',
 };
 
@@ -89,7 +81,6 @@ export default function PathwaySection() {
     if (expandedone === panelone) return;
     setExpandedone(newExpandedone ? panelone : null);
   };
-
   const [clickedId, setClickedId] = useState();
   const [content, setContent] = useState(datatwo[0]);
   const [selectedItemId, setSelectedItemId] = useState(1);
@@ -100,14 +91,11 @@ export default function PathwaySection() {
     const matchingItem = datatwo.find(
       item => item.id.toString() === id.toString()
     );
-
     setContent(matchingItem);
-
     setClickedId(matchingItem);
     console.log(clickedId);
     setSelectedItemId(id);
   };
-
   const handleMobileClick = id => {
     const matchingcont = pathwayheads.find(
       item => item.id.toString() === id.toString()
@@ -116,7 +104,6 @@ export default function PathwaySection() {
     const matchingItem = datatwo.find(
       item => item.id.toString() === id.toString()
     );
-
     setContent(matchingItem);
     setSelectedItemId(id);
   };
@@ -142,7 +129,6 @@ export default function PathwaySection() {
       },
     },
   };
-
   const firstsec = {
     offscreen: {
       opacity: 0,
@@ -162,7 +148,6 @@ export default function PathwaySection() {
       },
     },
   };
-
   const secondsec = {
     offscreen: {
       opacity: 0,
@@ -182,7 +167,6 @@ export default function PathwaySection() {
       },
     },
   };
-
   const thirdsec = {
     offscreen: {
       opacity: 0,
@@ -237,13 +221,14 @@ export default function PathwaySection() {
               viewport={{ once: true }}
             >
               <Typography
-                variant="h1"
+                variant="h2"
                 sx={{
+                  fontFamily: bebasNeue.style.fontFamily,
                   color: 'common.white',
+                  fontWeight: 'normal',
                   marginBottom: '50px',
                   fontSize: { xs: '35px', lg: 'clamp(45px, 3.5vw, 64px)' },
                   textAlign: { xs: 'center', lg: 'left' },
-                  fontWeight: '500',
                 }}
               >
                 RAZORSWIFT PATHWAYS
@@ -328,7 +313,6 @@ export default function PathwaySection() {
                                 xs: '16px',
                                 md: 'clamp(20px, 1.5vw, 28px)',
                               },
-
                               fontWeight: '500',
                             }}
                             onClick={() => handleTitleClick(item.id)}
@@ -386,6 +370,7 @@ export default function PathwaySection() {
                 margin: '0 10px',
               }}
             >
+              New 4:49
               {pathwayheads.map((item, index) => (
                 <>
                   <Typography
@@ -401,7 +386,6 @@ export default function PathwaySection() {
                 </>
               ))}
             </Box>
-
             <Typography
               sx={{
                 textAlign: 'center',
@@ -413,7 +397,6 @@ export default function PathwaySection() {
             >
               {mobileDescription?.description}
             </Typography>
-
             <Link style={fontaspithreemob} href="">
               <Typography
                 sx={{
@@ -481,6 +464,7 @@ export default function PathwaySection() {
                       >
                         <Typography
                           sx={{
+                            // color: 'primaryPalette.black',
                             fontSize: {
                               lg: 'clamp(25px, 2vw, 36px)',
                               md: 'clamp(22px, 2vw, 36px)',
@@ -488,6 +472,9 @@ export default function PathwaySection() {
                               xs: '20px',
                             },
                             color: 'black',
+                            '&:hover': {
+                              color: '#EE5064',
+                            },
                           }}
                           style={fonttitle}
                           onClick={() => handleTitleAccord(item.length)}
@@ -509,7 +496,10 @@ export default function PathwaySection() {
                         }}
                       >
                         <Typography
-                          sx={{ padding: '10px 10px 0 20px', color: 'black' }}
+                          sx={{
+                            padding: '10px 10px 0 20px',
+                            color: 'black',
+                          }}
                           style={fontdes}
                         >
                           {item.description}
@@ -518,7 +508,6 @@ export default function PathwaySection() {
                           sx={{
                             marginTop: { lg: '-30px' },
                             display: 'flex',
-
                             justifyContent: 'flex-end',
                           }}
                         >

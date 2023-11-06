@@ -1,6 +1,7 @@
 import TickerComponent from '@/components_fbl/TickerComponent/TickerComponent';
 import ParagraphHeading from '@/components_fbl/headingComponents/ParagraphHeading';
 import { TickerBoxData } from '@/constants/Homepage/TickerBoxData';
+import { bebasNeue } from '@/utils/themes/typography';
 import styled from '@emotion/styled';
 import { Stack, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
@@ -10,6 +11,7 @@ import Image from 'next/image';
 import heroSectionData from '../../../constants/Homepage/heroSectionData';
 import homePageImagePaths from '../../../constants/ImagePaths/Homepage/homePageImagePaths';
 const TypographyOne = styled(Typography)(({ theme }) => ({}));
+
 const HeroSection = () => {
   const banimg = {
     width: 'clamp(370px, 63.5vw, 1210px)',
@@ -108,6 +110,7 @@ const HeroSection = () => {
                 sx={{
                   color: 'primary.mainone',
                   lineHeight: '1.0',
+                  fontFamily: bebasNeue.style.fontFamily,
                   fontSize: {
                     xl: 'clamp(110px, 6.2vw, 120px)',
                     lg: 'clamp(70px, 5.4vw, 120px)',
@@ -122,6 +125,7 @@ const HeroSection = () => {
                   variant="h1"
                   component="span"
                   sx={{
+                    fontFamily: bebasNeue.style.fontFamily,
                     color: 'primary.main',
                     pr: '12px',
                     fontSize: 'inherit',
@@ -144,6 +148,7 @@ const HeroSection = () => {
                 sx={{
                   color: 'primary.mainone',
                   lineHeight: '1.0',
+                  fontFamily: bebasNeue.style.fontFamily,
                   fontSize: {
                     xl: 'clamp(110px, 6.2vw, 120px)',
                     lg: 'clamp(70px, 5.4vw, 120px)',
@@ -158,6 +163,7 @@ const HeroSection = () => {
                   variant="h1"
                   component="span"
                   sx={{
+                    fontFamily: bebasNeue.style.fontFamily,
                     color: 'primary.main',
                     pr: '12px',
                     fontSize: 'inherit',

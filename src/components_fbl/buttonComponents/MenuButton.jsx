@@ -1,3 +1,4 @@
+import { bebasNeue } from '@/utils/themes/typography';
 import { Box, Button, Typography } from '@mui/material';
 import Menu from '@mui/material/Menu';
 import * as React from 'react';
@@ -52,6 +53,7 @@ export default function MenuButton({ headerdData }) {
                 variant="h4"
                 sx={{
                   fontSize: '36px',
+                  fontFamily: bebasNeue.style.fontFamily,
                   fontWeight: 'normal',
                   color: 'violetPalette.dark',
                   transition: 'transform 0.3s ease',

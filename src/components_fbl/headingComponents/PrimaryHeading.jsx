@@ -1,5 +1,6 @@
 'use client';
 
+import { bebasNeue } from '@/utils/themes/typography';
 import styled from '@emotion/styled';
 import { Typography } from '@mui/material';
 
@@ -9,6 +10,7 @@ const Heading = styled(Typography)(({ theme }) => ({
   fontWeight: 'normal',
   textTransform: 'uppercase',
   width: 'fit-content',
+  fontFamily: bebasNeue.style.fontFamily,
   [theme.breakpoints.up('md')]: {
     fontSize: '42px',
   },

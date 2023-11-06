@@ -1,3 +1,4 @@
+import { bebasNeue } from '@/utils/themes/typography';
 import styled from '@emotion/styled';
 import { Typography } from '@mui/material';
 
@@ -5,6 +6,7 @@ const Heading = styled(Typography)(({ theme }) => ({
   lineHeight: 1.05,
   fontWeight: 'normal',
   fontSize: '46px',
+  fontFamily: bebasNeue.style.fontFamily,
   width: 'fit-content',
   [theme.breakpoints.up('md')]: {
     fontSize: '52px',

@@ -13,7 +13,7 @@ export const urbanist = Urbanist({
   fallback: ['Helvetica', 'Arial', 'sans-serif'],
 });
 
-const bebasNeue = Bebas_Neue({
+export const bebasNeue = Bebas_Neue({
   weight: ['400'],
   subsets: ['latin'],
   fallback: ['Helvetica', 'Arial', 'sans-serif'],
@@ -41,36 +41,30 @@ export default function themeTypography(theme) {
     h6: {
       fontWeight: 500,
       color: theme.heading,
-      fontFamily: bebasNeue.style.fontFamily,
       fontSize: '0.75rem',
     },
     h5: {
       fontSize: '0.875rem',
       color: theme.heading,
-      fontFamily: bebasNeue.style.fontFamily,
       fontWeight: 500,
     },
     h4: {
       fontSize: '1rem',
       color: theme.heading,
-      fontFamily: bebasNeue.style.fontFamily,
       fontWeight: 600,
     },
     h3: {
       fontSize: '1.25rem',
-      fontFamily: urbanist.style.fontFamily,
       color: theme.heading,
       fontWeight: 600,
     },
     h2: {
       fontSize: '1.5rem',
-      fontFamily: bebasNeue.style.fontFamily,
       color: theme.heading,
       fontWeight: 700,
     },
     h1: {
       fontSize: '2.125rem',
-      fontFamily: bebasNeue.style.fontFamily,
       color: theme.heading,
       fontWeight: 700,
     },
