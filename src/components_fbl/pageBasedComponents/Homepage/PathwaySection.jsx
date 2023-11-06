@@ -5,8 +5,8 @@ import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import Link from '@mui/material/Link';
-import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
 import { Box } from '@mui/system';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
@@ -243,6 +243,7 @@ export default function PathwaySection() {
                   marginBottom: '50px',
                   fontSize: { xs: '35px', lg: 'clamp(45px, 3.5vw, 64px)' },
                   textAlign: { xs: 'center', lg: 'left' },
+                  fontWeight: '500',
                 }}
               >
                 RAZORSWIFT PATHWAYS
@@ -486,6 +487,7 @@ export default function PathwaySection() {
                               sm: '20px',
                               xs: '20px',
                             },
+                            color: 'black',
                           }}
                           style={fonttitle}
                           onClick={() => handleTitleAccord(item.length)}
@@ -507,7 +509,7 @@ export default function PathwaySection() {
                         }}
                       >
                         <Typography
-                          sx={{ padding: '10px 10px 0 20px' }}
+                          sx={{ padding: '10px 10px 0 20px', color: 'black' }}
                           style={fontdes}
                         >
                           {item.description}

@@ -115,17 +115,21 @@ const HeroSection = () => {
                     sm: '40px',
                     xs: '40px',
                   },
+                  fontWeight: '500',
                 }}
               >
-                <Box
+                <Typography
+                  variant="h1"
                   component="span"
                   sx={{
                     color: 'primary.main',
                     pr: '12px',
+                    fontSize: 'inherit',
+                    fontWeight: '500',
                   }}
                 >
                   EMPOWERING
-                </Box>
+                </Typography>
                 TALENT.
               </Typography>
             </motion.div>
@@ -147,14 +151,21 @@ const HeroSection = () => {
                     sm: '40px',
                     xs: '40px',
                   },
+                  fontWeight: '500',
                 }}
               >
-                <Box
+                <Typography
+                  variant="h1"
                   component="span"
-                  sx={{ color: 'primary.main', pr: '12px' }}
+                  sx={{
+                    color: 'primary.main',
+                    pr: '12px',
+                    fontSize: 'inherit',
+                    fontWeight: '500',
+                  }}
                 >
                   ENABLING
-                </Box>
+                </Typography>
                 GROWTH.
               </Typography>
             </motion.div>
@@ -187,6 +198,7 @@ const HeroSection = () => {
                 component="span"
                 sx={{
                   lineHeight: 1.2,
+                  color: 'black',
                 }}
               >
                 {heroSectionData[0].title}
@@ -195,6 +207,7 @@ const HeroSection = () => {
                 component="span"
                 sx={{
                   lineHeight: 1.2,
+                  color: 'black',
                 }}
               >
                 {heroSectionData[0].titletwo}
@@ -237,7 +250,7 @@ const HeroSection = () => {
                   transitionDuration: '0.3s',
                   '&:hover': {
                     backgroundColor: 'white',
-                    color: 'primary.light',
+                    color: 'primary.main',
                     transform: 'translateY(-10px)',
                     transitionDuration: '0.3s',
                     transitionTimingFunction: 'ease',
@@ -295,7 +308,7 @@ const HeroSection = () => {
             bottom: {
               xs: '50px',
               sm: '745px',
-              md: '58px',
+              md: '125px',
               lg: '58px',
               xl: '58px',
             },
