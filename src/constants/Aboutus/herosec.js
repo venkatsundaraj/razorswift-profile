@@ -1,8 +1,8 @@
 const herosec = [
   {
     id: '1',
-    title: `Connecting TALENT.`,
-    description: 'building bridges.',
+    title: `CONNECTING TALENT.`,
+    description: 'BUILDING BRIDGES',
   },
 ];
 
