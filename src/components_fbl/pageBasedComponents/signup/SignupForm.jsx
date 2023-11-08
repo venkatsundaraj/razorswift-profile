@@ -6,6 +6,7 @@ import ExtraParagraphHeading from '@/components_fbl/headingComponents/ExtraParag
 import ParagraphHeading from '@/components_fbl/headingComponents/ParagraphHeading';
 import SecondaryHeading from '@/components_fbl/headingComponents/SecondaryHeading';
 import { solutionsData } from '@/constants/Aspirants/aspirantPageData';
+import { LoadingContext } from '@/reUsableComponents/LoadingComponents/LoadingContext';
 import { AccountApi } from '@/swagger_api/*';
 import { localStorageUtil } from '@/utils/CommonFunctions/localStorageUtil';
 import {
@@ -19,7 +20,7 @@ import { AxiosError } from 'axios';
 import { Form, Formik } from 'formik';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import * as Yup from 'yup';
 
@@ -56,7 +57,7 @@ const FORM_VALIDATION = Yup.object().shape({
 
 function SignupForm() {
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState(false);
+  const { loading, setLoading } = useContext(LoadingContext);
   const [signUpInitialValues, setSignUpInitialValues] = useState({
     ...INITIAL_FORM_STATE,
     mobileNumber: router?.query?.mobile
@@ -64,13 +65,17 @@ function SignupForm() {
       : '',
   });
 
-  const SubmitDetails = async function (values) {
-    checkIsValidUser(values);
+  const SubmitDetails = async function (values, { resetForm, setSubmitting }) {
+    checkIsValidUser(values, { resetForm, setSubmitting });
   };
 
-  const checkIsValidUser = async function (values) {
+  const checkIsValidUser = async function (
+    values,
+    { resetForm, setSubmitting }
+  ) {
     try {
-      setIsLoading(true);
+      setLoading(true);
+      setSubmitting(true);
       let accountApi = new AccountApi();
 
       const opts = {
@@ -82,9 +87,10 @@ function SignupForm() {
       };
 
       const response = await accountApi.apiAccountValidateCandidatePost(opts);
+      // const response = await new Promise(resolve => setTimeout(resolve, 5000));
 
       if (!response) throw new Error('Something went Wrong');
-
+      console.log(response);
       if (response.body.message === 'User does Not Exists.') {
         localStorageUtil.setItem('loginDetails', opts.body);
 
@@ -100,7 +106,8 @@ function SignupForm() {
       }
       return toast.error('Something went wrong. Please try after some time');
     } finally {
-      setIsLoading(true);
+      setLoading(false);
+      setSubmitting(false);
     }
   };
 
