@@ -1,21 +1,27 @@
+import CheckboxWrapper from '@/components_fbl/FormComponents/FormUI/Checkbox/CheckboxWrapper';
 import InputField from '@/components_fbl/FormComponents/FormUI/InputField/InputField';
+import SelectWrapper from '@/components_fbl/FormComponents/FormUI/Select/SelectWrapper';
 import SubmitButton from '@/components_fbl/FormComponents/FormUI/SubmitButton/SubmitButton';
 import ExtraParagraphHeading from '@/components_fbl/headingComponents/ExtraParagraphHeading';
 import ParagraphHeading from '@/components_fbl/headingComponents/ParagraphHeading';
 import SecondaryHeading from '@/components_fbl/headingComponents/SecondaryHeading';
 import { solutionsData } from '@/constants/Aspirants/aspirantPageData';
+import { AccountApi } from '@/swagger_api/*';
+import { localStorageUtil } from '@/utils/CommonFunctions/localStorageUtil';
 import {
   alphabetsValidationSchema,
   emailValidation,
   validateContactNumber,
 } from '@/utils/validationSchema';
-import { Box, Grid, InputLabel, Stack } from '@mui/material';
+import styled from '@emotion/styled';
+import { Box, Grid, InputLabel, Stack, Typography } from '@mui/material';
+import { AxiosError } from 'axios';
 import { Form, Formik } from 'formik';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 import * as Yup from 'yup';
-import SelectWrapper from '../../FormComponents/FormUI/Select/SelectWrapper';
 
 const INITIAL_FORM_STATE = {
   fullName: '',
@@ -24,6 +30,20 @@ const INITIAL_FORM_STATE = {
   acceptTermsAndConditions: true,
 };
 
+const CustomCheckBox = styled(Link)(({ theme }) => ({
+  fontSize: '14px',
+  lineHeight: '16.8px',
+  fontWeight: '600',
+  color: theme.palette.primary.main,
+  fontFamily: 'Urbanist',
+  cursor: 'pointer',
+  padding: 0,
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '12px',
+    lineHeight: '14.4px',
+    fontWeight: '600',
+  },
+}));
 const FORM_VALIDATION = Yup.object().shape({
   fullName: alphabetsValidationSchema('Full Name', true),
   email: emailValidation('Email', true),
@@ -36,6 +56,7 @@ const FORM_VALIDATION = Yup.object().shape({
 
 function SignupForm() {
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
   const [signUpInitialValues, setSignUpInitialValues] = useState({
     ...INITIAL_FORM_STATE,
     mobileNumber: router?.query?.mobile
@@ -43,9 +64,55 @@ function SignupForm() {
       : '',
   });
 
+  const SubmitDetails = async function (values) {
+    checkIsValidUser(values);
+  };
+
+  const checkIsValidUser = async function (values) {
+    try {
+      setIsLoading(true);
+      let accountApi = new AccountApi();
+
+      const opts = {
+        body: {
+          contactNumber: `91${values.mobileNumber}`,
+          fullName: values.fullName.trim(),
+          email: values.email.trim(),
+        },
+      };
+
+      const response = await accountApi.apiAccountValidateCandidatePost(opts);
+
+      if (!response) throw new Error('Something went Wrong');
+
+      if (response.body.message === 'User does Not Exists.') {
+        localStorageUtil.setItem('loginDetails', opts.body);
+
+        return router.push({ pathname: `/otp`, query: { path: 'signup' } });
+      } else if (response.body.message === 'User Exists.') {
+        return toast.error('User already exists please Sign In');
+      } else {
+        return toast.error(response.body.message);
+      }
+    } catch (err) {
+      if (err instanceof AxiosError) {
+        console.log(err);
+      }
+      return toast.error('Something went wrong. Please try after some time');
+    } finally {
+      setIsLoading(true);
+    }
+  };
+
   return (
     <Box>
-      <Formik initialValues={signUpInitialValues}>
+      <Formik
+        initialValues={signUpInitialValues}
+        validationSchema={FORM_VALIDATION}
+        onSubmit={(values, { resetForm, setSubmitting }) =>
+          SubmitDetails(values, { resetForm, setSubmitting })
+        }
+      >
         {({
           errors,
           handleBlur,
@@ -56,7 +123,7 @@ function SignupForm() {
           touched,
           values,
         }) => (
-          <Form>
+          <Form onSubmit={handleSubmit}>
             <Stack
               flexDirection="column"
               alignItems="start"
@@ -75,8 +142,8 @@ function SignupForm() {
                 Opportunitites, Talent and More
               </ExtraParagraphHeading>
               <Grid container alignItems="center">
-                <Grid item xs={1}></Grid>
-                <Grid item xs={4}>
+                <Grid item xs={12} sm={1}></Grid>
+                <Grid item xs={12} sm={4}>
                   <SelectWrapper
                     placeholder="Looking for"
                     name="reason"
@@ -88,6 +155,9 @@ function SignupForm() {
                       color: 'pinkPalette.dark',
                       position: 'relative',
                       background: 'transparent',
+                      border: '1px solid #A62973',
+                      borderRadius: '40px',
+                      mb: { xs: '20px', md: '0' },
                       '& .MuiSelect-icon': {
                         transition: 'all 0.265s ease',
                         top: 'calc(50% - 16px)',
@@ -117,7 +187,8 @@ function SignupForm() {
                     }}
                   />
                 </Grid>
-                <Grid item xs={7}>
+                <Grid item xs={12} sm={1}></Grid>
+                <Grid item xs={12} sm={6}>
                   <InputLabel
                     htmlFor="filled-hidden-label-small"
                     sx={{
@@ -136,12 +207,16 @@ function SignupForm() {
                       backgroundColor: '#dedede',
                       '& fieldset': { border: 'none' },
                     }}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
                     fullWidth
                     hiddenLabel
                     id="filled-hidden-label-small"
+                    value={values.fullName}
+                    error={errors.fullName}
                     type="text"
                     variant="filled"
-                    name="Company Name"
+                    name="fullName"
                     label=""
                     InputProps={{
                       disableUnderline: true,
@@ -151,8 +226,8 @@ function SignupForm() {
                 </Grid>
               </Grid>
               <Grid container>
-                <Grid item xs={1}></Grid>
-                <Grid item xs={11}>
+                <Grid item xs={12} sm={1}></Grid>
+                <Grid item xs={12} sm={11}>
                   <InputLabel
                     htmlFor="filled-hidden-label-small"
                     sx={{
@@ -172,11 +247,15 @@ function SignupForm() {
                       '& fieldset': { border: 'none' },
                     }}
                     fullWidth
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.email}
+                    error={errors.email}
                     hiddenLabel
                     id="filled-hidden-label-small"
                     type="text"
                     variant="filled"
-                    name="Email"
+                    name="email"
                     label=""
                     InputProps={{
                       disableUnderline: true,
@@ -186,8 +265,8 @@ function SignupForm() {
                 </Grid>
               </Grid>
               <Grid container>
-                <Grid item xs={1}></Grid>
-                <Grid item xs={11}>
+                <Grid item xs={12} sm={1}></Grid>
+                <Grid item xs={12} sm={11}>
                   <InputLabel
                     htmlFor="filled-hidden-label-small"
                     sx={{
@@ -207,6 +286,10 @@ function SignupForm() {
                       '& fieldset': { border: 'none' },
                     }}
                     fullWidth
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.mobileNumber}
+                    error={errors.mobileNumber}
                     hiddenLabel
                     id="filled-hidden-label-small"
                     type="tel"
@@ -216,7 +299,34 @@ function SignupForm() {
                     InputProps={{
                       disableUnderline: true,
                       sx: { borderRadius: '40px' },
+                      startAdornment: (
+                        <Typography sx={{ fontWeight: 500, color: '#212121' }}>
+                          +91
+                        </Typography>
+                      ),
                     }}
+                  />
+                </Grid>
+              </Grid>
+              <Grid container>
+                <Grid item xs={12} sm={1}></Grid>
+                <Grid item xs={12} sm={11}>
+                  <CheckboxWrapper
+                    component={
+                      <CustomCheckBox
+                        sx={{ textDecoration: 'none' }}
+                        component={Link}
+                        prefetch={false}
+                        href={'/termsofservices'}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Terms and conditions
+                      </CustomCheckBox>
+                    }
+                    name="acceptTermsAndConditions"
+                    legend="accept Terms And Conditions"
+                    label="I Accept"
                   />
                 </Grid>
               </Grid>
@@ -229,6 +339,7 @@ function SignupForm() {
                 gap="14px"
               >
                 <SubmitButton
+                  disabled={isSubmitting}
                   type="submit"
                   sx={{
                     backgroundColor: 'violetPalette.dark',
@@ -244,7 +355,7 @@ function SignupForm() {
                 <ParagraphHeading sx={{ color: 'primaryPalette.black' }}>
                   <Link style={{ color: '#3A3A3A' }} href="/login">
                     Click here
-                  </Link>{' '}
+                  </Link>
                   to Login Instead
                 </ParagraphHeading>
               </Stack>

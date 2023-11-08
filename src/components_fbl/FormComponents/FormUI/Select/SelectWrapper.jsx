@@ -12,7 +12,6 @@ function SelectWrapper({
   solutionsData,
   ...props
 }) {
-  console.log(solutionsData);
   const [solutionItems, setSolutionItems] = useState(solutionsData || []);
   const [value, setValue] = useState('2');
   const { setFieldValue, values } = useFormikContext();
@@ -28,7 +27,9 @@ function SelectWrapper({
       item => item.id.toString() === event.target.value.toString()
     );
 
-    setFieldValue(name, getData.name);
+    console.log(getData);
+
+    setFieldValue(name, getData.data);
   };
 
   return (
