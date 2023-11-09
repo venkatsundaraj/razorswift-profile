@@ -1,5 +1,5 @@
 import Layout from '@/components_fbl/NavigationComponents/Layout';
-import BannerSection from '@/components_fbl/pageBasedComponents/Signup/BannerSection';
+import BannerSection from '@/src/components_fbl/pageBasedComponents/Sign-up/BannerSection';
 import ToastProvider from '@/src/components_fbl/Provider/ToastProvider';
 import { Box } from '@mui/material';
 

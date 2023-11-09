@@ -1,7 +1,7 @@
 import CustomSection from '@/components_fbl/globalComponents/CustomContainer/CustomSection';
 import CustomImage from '@/components_fbl/globalComponents/CustomImage/CustomImage';
-import SignupForm from '@/components_fbl/pageBasedComponents/Login/LoginForm';
 import { bannerSection } from '@/constants/Signup/signupPageData';
+import SignupForm from '@/src/components_fbl/pageBasedComponents/Sign-up/SignupForm';
 import { Container, Grid } from '@mui/material';
 
 function BannerSection() {
@@ -14,7 +14,7 @@ function BannerSection() {
           </Grid>
           <Grid item xs={12} md={6}>
             <CustomImage
-              src={bannerSection.logInBanner}
+              src={bannerSection.bannerImage}
               width="100%"
               height="100%"
               aspectRatio="31/30"
