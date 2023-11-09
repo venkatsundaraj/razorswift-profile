@@ -72,6 +72,7 @@ function FormSection() {
           touched,
           handleChange,
           handleBlur,
+          setFieldValue,
           handleSubmit,
           isSubmitting,
         }) => (
@@ -177,10 +178,15 @@ function FormSection() {
 
               <InputField
                 name="mobileNumber"
-                onChange={handleChange}
+                onChange={e => {
+                  setFieldValue(
+                    'mobileNumber',
+                    e.target.value.replace(/[^0-9]/g, '')
+                  );
+                }}
                 onBlur={handleBlur}
                 required
-                type="number"
+                type="tel"
                 sx={{
                   '& input[type=number]::-webkit-outer-spin-button': {
                     WebkitAppearance: 'none',
