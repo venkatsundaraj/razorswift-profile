@@ -70,6 +70,8 @@ function LoginForm() {
 
       const response = await accountApi.apiAccountValidateCandidatePost(opts);
 
+      //   const response = await new Promise(resolve => setTimeout(resolve, 5000));
+
       if (!response) throw new Error('Something went Wrong');
 
       if (response.body.message === 'User Exists.') {
@@ -126,8 +128,8 @@ function LoginForm() {
               >
                 Opportunitites, Talent and More
               </ExtraParagraphHeading>
-              <Grid container alignItems="center">
-                <Grid item sm={12}>
+              <Grid container alignItems="top">
+                <Grid item xs={12} sm={12}>
                   <InputLabel
                     htmlFor="filled-hidden-label-small"
                     sx={{
@@ -141,7 +143,7 @@ function LoginForm() {
                   </InputLabel>
                 </Grid>
                 <Grid item sm={1}></Grid>
-                <Grid item sm={2}>
+                <Grid item xs={3} sm={2}>
                   <Stack
                     alignItems="center"
                     justifyContent="center"
@@ -165,17 +167,23 @@ function LoginForm() {
                     </Typography>
                   </Stack>
                 </Grid>
-                <Grid item sm={1}></Grid>
-                <Grid item sm={8}>
+                <Grid item xs={1}></Grid>
+                <Grid item xs={8} sm={8}>
                   <InputField
                     sx={{
                       borderRadius: '100vw',
                       outline: 'none',
+
                       backgroundColor: '#dedede',
                       '& fieldset': { border: 'none' },
                     }}
                     fullWidth
-                    onChange={handleChange}
+                    onChange={e => {
+                      setFieldValue(
+                        'mobileNumber',
+                        e.target.value.replace(/[^0-9]/g, '')
+                      );
+                    }}
                     onBlur={handleBlur}
                     value={values.mobileNumber}
                     error={errors.mobileNumber}
@@ -215,9 +223,23 @@ function LoginForm() {
                 >
                   Generate OTP
                 </SubmitButton>
-                <ParagraphHeading sx={{ color: 'primaryPalette.black' }}>
+                <ParagraphHeading
+                  sx={{
+                    color: 'primaryPalette.black',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: 1,
+                  }}
+                >
                   Don't have an account yet?
-                  <Link style={{ color: '#3A3A3A' }} href="/sign-up">
+                  <Link
+                    style={{ color: '#3A3A3A' }}
+                    href={{
+                      pathname: `/sign-up`,
+                      query: { mobileNumber: `91${values.mobileNumber}` },
+                    }}
+                  >
                     Sign Up here
                   </Link>
                 </ParagraphHeading>

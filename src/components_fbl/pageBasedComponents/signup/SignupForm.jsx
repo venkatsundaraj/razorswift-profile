@@ -19,7 +19,7 @@ import { Box, Grid, InputLabel, Stack, Typography } from '@mui/material';
 import { AxiosError } from 'axios';
 import { Form, Formik } from 'formik';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
 import { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import * as Yup from 'yup';
@@ -60,10 +60,12 @@ function SignupForm() {
   const { loading, setLoading } = useContext(LoadingContext);
   const [signUpInitialValues, setSignUpInitialValues] = useState({
     ...INITIAL_FORM_STATE,
-    mobileNumber: router?.query?.mobile
-      ? router?.query?.mobile.substring(2)
+    mobileNumber: router?.query?.mobileNumber
+      ? router?.query?.mobileNumber.substring(2)
       : '',
   });
+
+  console.log(INITIAL_FORM_STATE, router.query.mobileNumber);
 
   const SubmitDetails = async function (values, { resetForm, setSubmitting }) {
     checkIsValidUser(values, { resetForm, setSubmitting });
@@ -293,7 +295,12 @@ function SignupForm() {
                       '& fieldset': { border: 'none' },
                     }}
                     fullWidth
-                    onChange={handleChange}
+                    onChange={e => {
+                      setFieldValue(
+                        'mobileNumber',
+                        e.target.value.replace(/[^0-9]/g, '')
+                      );
+                    }}
                     onBlur={handleBlur}
                     value={values.mobileNumber}
                     error={errors.mobileNumber}
@@ -359,8 +366,16 @@ function SignupForm() {
                 >
                   Sign Up
                 </SubmitButton>
-                <ParagraphHeading sx={{ color: 'primaryPalette.black' }}>
-                  <Link style={{ color: '#3A3A3A' }} href="/login">
+                <ParagraphHeading
+                  sx={{
+                    color: 'primaryPalette.black',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: 1,
+                  }}
+                >
+                  <Link style={{ color: '#3A3A3A' }} href="/login-page">
                     Click here
                   </Link>
                   to Login Instead
