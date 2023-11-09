@@ -1,6 +1,6 @@
 import Layout from '@/components_fbl/NavigationComponents/Layout';
 import ToastProvider from '@/src/components_fbl/Provider/ToastProvider';
-import BannerSection from '@/src/components_fbl/pageBasedComponents/Login/BannerSection';
+import BannerSection from '@/src/components_fbl/pageBasedComponents/Log-in/BannerSection';
 import { Box } from '@mui/material';
 
 const page = ({}) => {
