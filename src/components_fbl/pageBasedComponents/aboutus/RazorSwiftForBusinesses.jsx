@@ -36,10 +36,10 @@ const RazorSwiftForBusinesses = () => {
       sx={{
         marginTop: '100px',
         backgroundColor: '#D9B6E1',
-        borderRadius: '25px',
+        borderRadius: { xs: '', md: '25px' },
       }}
     >
-      <Box sx={{ padding: '50px' }}>
+      <Box sx={{ padding: { xs: '', md: '50px' } }}>
         <motion.div transition={{ staggerChildren: 1.9 }}>
           <motion.div
             variants={firstsec}
