@@ -124,12 +124,14 @@ function LoginForm() {
                 sx={{
                   color: 'primaryPalette.black',
                   fontWeight: 'normal',
+                  mb: 4,
                 }}
               >
                 Opportunitites, Talent and More
               </ExtraParagraphHeading>
               <Grid container alignItems="top">
-                <Grid item xs={12} sm={12}>
+                <Grid item sm={1}></Grid>
+                <Grid item xs={12} sm={11}>
                   <InputLabel
                     htmlFor="filled-hidden-label-small"
                     sx={{
@@ -152,6 +154,7 @@ function LoginForm() {
                       px: 2,
                       py: 2,
                       border: '1px solid #D1D1D1',
+                      mr: 2,
                     }}
                   >
                     <Typography
@@ -167,15 +170,16 @@ function LoginForm() {
                     </Typography>
                   </Stack>
                 </Grid>
-                <Grid item xs={1}></Grid>
-                <Grid item xs={8} sm={8}>
+                <Grid item xs={9} sm={9}>
                   <InputField
                     sx={{
                       borderRadius: '100vw',
                       outline: 'none',
-
                       backgroundColor: '#dedede',
                       '& fieldset': { border: 'none' },
+                      '&.Mui-focused fieldset': {
+                        backgroundColor: '#6F7E8C',
+                      },
                     }}
                     fullWidth
                     onChange={e => {
@@ -195,7 +199,13 @@ function LoginForm() {
                     label=""
                     InputProps={{
                       disableUnderline: true,
-                      sx: { borderRadius: '40px' },
+                      sx: {
+                        borderRadius: '40px',
+                        fontSize: '16px',
+                        '&:focus': {
+                          backgroundColor: 'blue',
+                        },
+                      },
                     }}
                   />
                 </Grid>
