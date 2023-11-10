@@ -185,12 +185,12 @@ export const dropDownBodyData = [
     title: 'Internships, Interviews',
     highLightedTitle: 'Jobs.',
     backgroundColor: '#DAB0E3',
-    buttonData: {
-      title: 'Explore',
-      backgroundColor: '#FFFFFF',
-      color: '#A62973',
-      link: '/contact-us',
-    },
+    // buttonData: {
+    //   title: 'Explore',
+    //   backgroundColor: '#FFFFFF',
+    //   color: '#A62973',
+    //   link: '/contact-us',
+    // },
     trophyImage: aspirantPageImagePaths.dropDownSection.trophy,
     description:
       'Empower yourself to achieve your dream career; everything is possible through our AI-powered Pathways.',
@@ -227,12 +227,12 @@ export const dropDownBodyData = [
     title: 'Design your Dream',
     highLightedTitle: 'Career.',
     backgroundColor: '#ECADD2',
-    buttonData: {
-      title: 'Explore',
-      backgroundColor: '#FFFFFF',
-      color: '#A62973',
-      link: '/contact-us',
-    },
+    // buttonData: {
+    //   title: 'Explore',
+    //   backgroundColor: '#FFFFFF',
+    //   color: '#A62973',
+    //   link: '/contact-us',
+    // },
     trophyImage: aspirantPageImagePaths.dropDownSection.spring,
     description:
       'Be a niche specialist and get verified for skills that are in demand.',
