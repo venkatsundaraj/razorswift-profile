@@ -3,6 +3,7 @@ import teamperson from '@/constants/Aboutus/teamperson';
 import Aboutusimagepathway from '@/constants/ImagePaths/Aboutus/Aboutusimagepathway';
 import { Box, Container, Grid, Typography } from '@mui/material';
 import { Stack } from '@mui/system';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -14,6 +15,7 @@ const MeettheTeam = () => {
 
   const secstyle = {
     textDecoration: 'none',
+    overflow: 'hidden',
   };
   const popup = useRef();
   const pagecontainer = useRef();
@@ -49,6 +51,47 @@ const MeettheTeam = () => {
     document.body.style.overflow = 'hidden';
     popup.current.classList.add('display');
   };
+
+  const firstsec = {
+    offscreen: {
+      opacity: 0,
+      rotate: 0,
+      y: 100,
+    },
+    onscreen: {
+      opacity: [0.5, 0.6, 0.7, 0.8, 0.9, 1],
+      rotate: [0, 20, -20, 20, 0],
+      y: 0,
+      transition: {
+        type: 'spring',
+        duration: 2,
+        ease: 'easeInOut',
+        damping: 9.8,
+        stiffness: 100,
+      },
+    },
+  };
+
+  const secondsec = {
+    offscreen: {
+      opacity: 0,
+      rotate: 0,
+      y: -100,
+    },
+    onscreen: {
+      opacity: [0.5, 0.6, 0.7, 0.8, 0.9, 1],
+      rotate: [0, 20, -20, 20, 0],
+      y: 0,
+
+      transition: {
+        type: 'spring',
+        duration: 2,
+        ease: 'easeInOut',
+        damping: 9.8,
+        stiffness: 100,
+      },
+    },
+  };
   return (
     <Container
       sx={{ overflowX: 'hidden', marginTop: '100px' }}
@@ -56,12 +99,20 @@ const MeettheTeam = () => {
       className="topcontainer"
       id="topcontainer"
     >
-      <Typography
-        sx={{ textAlign: 'center', fontSize: '44px', fontWeight: 'bold' }}
-      >
-        Meet the team
-      </Typography>
-
+      <motion.div transition={{ staggerChildren: 1.9 }}>
+        <motion.div
+          variants={firstsec}
+          initial={'offscreen'}
+          whileInView={'onscreen'}
+          viewport={{ once: true }}
+        >
+          <Typography
+            sx={{ textAlign: 'center', fontSize: '44px', fontWeight: 'bold' }}
+          >
+            Meet the team
+          </Typography>
+        </motion.div>
+      </motion.div>
       <Grid
         sx={{ width: '100%', marginTop: '50px' }}
         container
@@ -80,62 +131,75 @@ const MeettheTeam = () => {
             md={6}
             key={i}
           >
-            <Link
-              ref={leftclickRef}
-              href={`/aboutus/${item.slug}`}
-              style={secstyle}
-              onClick={e => {
-                console.log(e);
-                if (e.ctrlKey) {
-                  // If Ctrl (or Cmd) key is held, open the link in a new tab
-                  return;
-                }
-                e.preventDefault();
-                handleLinkClick(item.id);
-              }}
-            >
-              <Stack flexDirection="column" gap={1} sx={{ width: '100%' }}>
-                <Image
-                  alt="personimage"
-                  style={{
-                    width: '500px',
-                    height: 'auto',
-                    alignSelf: 'center',
-                    paddingBottom: '20px',
-                    borderBottom: '1px solid #707070',
-                    aspectRatio: '1/1',
-                    objectFit: 'cover',
-                  }}
-                  src={item.img}
-                />
-
-                <Box
-                  sx={{
-                    margin: {
-                      xs: '-120px 0px 0',
-                      sm: '-120px 150px 0',
-                      md: '-120px 45px 0',
-                    },
+            <motion.div transition={{ staggerChildren: 1.9 }}>
+              <motion.div
+                variants={secondsec}
+                initial={'offscreen'}
+                whileInView={'onscreen'}
+                viewport={{ once: true }}
+              >
+                <Link
+                  ref={leftclickRef}
+                  href={`/aboutus/${item.slug}`}
+                  style={secstyle}
+                  onClick={e => {
+                    console.log(e);
+                    if (e.ctrlKey) {
+                      // If Ctrl (or Cmd) key is held, open the link in a new tab
+                      return;
+                    }
+                    e.preventDefault();
+                    handleLinkClick(item.id);
                   }}
                 >
-                  <Typography
-                    sx={{
-                      fontSize: '36px',
-                      fontWeight: '600',
-                      color: 'white',
-                      cursor: 'pointer',
-                    }}
-                  >
-                    {item.name}
-                  </Typography>
-                  <Typography
-                    sx={{ fontSize: '24px', color: 'white', cursor: 'pointer' }}
-                  >
-                    {item.designation}
-                  </Typography>
-                </Box>
-              </Stack>
-            </Link>
+                  <Stack flexDirection="column" gap={1} sx={{ width: '100%' }}>
+                    <Image
+                      alt="personimage"
+                      style={{
+                        width: '500px',
+                        height: 'auto',
+                        alignSelf: 'center',
+                        paddingBottom: '20px',
+                        borderBottom: '1px solid #707070',
+                        aspectRatio: '1/1',
+                        objectFit: 'cover',
+                      }}
+                      src={item.img}
+                    />
+
+                    <Box
+                      sx={{
+                        margin: {
+                          xs: '-120px 0px 0',
+                          sm: '-120px 150px 0',
+                          md: '-120px 45px 0',
+                        },
+                      }}
+                    >
+                      <Typography
+                        sx={{
+                          fontSize: '36px',
+                          fontWeight: '600',
+                          color: 'white',
+                          cursor: 'pointer',
+                        }}
+                      >
+                        {item.name}
+                      </Typography>
+                      <Typography
+                        sx={{
+                          fontSize: '24px',
+                          color: 'white',
+                          cursor: 'pointer',
+                        }}
+                      >
+                        {item.designation}
+                      </Typography>
+                    </Box>
+                  </Stack>
+                </Link>
+              </motion.div>
+            </motion.div>
           </Grid>
         ))}
       </Grid>
@@ -160,20 +224,33 @@ const MeettheTeam = () => {
                     src={Aboutusimagepathway.close}
                   />
                 </Grid>
+
                 <Grid justifyContent="center" item xs={12} lg={8}>
-                  <Typography
-                    sx={{
-                      fontSize: '44px',
-                      textAlign: 'center',
-                      fontWeight: '600',
-                    }}
-                  >
-                    {content.person[0].title}
-                  </Typography>
-                  <Typography sx={{ fontSize: '36px', textAlign: 'center' }}>
-                    {content.person[0].designation}
-                  </Typography>
+                  <motion.div transition={{ staggerChildren: 1.9 }}>
+                    <motion.div
+                      variants={secondsec}
+                      initial={'offscreen'}
+                      whileInView={'onscreen'}
+                      viewport={{ once: true }}
+                    >
+                      <Typography
+                        sx={{
+                          fontSize: '44px',
+                          textAlign: 'center',
+                          fontWeight: '600',
+                        }}
+                      >
+                        {content.person[0].title}
+                      </Typography>
+                      <Typography
+                        sx={{ fontSize: '36px', textAlign: 'center' }}
+                      >
+                        {content.person[0].designation}
+                      </Typography>
+                    </motion.div>
+                  </motion.div>
                 </Grid>
+
                 <Grid item xs={12} lg={2}></Grid>
               </Grid>
 

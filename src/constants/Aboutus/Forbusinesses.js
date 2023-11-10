@@ -1,9 +1,10 @@
 const forbusinesses = [
   {
     id: '1',
-
-    description: `Pathways revolutionize talent progression, underpinned by AI, data insights, and third-party collaborations, optimizing time and costs. Our cutting-edge AI algorithms intricately match aspirants' profiles to career pathways. This transcends skills, encompassing aspirational and upskilling trajectories, enriching matches with future-forward perspectives.`,
+    title: 'Our Commitment',
+    titletwo: 'Sculpting a roadmap for sustained success',
+    description: `RazorSwift's commitment extends beyond hiring, sparking continuous engagement post-placement. We redefine talent acquisition and progression, sculpting a roadmap for sustained success. In this vision, both businesses and aspirants embark on a transformative journey toward enduring achievement.`,
   },
-]
+];
 
-export default forbusinesses
+export default forbusinesses;

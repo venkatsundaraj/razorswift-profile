@@ -41,7 +41,7 @@ const footerdata = [
       },
       {
         title: 'About',
-        href: '/about',
+        href: '/aboutus',
       },
       {
         title: 'Contact Us',

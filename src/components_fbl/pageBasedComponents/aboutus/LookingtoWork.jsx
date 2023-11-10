@@ -1,12 +1,9 @@
-import React from 'react'
-import { Box } from '@mui/system'
-import { Grid } from '@mui/material'
-import { Typography } from '@mui/material'
-import Image from 'next/image'
-import Aboutusimagepathway from '@/constants/ImagePaths/Aboutus/Aboutusimagepathway'
-import Link from '@mui/material/Link'
-import { Container } from '@mui/material'
-import lookingtowork from '@/constants/Aboutus/lookingtowork'
+import lookingtowork from '@/constants/Aboutus/lookingtowork';
+import Aboutusimagepathway from '@/constants/ImagePaths/Aboutus/Aboutusimagepathway';
+import { Container, Grid, Typography } from '@mui/material';
+import Link from '@mui/material/Link';
+import Image from 'next/image';
+import React from 'react';
 const LookingtoWork = () => {
   return (
     <Container
@@ -44,7 +41,7 @@ const LookingtoWork = () => {
         </Grid>
       </Grid>
     </Container>
-  )
-}
+  );
+};
 
-export default LookingtoWork
+export default LookingtoWork;

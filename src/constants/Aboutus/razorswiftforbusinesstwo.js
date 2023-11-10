@@ -1,16 +1,20 @@
+import Aboutusimagepathway from '@/constants/ImagePaths/Aboutus/Aboutusimagepathway';
+
 const razorswiftforbusiness = [
   {
     id: '1',
+    image: Aboutusimagepathway.fasteronboarding,
     percentage: '70%',
-    description: 'Reduction and removing human bias',
+    description: 'Faster onboarding process',
     bgColor: 'primary.redpink',
   },
   {
     id: '2',
     percentage: '67%',
-    description: 'Faster onboarding process',
+    image: Aboutusimagepathway.improvementinmatches,
+    description: 'Improvement in best candidate matches',
     bgColor: 'primary.redpinkthree',
   },
-]
+];
 
-export default razorswiftforbusiness
+export default razorswiftforbusiness;
