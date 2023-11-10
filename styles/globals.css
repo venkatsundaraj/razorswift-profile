@@ -362,6 +362,7 @@ main.Topcontainer {
   background-color: white;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
+  padding-top: 20px;
 }
 
 .poppage[class*='--end'] .midpage {

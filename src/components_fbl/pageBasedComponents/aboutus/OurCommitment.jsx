@@ -1,9 +1,6 @@
-import React from 'react'
-import { Box } from '@mui/material'
-import { Grid } from '@mui/material'
-import { Typography } from '@mui/material'
-import { Container } from '@mui/material'
-import ourcommitment from '@/constants/Aboutus/ourcommitment'
+import ourcommitment from '@/constants/Aboutus/ourcommitment';
+import { Box, Container, Grid, Typography } from '@mui/material';
+import React from 'react';
 const OurCommitment = () => {
   return (
     <Container sx={{ marginTop: '100px' }}>
@@ -11,7 +8,11 @@ const OurCommitment = () => {
         <Grid item xs={12} md={12}>
           <Box>
             <Typography
-              sx={{ textAlign: 'center', fontSize: '44px', fontWeight: '600' }}
+              sx={{
+                textAlign: 'center',
+                fontSize: { xs: '25px', md: '44px' },
+                fontWeight: '600',
+              }}
             >
               {ourcommitment[0].title}
             </Typography>
@@ -24,7 +25,7 @@ const OurCommitment = () => {
           <Typography
             sx={{
               textAlign: 'justify',
-              fontSize: '20px',
+              fontSize: { xs: '16px', md: '20px' },
               color: 'primary.paragrey',
             }}
           >
@@ -34,7 +35,7 @@ const OurCommitment = () => {
         <Grid item xs={12} md={2}></Grid>
       </Grid>
     </Container>
-  )
-}
+  );
+};
 
-export default OurCommitment
+export default OurCommitment;
