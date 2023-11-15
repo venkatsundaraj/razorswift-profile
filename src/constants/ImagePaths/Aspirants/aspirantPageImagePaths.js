@@ -53,6 +53,13 @@ const aspirantPageImagePaths = {
       .default,
     image4: require('/public/images/Aspirants/career-management.svg').default,
   },
+
+  footerSectonSocialIcons: {
+    linkedIn: require('/public/images/Aspirants/linkedin-logo.svg').default,
+    facebook: require('/public/images/Aspirants/facebook-logo.svg').default,
+    twitter: require('/public/images/Aspirants/x-logo.svg').default,
+    instagram: require('/public/images/Aspirants/insta-logo.svg').default,
+  },
 };
 
 export default aspirantPageImagePaths;

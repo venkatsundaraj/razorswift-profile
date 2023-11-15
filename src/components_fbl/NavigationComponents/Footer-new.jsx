@@ -1,0 +1,241 @@
+'use client';
+import homePageImagePaths from '@/constants/ImagePaths/Homepage/homePageImagePaths';
+import { socialIcons } from '@/src/constants/Aspirants/aspirantPageData';
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
+import { Box, Container, Grid, Stack, Typography } from '@mui/material';
+import { useInView, useMotionValueEvent, useScroll } from 'framer-motion';
+import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
+import CustomImage from '../globalComponents/CustomImage/CustomImage';
+import ParagraphHeading from '../headingComponents/ParagraphHeading';
+const navFooterItems = [
+  { id: 1, item: 'Aspirant', link: '/aspirants' },
+  { id: 2, item: 'Business', link: '/business' },
+  { id: 3, item: 'Partners', link: '/partners' },
+  { id: 4, item: 'Courses', link: '/courses' },
+  { id: 5, item: 'Company', link: '/company' },
+  { id: 6, item: 'Contact', link: '/contact-us' },
+];
+const Footer = ({}) => {
+  const [isInView, setIsInView] = useState(false);
+  const [calcValue, setCalcValue] = useState(0);
+  const sectionRef = useRef(null);
+  const isView = useInView(sectionRef, {
+    margin: '0px 0px 50px 0px',
+    once: true,
+  });
+  const { scrollY } = useScroll();
+
+  useEffect(() => {
+    setIsInView(isView);
+    console.log(sectionRef);
+  }, [isInView, isInView, isView]);
+
+  useMotionValueEvent(scrollY, 'change', latest => {
+    const primaryCondition =
+      latest +
+      document.documentElement.clientHeight -
+      sectionRef.current.offsetTop;
+
+    if (primaryCondition >= 0) {
+      const calculatedValue =
+        (primaryCondition / sectionRef.current.scrollHeight) * 200;
+
+      setCalcValue(calculatedValue);
+    }
+  });
+
+  return (
+    <Box
+      component="footer"
+      ref={sectionRef}
+      sx={{
+        position: 'relative',
+        width: '100%',
+        height: 'fitContent',
+        transform: `translateY(${200 - calcValue}px)`,
+        overflowX: 'hidden',
+        color: 'primaryPalette.white',
+        pt: { xs: 10, sm: 10 },
+        '&:before': {
+          zIndex: '-11',
+          content: "''",
+          position: 'absolute',
+          left: '0',
+          top: '0',
+          width: '100%',
+          height: '100%',
+          backgroundColor: '#fcfcfc',
+        },
+        '&:after': {
+          zIndex: '-10',
+          transition: `${
+            isInView ? 'clip-path 600ms ease-in 200ms' : 'clip-path 10ms linear'
+          }`,
+          clipPath: `${
+            isInView
+              ? 'circle(100%)'
+              : `circle(10% at 50% ${
+                  sectionRef?.current?.scrollHeight
+                    ? sectionRef?.current?.scrollHeight + 200
+                    : 500
+                }px)`
+          }`,
+          content: "''",
+          position: 'absolute',
+          left: '0',
+          top: '0',
+          width: '100%',
+          height: '100%',
+          backgroundColor: '#3B0647',
+        },
+      }}
+    >
+      <Container>
+        <Grid container alignItems="center">
+          <Grid item xs={12} sm={8}>
+            <Typography
+              sx={{
+                mb: 2.0,
+                color: 'primaryPalette.white',
+                fontSize: 'clamp(22px, 3vw, 40px)',
+                fontWeight: '500',
+              }}
+            >
+              Empowering Talent. Enabling Growth.
+            </Typography>
+            <Typography
+              sx={{
+                mb: 3.2,
+                fontWeight: 'normal',
+                fontSize: 'clamp(18px,1.4vw, 24px)',
+              }}
+            >
+              A Dynamic ecosystem where talent and opportunities converge.
+            </Typography>
+            <Stack
+              flexDirection="row"
+              alignItems="center"
+              justifyContent="space-between"
+              columnGap={{ xs: '30px', sm: '0' }}
+              sx={{ py: 1.6, borderTop: '1px solid white', flexWrap: 'wrap' }}
+            >
+              {navFooterItems.map(nav => (
+                <Link
+                  href={nav.link}
+                  key={nav.id}
+                  style={{ textDecoration: 'none' }}
+                >
+                  <Stack
+                    alignItems="center"
+                    justifyContent="start"
+                    flexDirection="row"
+                    sx={{
+                      color: 'primaryPalette.white',
+                      textTransform: 'uppercase',
+                    }}
+                    gap={0.2}
+                  >
+                    <Typography
+                      sx={{
+                        color: 'primaryPalette.white',
+                        fontSize: '12px',
+                      }}
+                    >
+                      {nav.item}
+                    </Typography>
+                    <ArrowRightAltIcon />
+                  </Stack>
+                </Link>
+              ))}
+            </Stack>
+          </Grid>
+          <Grid item xs={12} sm={1}></Grid>
+          <Grid item xs={12} sm={3}>
+            <Stack
+              flexDirection="column"
+              alignItems="center"
+              gap={2}
+              sx={{
+                borderLeft: { xs: '', sm: '1px solid white' },
+                mb: { xs: '20px', sm: '' },
+              }}
+            >
+              <Link href="/">
+                <CustomImage
+                  src={homePageImagePaths.footerlogo}
+                  aspectRatio="236/116"
+                  width="200px"
+                />
+              </Link>
+              <Stack
+                alignItems="center"
+                justifyContent="center"
+                gap={2}
+                flexDirection="row"
+              >
+                {socialIcons.map(img => (
+                  <Link key={img.id} href={img.link}>
+                    <CustomImage
+                      k
+                      src={img.img}
+                      aspectRatio="1/1"
+                      width="28px"
+                    />
+                  </Link>
+                ))}
+              </Stack>
+            </Stack>
+          </Grid>
+        </Grid>
+      </Container>
+      <Box sx={{ width: '100%', backgroundColor: '#280231' }}>
+        <Container>
+          <Stack
+            alignItems="center"
+            justifyContent="space-between"
+            flexDirection="row"
+            flexWrap="wrap"
+            columnGap="20px"
+            rowGap="10px"
+            sx={{ py: 2 }}
+          >
+            <ParagraphHeading
+              style={{ fontSize: '14px' }}
+              sx={{
+                flex: '1',
+                textWrap: { xs: 'nowrap', sm: 'initial' },
+                textAlign: { xs: 'center', sm: 'initial' },
+              }}
+            >
+              2023 Razorswift. All rights reserved.
+            </ParagraphHeading>
+            <Link
+              style={{ textDecoration: 'none', color: 'inherit' }}
+              href="termsofservices"
+            >
+              <ParagraphHeading
+                style={{ fontSize: '14px' }}
+                sx={{ color: 'inherit' }}
+              >
+                Terms of Services
+              </ParagraphHeading>
+            </Link>
+            <Link
+              style={{ textDecoration: 'none', color: 'inherit' }}
+              href="/privacypolicy"
+            >
+              <ParagraphHeading
+                style={{ fontSize: '14px' }}
+                sx={{ color: 'inherit' }}
+              >
+                Privacy Policy
+              </ParagraphHeading>
+            </Link>
+          </Stack>
+        </Container>
+      </Box>
+    </Box>
+  );
+};
+export default Footer;

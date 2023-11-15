@@ -1,7 +1,5 @@
-import Header from './Header'
-import Footer from './Footer'
-
-import React from 'react'
+import Footer from './Footer-new';
+import Header from './Header';
 
 function Layout({ children }) {
   return (
@@ -10,7 +8,7 @@ function Layout({ children }) {
       {children}
       <Footer />
     </>
-  )
+  );
 }
 
-export default Layout
+export default Layout;

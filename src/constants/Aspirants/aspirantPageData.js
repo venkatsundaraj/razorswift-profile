@@ -1,5 +1,28 @@
 import aspirantPageImagePaths from '../ImagePaths/Aspirants/aspirantPageImagePaths';
 
+export const socialIcons = [
+  {
+    id: 1,
+    img: aspirantPageImagePaths.footerSectonSocialIcons.linkedIn,
+    link: 'https://www.linkedin.com/company/razorswift',
+  },
+  {
+    id: 2,
+    img: aspirantPageImagePaths.footerSectonSocialIcons.facebook,
+    link: '/',
+  },
+  {
+    id: 3,
+    img: aspirantPageImagePaths.footerSectonSocialIcons.twitter,
+    link: 'https://twitter.com/wearerazorswift',
+  },
+  {
+    id: 4,
+    img: aspirantPageImagePaths.footerSectonSocialIcons.instagram,
+    link: 'https://www.instagram.com/wearerazorswift/',
+  },
+];
+
 export const solutionsData = [
   { id: 2, name: 'I am an Aspirant', link: '/', data: 'Aspirant' },
   { id: 1, name: 'I am a Partner', link: '/', data: 'Partner' },
