@@ -22,7 +22,6 @@ const Footer = ({}) => {
   const sectionRef = useRef(null);
   const isView = useInView(sectionRef, {
     margin: '0px 0px 50px 0px',
-    once: true,
   });
   const { scrollY } = useScroll();
 
@@ -53,10 +52,10 @@ const Footer = ({}) => {
         position: 'relative',
         width: '100%',
         height: 'fitContent',
-        transform: `translateY(${200 - calcValue}px)`,
+        // transform: `translateY(${200 - calcValue}px)`,
         overflowX: 'hidden',
         color: 'primaryPalette.white',
-        pt: { xs: 10, sm: 10 },
+        pt: { xs: 10, sm: 10, xl: 8 },
         '&:before': {
           zIndex: '-11',
           content: "''",
@@ -150,8 +149,8 @@ const Footer = ({}) => {
               ))}
             </Stack>
           </Grid>
-          <Grid item xs={12} sm={1}></Grid>
-          <Grid item xs={12} sm={3}>
+          <Grid item xs={12} sm={2}></Grid>
+          <Grid item xs={12} sm={2}>
             <Stack
               flexDirection="column"
               alignItems="center"
@@ -165,11 +164,11 @@ const Footer = ({}) => {
                 <CustomImage
                   src={homePageImagePaths.footerlogo}
                   aspectRatio="236/116"
-                  width="200px"
+                  width="180px"
                 />
               </Link>
               <Stack
-                alignItems="center"
+                alignItems={{ xs: 'center', sm: 'self-end' }}
                 justifyContent="center"
                 gap={2}
                 flexDirection="row"
