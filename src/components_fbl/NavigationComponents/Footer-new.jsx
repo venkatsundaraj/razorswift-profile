@@ -22,6 +22,7 @@ const Footer = ({}) => {
   const sectionRef = useRef(null);
   const isView = useInView(sectionRef, {
     margin: '0px 0px 50px 0px',
+    once: true,
   });
   const { scrollY } = useScroll();
 
@@ -52,7 +53,7 @@ const Footer = ({}) => {
         position: 'relative',
         width: '100%',
         height: 'fitContent',
-        // transform: `translateY(${200 - calcValue}px)`,
+        transform: `translateY(${200 - calcValue}px)`,
         overflowX: 'hidden',
         color: 'primaryPalette.white',
         pt: { xs: 10, sm: 10, xl: 8 },
