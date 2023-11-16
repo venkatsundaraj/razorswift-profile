@@ -2,7 +2,15 @@
 import homePageImagePaths from '@/constants/ImagePaths/Homepage/homePageImagePaths';
 import { socialIcons } from '@/src/constants/Aspirants/aspirantPageData';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
-import { Box, Container, Grid, Stack, Typography } from '@mui/material';
+import LaunchIcon from '@mui/icons-material/Launch';
+import {
+  Box,
+  Container,
+  Grid,
+  IconButton,
+  Stack,
+  Typography,
+} from '@mui/material';
 import { useInView, useMotionValueEvent, useScroll } from 'framer-motion';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
@@ -16,9 +24,15 @@ const navFooterItems = [
   { id: 5, item: 'Company', link: '/company' },
   { id: 6, item: 'Contact', link: '/contact-us' },
 ];
+
+const initialState = {
+  id: 0,
+  isInteracted: false,
+};
 const Footer = ({}) => {
   const [isInView, setIsInView] = useState(false);
   const [calcValue, setCalcValue] = useState(0);
+  const [toggleHover, setToggleHover] = useState(initialState);
   const sectionRef = useRef(null);
   const isView = useInView(sectionRef, {
     margin: '0px 0px 50px 0px',
@@ -44,6 +58,15 @@ const Footer = ({}) => {
       setCalcValue(calculatedValue);
     }
   });
+  const handlePopoverOpen = function (id) {
+    setToggleHover({
+      id: id,
+      isInteracted: true,
+    });
+  };
+  const handlePopoverClose = function (id) {
+    setToggleHover({ id: id, isInteracted: false });
+  };
 
   return (
     <Box
@@ -127,6 +150,7 @@ const Footer = ({}) => {
                   style={{ textDecoration: 'none' }}
                 >
                   <Stack
+                    id={nav.id}
                     alignItems="center"
                     justifyContent="start"
                     flexDirection="row"
@@ -135,16 +159,31 @@ const Footer = ({}) => {
                       textTransform: 'uppercase',
                     }}
                     gap={0.2}
+                    onMouseEnter={e => handlePopoverOpen(nav.id)}
+                    onMouseLeave={e => handlePopoverClose(nav.id)}
                   >
                     <Typography
                       sx={{
-                        color: 'primaryPalette.white',
+                        color: `${
+                          toggleHover.isInteracted && toggleHover.id === nav.id
+                            ? '#FFAFB9'
+                            : 'primaryPalette.white'
+                        }`,
                         fontSize: '12px',
                       }}
                     >
                       {nav.item}
                     </Typography>
-                    <ArrowRightAltIcon />
+                    <IconButton sx={{ fontSize: '12px', color: 'white' }}>
+                      {toggleHover.isInteracted && toggleHover.id === nav.id ? (
+                        <LaunchIcon
+                          sx={{ color: '#FFAFB9' }}
+                          fontSize="small"
+                        />
+                      ) : (
+                        <ArrowRightAltIcon fontSize="small" />
+                      )}
+                    </IconButton>
                   </Stack>
                 </Link>
               ))}
