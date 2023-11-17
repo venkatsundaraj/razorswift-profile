@@ -1,14 +1,11 @@
-import React from 'react'
-import { Stack } from '@mui/material'
-import { Typography } from '@mui/material'
-import Image from 'next/image'
-import { Box } from '@mui/material'
-import coursePageImagePaths from '@/constants/ImagePaths/courses/comingsoon'
+import coursePageImagePaths from '@/src/constants/ImagePaths/Courses/coursesPageImagePaths';
+import { Box, Stack, Typography } from '@mui/material';
+import Image from 'next/image';
 const ComingSoon = () => {
   const imgstyle = {
     height: 'auto',
     width: 'clamp(300px, 43.5vw, 570px)',
-  }
+  };
   return (
     <Stack
       sx={{
@@ -41,7 +38,7 @@ const ComingSoon = () => {
         src={coursePageImagePaths.comingsoon}
       />
     </Stack>
-  )
-}
+  );
+};
 
-export default ComingSoon
+export default ComingSoon;

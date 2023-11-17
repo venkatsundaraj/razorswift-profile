@@ -170,6 +170,7 @@ const Footer = ({}) => {
                             : 'primaryPalette.white'
                         }`,
                         fontSize: '12px',
+                        transition: `color 500ms linear`,
                       }}
                     >
                       {nav.item}
@@ -177,7 +178,10 @@ const Footer = ({}) => {
                     <IconButton sx={{ fontSize: '12px', color: 'white' }}>
                       {toggleHover.isInteracted && toggleHover.id === nav.id ? (
                         <LaunchIcon
-                          sx={{ color: '#FFAFB9' }}
+                          sx={{
+                            color: '#FFAFB9',
+                            transition: `color 500ms linear`,
+                          }}
                           fontSize="small"
                         />
                       ) : (

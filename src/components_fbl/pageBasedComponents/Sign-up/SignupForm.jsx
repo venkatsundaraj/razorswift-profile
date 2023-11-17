@@ -60,8 +60,8 @@ function SignupForm() {
   const { loading, setLoading } = useContext(LoadingContext);
   const [signUpInitialValues, setSignUpInitialValues] = useState({
     ...INITIAL_FORM_STATE,
-    mobileNumber: router?.query?.mobileNumber
-      ? router?.query?.mobileNumber.substring(2)
+    mobileNumber: router?.query?.mobile
+      ? router?.query?.mobile.substring(2)
       : '',
   });
 

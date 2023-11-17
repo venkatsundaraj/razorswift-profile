@@ -71,7 +71,7 @@ function LoginForm() {
       const response = await accountApi.apiAccountValidateCandidatePost(opts);
 
       //   const response = await new Promise(resolve => setTimeout(resolve, 5000));
-
+      console.log(response);
       if (!response) throw new Error('Something went Wrong');
 
       if (response.body.message === 'User Exists.') {
@@ -247,7 +247,7 @@ function LoginForm() {
                     style={{ color: '#3A3A3A' }}
                     href={{
                       pathname: `/sign-up`,
-                      query: { mobileNumber: `91${values.mobileNumber}` },
+                      query: { mobile: `91${values.mobileNumber}` },
                     }}
                   >
                     Sign Up here
