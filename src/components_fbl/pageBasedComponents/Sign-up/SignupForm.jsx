@@ -1,11 +1,9 @@
 import CheckboxWrapper from '@/components_fbl/FormComponents/FormUI/Checkbox/CheckboxWrapper';
 import InputField from '@/components_fbl/FormComponents/FormUI/InputField/InputField';
-import SelectWrapper from '@/components_fbl/FormComponents/FormUI/Select/SelectWrapper';
 import SubmitButton from '@/components_fbl/FormComponents/FormUI/SubmitButton/SubmitButton';
 import ExtraParagraphHeading from '@/components_fbl/headingComponents/ExtraParagraphHeading';
 import ParagraphHeading from '@/components_fbl/headingComponents/ParagraphHeading';
 import SecondaryHeading from '@/components_fbl/headingComponents/SecondaryHeading';
-import { solutionsData } from '@/constants/Aspirants/aspirantPageData';
 import { LoadingContext } from '@/reUsableComponents/LoadingComponents/LoadingContext';
 import { AccountApi } from '@/swagger_api/*';
 import { localStorageUtil } from '@/utils/CommonFunctions/localStorageUtil';
@@ -152,7 +150,7 @@ function SignupForm() {
               </ExtraParagraphHeading>
               <Grid container alignItems="center">
                 <Grid item xs={12} sm={1}></Grid>
-                <Grid item xs={12} sm={4}>
+                {/* <Grid item xs={12} sm={4}>
                   <SelectWrapper
                     placeholder="Looking for"
                     name="reason"
@@ -195,9 +193,9 @@ function SignupForm() {
                       },
                     }}
                   />
-                </Grid>
-                <Grid item xs={12} sm={1}></Grid>
-                <Grid item xs={12} sm={6}>
+                </Grid> */}
+                {/* <Grid item xs={12} sm={5}></Grid> */}
+                <Grid item xs={12} sm={11}>
                   <InputLabel
                     htmlFor="filled-hidden-label-small"
                     sx={{
@@ -207,7 +205,7 @@ function SignupForm() {
                       fontWeight: '500',
                     }}
                   >
-                    Full Name / Company Name
+                    Full Name
                   </InputLabel>
                   <InputField
                     sx={{

@@ -35,6 +35,7 @@ const CustomCheckBox = styled(Link)(({ theme }) => ({
     fontWeight: '600',
   },
 }));
+
 const FORM_VALIDATION = Yup.object().shape({
   mobileNumber: validateContactNumber('Mobile Number', true),
 });

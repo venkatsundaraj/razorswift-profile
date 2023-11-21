@@ -1,3 +1,4 @@
+import InfiniteScroll from '@/components_fbl/TickerComponent/InfiniteScroll';
 import ParagraphHeading from '@/components_fbl/headingComponents/ParagraphHeading';
 import { edTechData } from '@/src/constants/Courses/coursesPageData';
 import { Box, Container, Grid } from '@mui/material';
@@ -16,14 +17,15 @@ function EdTechScroller() {
         <Grid
           container
           alignItems="center"
-          spacing={2}
+          spacing={3}
           sx={{ color: 'primaryPalette.black' }}
         >
           <Grid item xs={12} sm={6}>
             <ParagraphHeading>{edTechData.description}</ParagraphHeading>
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={6} sx={{ overflow: 'hidden' }}>
             <ParagraphHeading>{edTechData.edTechCopy}</ParagraphHeading>
+            <InfiniteScroll edTechData={edTechData.techLogos} />
           </Grid>
         </Grid>
       </Container>

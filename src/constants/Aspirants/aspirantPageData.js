@@ -30,9 +30,9 @@ export const solutionsData = [
 ];
 export const headerdData = {
   navItems: [
-    { id: 2, name: 'Aspirants', link: '/aspirants' },
-    { id: 1, name: 'Partners', link: '/partners' },
-    { id: 3, name: 'Business', link: '/business' },
+    // { id: 2, name: 'Aspirants', link: '/aspirants' },
+    // { id: 1, name: 'Partners', link: '/partners' },
+    { id: 3, name: 'Login', link: '/login' },
   ],
   forMenu: [
     { id: 1, text: 'M' },

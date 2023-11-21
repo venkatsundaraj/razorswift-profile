@@ -1,10 +1,8 @@
-import React from 'react'
-import { Stack, List, ListItem, Button } from '@mui/material'
+import { Button, List, ListItem, Stack } from '@mui/material';
 
-import Link from 'next/link'
-import ExitToAppIcon from '@mui/icons-material/ExitToApp'
-import MenuButton from '../buttonComponents/MenuButton'
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import MenuButton from '../buttonComponents/MenuButton';
 
 const NavButton = styled(Button)(({ theme }) => ({
   borderRadius: theme.spacing(3),
@@ -22,11 +20,16 @@ const NavButton = styled(Button)(({ theme }) => ({
   [theme.breakpoints.up('xl')]: {
     fontSize: '20px',
   },
-}))
+}));
 
 function Navigation({ headerdData }) {
   return (
-    <Stack alignItems="center" justifyContent="center" flexDirection="row">
+    <Stack
+      alignItems="center"
+      justifyContent="center"
+      flexDirection="row"
+      gap={2}
+    >
       <List
         sx={{
           display: { xs: 'none', md: 'flex' },
@@ -34,7 +37,7 @@ function Navigation({ headerdData }) {
           justifyContent: 'center',
         }}
       >
-        {headerdData.navItems.map((item) => (
+        {headerdData.navItems.map(item => (
           <ListItem key={item.id} sx={{ px: 1 }}>
             <NavButton
               href={item.link}
@@ -49,7 +52,7 @@ function Navigation({ headerdData }) {
 
       <MenuButton headerdData={headerdData} />
     </Stack>
-  )
+  );
 }
 
-export default Navigation
+export default Navigation;

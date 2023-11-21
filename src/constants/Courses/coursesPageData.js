@@ -8,6 +8,12 @@ export const bannerData = {
 
 export const edTechData = {
   description:
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.',
   edTechCopy: 'Trusted Edtech platforms Partnering with us',
+  techLogos: [
+    { id: 1, logo: coursesPageImagePaths.google },
+    { id: 2, logo: coursesPageImagePaths.google },
+    { id: 3, logo: coursesPageImagePaths.google },
+    { id: 4, logo: coursesPageImagePaths.google },
+  ],
 };

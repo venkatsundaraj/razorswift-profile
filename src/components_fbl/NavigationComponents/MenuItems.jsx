@@ -132,7 +132,8 @@ function MenuItems({ headerdData, handleClose }) {
       ))}
       <Stack
         flexDirection="row"
-        justifyContent="space-between"
+        justifyContent="center"
+        gap={3}
         sx={{ marginTop: 1, display: { xs: 'flex', md: 'none' } }}
       >
         {headerdData.actionButtons.map(item => (

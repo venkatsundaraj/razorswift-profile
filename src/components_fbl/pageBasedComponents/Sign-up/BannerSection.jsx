@@ -6,7 +6,15 @@ import { Container, Grid } from '@mui/material';
 
 function BannerSection() {
   return (
-    <CustomSection style={{ padding: 'clamp(40px,7vw, 76px) 0 ' }}>
+    <CustomSection
+      sx={{
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+      style={{ padding: '100px 0 ' }}
+    >
       <Container>
         <Grid container alignItems="center">
           <Grid item xs={12} md={6}>
