@@ -1,6 +1,6 @@
 const coursesPageImagePaths = {
-  bannerImage: require('/public/images/Courses/about-us-banner.jpg').default,
-  google: require('/public/images/Courses/google.png').default,
+  bannerImage: require('/public/images/Aspirants/about-us-banner.jpg').default,
+  google: require('/public/images/Aspirants/google.png').default,
 };
 
 export default coursesPageImagePaths;
