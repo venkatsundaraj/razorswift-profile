@@ -14,7 +14,7 @@ function InfiniteScroll({ edTechData }) {
 
   const addAnimation = function (boxRef, listRef) {
     const container = new Array(boxRef);
-    console.log(boxRef);
+
     container.forEach(item => {
       item.current.setAttribute('data-animated', true);
       const scrollContent = Array.from(listRef.current.children);
@@ -28,7 +28,6 @@ function InfiniteScroll({ edTechData }) {
   };
 
   useEffect(() => {
-    console.log(true);
     addAnimation(boxRef, listRef);
   }, []);
 
@@ -38,6 +37,8 @@ function InfiniteScroll({ edTechData }) {
       className="hello"
       sx={{
         maxWidth: '600px',
+
+        mt: 2,
         overflow: 'hidden',
       }}
     >

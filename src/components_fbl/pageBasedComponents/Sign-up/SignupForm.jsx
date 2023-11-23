@@ -63,8 +63,6 @@ function SignupForm() {
       : '',
   });
 
-  console.log(INITIAL_FORM_STATE, router.query.mobileNumber);
-
   const SubmitDetails = async function (values, { resetForm, setSubmitting }) {
     checkIsValidUser(values, { resetForm, setSubmitting });
   };
