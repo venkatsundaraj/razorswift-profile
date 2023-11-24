@@ -48,8 +48,8 @@ function BannerSection({ bannerData }) {
         <CustomImage
           alt="Courses page banner"
           src={bannerData.bannerImage}
-          aspectRatio="2551/819"
-          width="clamp(300px, 65vw, 1100px)"
+          aspectRatio="1358/593"
+          width="clamp(300px, 55vw, 800px)"
         />
       </Box>
       <TickerComponent

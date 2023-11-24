@@ -258,7 +258,7 @@ function SignupForm() {
                     error={errors.email}
                     hiddenLabel
                     id="filled-hidden-label-small"
-                    type="text"
+                    type="email"
                     variant="filled"
                     name="email"
                     label=""
