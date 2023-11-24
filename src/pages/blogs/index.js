@@ -1,5 +1,4 @@
 import BlogCard from '@/components_fbl/pageBasedComponents/blogs/BlogCard';
-import Futuredsection from '@/components_fbl/pageBasedComponents/blogs/Futuredsection';
 import HeroSection from '@/components_fbl/pageBasedComponents/blogs/HeroSection';
 import Layout from '@/src/components_fbl/NavigationComponents/Layout';
 import { Box } from '@mui/system';
@@ -8,7 +7,7 @@ const Blogs = () => {
     <Layout>
       <Box component="main" class="Topcontainer">
         <HeroSection />
-        <Futuredsection />
+        {/* <Futuredsection /> */}
         <BlogCard />
       </Box>
     </Layout>
