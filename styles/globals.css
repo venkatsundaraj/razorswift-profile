@@ -392,3 +392,55 @@ main.Topcontainer {
 .stopscroll {
   overflow: hidden;
 }
+
+/* swap */
+
+.slide1 {
+  transform: translate(-50%, 23%) scale(1);
+  z-index: 3;
+}
+
+.slide2 {
+  transform: translate(-50%, 13%) scale(0.9);
+  z-index: 2;
+}
+
+.slide3 {
+  transform: translate(-50%, 4%) scale(0.8);
+  z-index: 1;
+}
+.slidenum {
+  /* transform: translate(0%, 1070%) scale(1); */
+  z-index: 3;
+}
+.container div {
+  transition: transform 450ms linear;
+}
+
+/* .cont1 {
+  background-color: #ffafb9;
+  width: 70%;
+  height: 50vh;
+  position: absolute;
+  left: 50%;
+
+  border-radius: 40px;
+}
+.cont2 {
+  background-color: #dd90be;
+  width: 70%;
+  height: 50vh;
+  position: absolute;
+  left: 50%;
+
+  border-radius: 40px;
+}
+.cont3 {
+  background-color: #dfa9eb;
+  width: 70%;
+  height: 50vh;
+  position: absolute;
+  left: 50%;
+
+  border-radius: 40px;
+} */
