@@ -46,7 +46,7 @@ export const Questionsectdata = [
     description:
       'There are three main resume formats most job seekers use today. Each format arranges the parts of your resume differently. Choose the one that best highlights your strengths.',
     link: '/',
-    img: articlesimage.every1,
+    // img: articlesimage.every1,
   },
   {
     id: 2,
@@ -68,6 +68,7 @@ export const Questionsectdata = [
     description:
       'Highlight your skills that are relevant to the job you’re applying for.',
     link: '/',
+    img: '',
   },
   {
     id: 5,

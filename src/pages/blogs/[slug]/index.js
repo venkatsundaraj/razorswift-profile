@@ -1,5 +1,7 @@
 import { Questionsectdata } from '@/constants/Articles/articlesdata';
 import blogscarddata from '@/constants/Blogs/blogscarddata';
+import Layout from '@/src/components_fbl/NavigationComponents/Layout';
+import { bebasNeue, urbanist } from '@/utils/themes/typography';
 import { Box, Container, Grid, Link, Stack, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
@@ -29,211 +31,248 @@ const index = () => {
     height: 'auto',
   };
   return (
-    <Box>
-      <Box sx={{ height: '100vh', backgroundColor: '#A62973' }}>
-        <Typography
-          sx={{ fontSize: '64px', color: 'white', textAlign: 'center' }}
-        >
-          Tips to write a great resume
-        </Typography>
-        <Stack justifyContent="center" alignItems="center">
+    <Layout>
+      <Box>
+        <Box sx={{ height: '100vh', backgroundColor: '#A62973' }}>
           <Typography
             sx={{
-              fontSize: '20px',
+              fontSize: { xs: '30px', md: '64px' },
               color: 'white',
               textAlign: 'center',
-              width: '50%',
+              textTransform: 'uppercase',
+              fontFamily: bebasNeue.style.fontFamily,
+              paddingTop: '100px',
             }}
           >
-            Writing a great resume is essential for landing your dream job. A
-            resume is a summary of your career, showcasing the jobs you’ve held
-            and currently hold, the responsibilities you’ve taken on, the skills
-            you’ve developed, and the qualities you bring to the table as an
-            employee.
+            Tips to write a great resume
           </Typography>
-        </Stack>
-        <Box sx={{ height: '50vh', backgroundColor: '#672476', width: '90%' }}>
-          s
-        </Box>
-      </Box>
-      <Box sx={{ paddingTop: '100px' }}>
-        <Container>
-          <Typography
-            sx={{ fontSize: '24px', fontWeight: '600', color: 'black' }}
+          <Stack justifyContent="center" alignItems="center">
+            <Typography
+              sx={{
+                fontSize: '20px',
+                color: 'white',
+                textAlign: 'center',
+                maxWidth: '880px',
+                fontFamily: urbanist.style.fontFamily,
+                padding: '0 20px',
+              }}
+            >
+              Writing a great resume is essential for landing your dream job. A
+              resume is a summary of your career, showcasing the jobs you’ve
+              held and currently hold, the responsibilities you’ve taken on, the
+              skills you’ve developed, and the qualities you bring to the table
+              as an employee.
+            </Typography>
+          </Stack>
+          <Stack
+            justifyContent="center"
+            alignItems="center"
+            sx={{ marginTop: '50px' }}
           >
-            It’s important to make sure your resume is well-written and easy to
-            read. Here are some tips on how to write a great resume:
-          </Typography>
-          {Questionsectdata.map((item, index) => (
-            <>
-              <Box
-                sx={{
-                  padding: {
-                    xs: '50px 0px 0px 0px',
-                    md: '50px 100px 0px 100px',
-                  },
-                }}
-              >
-                <Typography
+            <Box
+              sx={{
+                height: '60vh',
+                backgroundColor: '#672476',
+                width: '80%',
+                borderRadius: '50px',
+              }}
+            >
+              s
+            </Box>
+          </Stack>
+        </Box>
+        <Box sx={{ paddingTop: { xs: '200px', md: '100px' } }}>
+          <Container>
+            <Typography
+              sx={{ fontSize: '24px', fontWeight: '600', color: 'black' }}
+            >
+              It’s important to make sure your resume is well-written and easy
+              to read. Here are some tips on how to write a great resume:
+            </Typography>
+            {Questionsectdata.map((item, index) => (
+              <>
+                <Box
                   sx={{
-                    fontSize: '20px',
-                    fontWeight: '600',
-                    color: 'black',
-                    paddingBottom: '10px',
+                    padding: {
+                      xs: '50px 0px 0px 0px',
+                      md: '50px 100px 0px 100px',
+                    },
                   }}
                 >
-                  {item.name}
-                </Typography>
-                <Typography sx={{ fontSize: '20px', color: 'black' }}>
-                  {item.description}
-                </Typography>
-              </Box>
-            </>
-          ))}
-          <Typography
-            sx={{
-              fontSize: '20px',
-              padding: '20px 100px 0px 100px',
-            }}
-          >
-            <Box sx={{ fontSize: '20px', fontWeight: '600', color: 'black' }}>
-              Conclusion Paragraph -
-            </Box>{' '}
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.. Lorem
-            ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua.. Lorem ipsum
-            dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua.
-          </Typography>
-        </Container>
-      </Box>
+                  <Typography
+                    sx={{
+                      fontSize: '20px',
+                      fontWeight: '600',
+                      color: 'black',
+                      paddingBottom: '10px',
+                    }}
+                  >
+                    {item.name}
+                  </Typography>
+                  <Typography sx={{ fontSize: '20px', color: 'black' }}>
+                    {item.description}
+                  </Typography>
+                  <Stack>
+                    <Image style={banimg} src={item.img} />
+                  </Stack>
+                </Box>
+              </>
+            ))}
+            <Typography
+              sx={{
+                fontSize: '20px',
+                padding: '20px 100px 0px 100px',
+              }}
+            >
+              <Box sx={{ fontSize: '20px', fontWeight: '600', color: 'black' }}>
+                Conclusion Paragraph -
+              </Box>{' '}
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.. Lorem
+              ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua.. Lorem ipsum
+              dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua.
+            </Typography>
+          </Container>
+        </Box>
 
-      <Box
-        sx={{
-          padding: '64px 0',
-          marginTop: {
-            xs: '20px',
-            sm: '50px',
-            md: '0px',
-            lg: '60px',
-            xl: '0',
-          },
-        }}
-        style={{ width: '100%' }}
-      >
-        <Container>
-          <Typography
-            sx={{
-              paddingBottom: '20px',
-              fontSize: '36px',
-              color: '#672476',
-              display: 'flex',
-              gap: '10px',
-            }}
-          >
-            All{' '}
+        <Box
+          sx={{
+            padding: '64px 0',
+            marginTop: {
+              xs: '20px',
+              sm: '50px',
+              md: '0px',
+              lg: '60px',
+              xl: '0',
+            },
+          }}
+          style={{ width: '100%' }}
+        >
+          <Container>
             <Typography
               sx={{
                 paddingBottom: '20px',
                 fontSize: '36px',
                 color: '#672476',
-                fontWeight: '600',
+                display: 'flex',
+                gap: '10px',
               }}
             >
-              Blogs
+              All{' '}
+              <Typography
+                sx={{
+                  paddingBottom: '20px',
+                  fontSize: '36px',
+                  color: '#672476',
+                  fontWeight: '600',
+                }}
+              >
+                Blogs
+              </Typography>
             </Typography>
-          </Typography>
-          <motion.div transition={{ staggerChildren: 1.9 }}>
-            <motion.div
-              variants={firstsec}
-              initial={'offscreen'}
-              whileInView={'onscreen'}
-              viewport={{ once: true }}
-            >
-              <Grid container spacing={5}>
-                {blogscarddata.map((item, index) => (
-                  <Grid sx={{}} item xs={12} sm={6} md={4}>
-                    <Stack
-                      sx={{
-                        backgroundColor: '#ffccc963',
-                        paddingTop: '40px',
-                        borderRadius: '20px',
-                        height: '100%',
-                        border: '2px solid transparent',
-                        '&:hover': {
-                          textDecoration: 'underline',
-                          border: '2px solid #3B0647',
-                          boxShadow: '0px 2px 5px 3px rgba(0,0,0,0.16)',
-                        },
-                      }}
-                    >
-                      <Image alt="bannerImage" style={banimg} src={item.img} />
-                      <Stack sx={{ padding: '10px' }}>
-                        <Typography
-                          sx={{
-                            fontSize: '18px',
-                            paddingBottom: '20px',
-                            height: '95px',
-                          }}
-                        >
-                          <Link
+            <motion.div transition={{ staggerChildren: 1.9 }}>
+              <motion.div
+                variants={firstsec}
+                initial={'offscreen'}
+                whileInView={'onscreen'}
+                viewport={{ once: true }}
+              >
+                <Grid container spacing={5}>
+                  {blogscarddata.map((item, index) => (
+                    <Grid sx={{}} item xs={12} sm={6} md={4}>
+                      <Stack
+                        sx={{
+                          backgroundColor: '#ffccc963',
+                          paddingTop: '40px',
+                          borderRadius: '20px',
+                          height: '100%',
+                          border: '2px solid transparent',
+                          '&:hover': {
+                            textDecoration: 'underline',
+                            border: '2px solid #3B0647',
+                            boxShadow: '0px 2px 5px 3px rgba(0,0,0,0.16)',
+                          },
+                        }}
+                      >
+                        <Image
+                          alt="bannerImage"
+                          style={banimg}
+                          src={item.img}
+                        />
+                        <Stack sx={{ padding: '10px' }}>
+                          <Typography
                             sx={{
-                              textDecoration: 'none',
-                              color: 'black',
+                              fontSize: '18px',
+                              paddingBottom: '20px',
+                              height: '95px',
+                            }}
+                          >
+                            <Link
+                              sx={{
+                                textDecoration: 'none',
+                                color: 'black',
 
-                              fontWeight: '500',
-                            }}
-                            href=""
-                          >
-                            {item.title}
-                          </Link>
-                        </Typography>
-                        <Stack
-                          flexDirection="row"
-                          justifyContent="space-between"
-                        >
-                          <Typography
-                            sx={{
-                              fontSize: '16px',
-                              '&:hover': {
-                                textDecoration: 'underline',
-                              },
-                            }}
-                          >
-                            <Link
-                              style={{ textDecoration: 'none', color: 'black' }}
+                                fontWeight: '500',
+                              }}
                               href=""
                             >
-                              {item.article}
+                              {item.title}
                             </Link>
                           </Typography>
-                          <Typography
-                            sx={{
-                              fontSize: '16px',
-                              '&:hover': {
-                                textDecoration: 'underline',
-                              },
-                            }}
+                          <Stack
+                            flexDirection="row"
+                            justifyContent="space-between"
                           >
-                            <Link
-                              style={{ textDecoration: 'none', color: 'black' }}
-                              href=""
+                            <Typography
+                              sx={{
+                                fontSize: '16px',
+                                '&:hover': {
+                                  textDecoration: 'underline',
+                                },
+                              }}
                             >
-                              {item.date}
-                            </Link>
-                          </Typography>
+                              <Link
+                                style={{
+                                  textDecoration: 'none',
+                                  color: 'black',
+                                }}
+                                href=""
+                              >
+                                {item.article}
+                              </Link>
+                            </Typography>
+                            <Typography
+                              sx={{
+                                fontSize: '16px',
+                                '&:hover': {
+                                  textDecoration: 'underline',
+                                },
+                              }}
+                            >
+                              <Link
+                                style={{
+                                  textDecoration: 'none',
+                                  color: 'black',
+                                }}
+                                href=""
+                              >
+                                {item.date}
+                              </Link>
+                            </Typography>
+                          </Stack>
                         </Stack>
                       </Stack>
-                    </Stack>
-                  </Grid>
-                ))}
-              </Grid>
+                    </Grid>
+                  ))}
+                </Grid>
+              </motion.div>
             </motion.div>
-          </motion.div>
-        </Container>
+          </Container>
+        </Box>
       </Box>
-    </Box>
+    </Layout>
   );
 };
 

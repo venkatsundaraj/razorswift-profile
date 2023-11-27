@@ -276,7 +276,12 @@ const HeroSection = () => {
                       <Typography
                         sx={{
                           color: '#212121',
-                          fontSize: { xs: '18px', md: '36px' },
+                          fontSize: {
+                            xs: '18px',
+                            md: '25px',
+                            lg: '30px',
+                            xl: '36px',
+                          },
                           paddingBottom: '20px',
                           borderBottom: '1px solid #A62973',
                           fontFamily: urbanist.style.fontFamily,
@@ -288,7 +293,7 @@ const HeroSection = () => {
                       <Typography
                         sx={{
                           color: '#212121',
-                          fontSize: '20px',
+                          fontSize: { xs: '18px', xl: '20px' },
                           paddingBottom: '20px',
                           paddingTop: '20px',
                           fontFamily: urbanist.style.fontFamily,
@@ -303,7 +308,7 @@ const HeroSection = () => {
                         <Typography
                           sx={{
                             color: '#212121',
-                            fontSize: { xs: '22px', md: '24px' },
+                            fontSize: { xs: '20px', xl: '24px' },
                             fontWeight: '600',
                             fontFamily: urbanist.style.fontFamily,
                           }}
@@ -360,7 +365,12 @@ const HeroSection = () => {
                       <Typography
                         sx={{
                           color: '#212121',
-                          fontSize: { xs: '18px', md: '36px' },
+                          fontSize: {
+                            xs: '18px',
+                            md: '25px',
+                            lg: '30px',
+                            xl: '36px',
+                          },
                           paddingBottom: '20px',
                           borderBottom: '1px solid #A62973',
                           fontFamily: urbanist.style.fontFamily,
@@ -372,7 +382,7 @@ const HeroSection = () => {
                       <Typography
                         sx={{
                           color: '#212121',
-                          fontSize: '20px',
+                          fontSize: { xs: '18px', xl: '20px' },
                           paddingBottom: '20px',
                           paddingTop: '20px',
                           fontFamily: urbanist.style.fontFamily,
@@ -387,7 +397,7 @@ const HeroSection = () => {
                         <Typography
                           sx={{
                             color: '#212121',
-                            fontSize: { xs: '22px', md: '24px' },
+                            fontSize: { xs: '20px', xl: '24px' },
                             fontWeight: '600',
                             fontFamily: urbanist.style.fontFamily,
                           }}
