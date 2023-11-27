@@ -2,12 +2,12 @@ import CheckboxWrapper from '@/components_fbl/FormComponents/FormUI/Checkbox/Che
 import InputField from '@/components_fbl/FormComponents/FormUI/InputField/InputField';
 import SubmitButton from '@/components_fbl/FormComponents/FormUI/SubmitButton/SubmitButton';
 import ParagraphHeading from '@/components_fbl/headingComponents/ParagraphHeading';
-
 import SubtitleHeading from '@/components_fbl/headingComponents/SubtitleHeading';
 import { LoadingContext } from '@/reUsableComponents/LoadingComponents/LoadingContext';
 import Layout from '@/src/components_fbl/NavigationComponents/Layout';
 import CustomSection from '@/src/components_fbl/globalComponents/CustomContainer/CustomSection';
 import { AccountApi } from '@/swagger_api/*';
+import { getSelectedCourse } from '@/utils/getCourseList';
 import {
   alphabetsValidationSchema,
   emailValidation,
@@ -22,7 +22,7 @@ import {
   Stack,
   Typography,
 } from '@mui/material';
-import axios, { AxiosError } from 'axios';
+import { AxiosError } from 'axios';
 import { Form, Formik } from 'formik';
 import Link from 'next/link';
 import { useContext, useState } from 'react';
@@ -80,26 +80,13 @@ function EnrollForm({ data }) {
           fullName: values.fullName.trim(),
           email: values.email.trim(),
           existedUser: values.existedUser ? values.existedUser : '',
-          id: course.id,
+          ...course,
         },
       };
 
-      //   const response = await new Promise(resolve => setTimeout(resolve, 2000));
+      const response = await new Promise(resolve => setTimeout(resolve, 2000));
 
-      const { data } = await axios.post(
-        'https://asia-south1-razorswift.cloudfunctions.net/enrollCourse',
-        { ...opts.body },
-        {
-          headers: {
-            'x-rs-key': process.env.NEXT_PUBLIC_COURSE_LIST_KEY,
-          },
-        }
-      );
-
-      if (data.status !== 'Success') {
-        throw new Error('Something went wrong, Please try after sometime');
-      }
-
+      console.log(opts);
       resetForm();
     } catch (err) {
       if (err instanceof AxiosError) {
@@ -114,15 +101,10 @@ function EnrollForm({ data }) {
   return (
     <Layout>
       <Box component="main">
-        <CustomSection style={{ paddingTop: '96px' }}>
+        <CustomSection>
           <Container>
-            <Grid container spacing={4} alignItems="center">
-              <Grid item xs={12} sm={6}>
-                <ParagraphHeading>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </ParagraphHeading>
-              </Grid>
+            <Grid container>
+              <Grid item xs={12} sm={6}></Grid>
               <Grid item xs={12} sm={6}>
                 <Box>
                   <Formik
@@ -140,7 +122,7 @@ function EnrollForm({ data }) {
                       isSubmitting,
                       setFieldValue,
                     }) => (
-                      <Form>
+                      <Form style={{ padding: 'clamp(12px,4vw,40px)' }}>
                         <Stack
                           flexDirection="row"
                           justifyContent="space-between"
@@ -447,3 +429,17 @@ function EnrollForm({ data }) {
 }
 
 export default EnrollForm;
+
+export async function getServerSideProps(context) {
+  const { params } = context;
+
+  const courseId = params.courseId;
+
+  const filteredCourse = await getSelectedCourse(courseId);
+
+  return {
+    props: {
+      data: filteredCourse,
+    },
+  };
+}
