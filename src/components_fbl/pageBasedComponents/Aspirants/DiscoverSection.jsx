@@ -1,5 +1,5 @@
-import DiscoverCardLists from '@/components_fbl/CardComponents/AspirantCards/DiscoverCardLists';
 import PrimaryFillButton from '@/components_fbl/buttonComponents/PrimaryFillButton';
+import DiscoverCardLists from '@/components_fbl/CardComponents/AspirantCards/DiscoverCardLists';
 import CustomSection from '@/components_fbl/globalComponents/CustomContainer/CustomSection';
 import PrimaryHeading from '@/components_fbl/headingComponents/PrimaryHeading';
 import { discoverSectionData } from '@/constants/Aspirants/aspirantPageData';

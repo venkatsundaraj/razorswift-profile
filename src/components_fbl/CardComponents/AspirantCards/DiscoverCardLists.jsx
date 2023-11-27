@@ -33,7 +33,7 @@ function DiscoverCardLists({ cardData }) {
                 <SubtitleHeading>
                   <Link
                     style={{ textDecoration: 'none', color: '#212121' }}
-                    href="/"
+                    href={`/aspirants/blogs`}
                   >
                     Read the artice
                   </Link>

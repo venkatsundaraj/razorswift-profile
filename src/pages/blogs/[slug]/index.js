@@ -1,11 +1,14 @@
 import { Questionsectdata } from '@/constants/Articles/articlesdata';
 import blogscarddata from '@/constants/Blogs/blogscarddata';
+import CustomImage from '@/src/components_fbl/globalComponents/CustomImage/CustomImage';
 import Layout from '@/src/components_fbl/NavigationComponents/Layout';
+import { insideblogban } from '@/src/constants/Blogs/herosection';
 import { bebasNeue, urbanist } from '@/utils/themes/typography';
 import { Box, Container, Grid, Link, Stack, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import React from 'react';
+
 const index = () => {
   const firstsec = {
     offscreen: {
@@ -67,21 +70,16 @@ const index = () => {
           <Stack
             justifyContent="center"
             alignItems="center"
-            sx={{ marginTop: '50px' }}
+            sx={{ marginTop: '80px' }}
           >
-            <Box
-              sx={{
-                height: '60vh',
-                backgroundColor: '#672476',
-                width: '80%',
-                borderRadius: '50px',
-              }}
-            >
-              s
-            </Box>
+            <CustomImage
+              src={insideblogban[0].img}
+              width="clamp(300px,60vw,1400px)"
+              aspectRatio="1400/567"
+            />
           </Stack>
         </Box>
-        <Box sx={{ paddingTop: { xs: '200px', md: '100px' } }}>
+        <Box sx={{ paddingTop: { xs: '200px', md: '100px', md: '150px' } }}>
           <Container>
             <Typography
               sx={{ fontSize: '24px', fontWeight: '600', color: 'black' }}

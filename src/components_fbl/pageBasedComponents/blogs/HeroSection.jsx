@@ -105,6 +105,15 @@ const HeroSection = () => {
     textDecoration: 'none',
     overflow: 'hidden',
   };
+
+  const data = [
+    { id: 'aspirants', title: 'Aspirants Page' },
+    { id: 'business', title: 'Business Page' },
+    { id: 'partners', title: 'Partners Page' },
+  ];
+
+  // const filteredData = data.find(item => item.id === id);
+  // const { params } = context;
   return (
     <Box
       sx={{
