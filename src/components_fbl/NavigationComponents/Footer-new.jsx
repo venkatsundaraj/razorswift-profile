@@ -42,7 +42,6 @@ const Footer = ({}) => {
 
   useEffect(() => {
     setIsInView(isView);
-    console.log(sectionRef);
   }, [isInView, isInView, isView]);
 
   useMotionValueEvent(scrollY, 'change', latest => {

@@ -7,7 +7,7 @@ import { LoadingContext } from '@/reUsableComponents/LoadingComponents/LoadingCo
 import Layout from '@/src/components_fbl/NavigationComponents/Layout';
 import CustomSection from '@/src/components_fbl/globalComponents/CustomContainer/CustomSection';
 import { AccountApi } from '@/swagger_api/*';
-import { getSelectedCourse } from '@/utils/getCourseList';
+import { getCourseList, getSelectedCourse } from '@/utils/getCourseList';
 import {
   alphabetsValidationSchema,
   emailValidation,
@@ -63,7 +63,13 @@ const FORM_VALIDATION = Yup.object().shape({
   ),
 });
 
+const initialState = {
+  id: '1',
+  title: 'Python',
+  description: 'python course',
+};
 function EnrollForm({ data }) {
+  console.log(data);
   const { loading, setLoading } = useContext(LoadingContext);
   const [course, setCourse] = useState(data);
 
@@ -430,7 +436,21 @@ function EnrollForm({ data }) {
 
 export default EnrollForm;
 
-export async function getServerSideProps(context) {
+// export async function getServerSideProps(context) {
+//   const { params } = context;
+
+//   const courseId = params.courseId;
+
+//   const filteredCourse = await getSelectedCourse(courseId);
+
+//   return {
+//     props: {
+//       data: filteredCourse,
+//     },
+//   };
+// }
+
+export async function getStaticProps(context) {
   const { params } = context;
 
   const courseId = params.courseId;
@@ -441,5 +461,19 @@ export async function getServerSideProps(context) {
     props: {
       data: filteredCourse,
     },
+  };
+}
+
+export async function getStaticPaths() {
+  const lists = await getCourseList();
+
+  if (!lists.courses.length) return;
+  const ids = lists.courses.map(item => item.id);
+
+  const paths = ids.map(id => ({ params: { courseId: id.toString() } }));
+
+  return {
+    paths,
+    fallback: false,
   };
 }
