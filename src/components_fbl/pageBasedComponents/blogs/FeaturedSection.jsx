@@ -6,7 +6,7 @@ import { Container, Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-const Futuredsection = () => {
+const FeaturedSection = () => {
   const banimg = {
     width: 'clamp(300px, 36.2vw, 530px)',
     height: 'auto',
@@ -129,4 +129,4 @@ const Futuredsection = () => {
   );
 };
 
-export default Futuredsection;
+export default FeaturedSection;

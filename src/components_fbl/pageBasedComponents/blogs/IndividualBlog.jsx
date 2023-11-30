@@ -9,7 +9,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import React from 'react';
 
-const index = () => {
+const IndividualBlog = () => {
   const firstsec = {
     offscreen: {
       opacity: 0,
@@ -292,4 +292,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default IndividualBlog;

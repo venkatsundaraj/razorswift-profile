@@ -1,9 +1,8 @@
-import blogscarddata from '@/constants/Blogs/blogscarddata';
 import { Container, Grid, Link, Typography } from '@mui/material';
 import { Box, Stack } from '@mui/system';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-const BlogCard = () => {
+const BlogCard = ({ filteredData }) => {
   const banimg = {
     width: '100%',
     height: 'auto',
@@ -72,8 +71,8 @@ const BlogCard = () => {
             viewport={{ once: true }}
           >
             <Grid container spacing={5}>
-              {blogscarddata.map((item, index) => (
-                <Grid sx={{}} item xs={12} sm={6} md={4}>
+              {filteredData.blogs.map((item, index) => (
+                <Grid sx={{ position: 'relative' }} item xs={12} sm={6} md={4}>
                   <Stack
                     sx={{
                       backgroundColor: '#ffccc963',
@@ -88,7 +87,7 @@ const BlogCard = () => {
                       },
                     }}
                   >
-                    <Image alt="bannerImage" style={banimg} src={item.img} />
+                    <Image alt="bannerImage" style={banimg} src={item.image} />
                     <Stack sx={{ padding: '10px' }}>
                       <Typography
                         sx={{
@@ -104,9 +103,9 @@ const BlogCard = () => {
 
                             fontWeight: '500',
                           }}
-                          href=""
+                          href={`/blogs/${filteredData.id}/${item.id}`}
                         >
-                          {item.title}
+                          {item.individualBlogTitle}
                         </Link>
                       </Typography>
                       <Stack flexDirection="row" justifyContent="space-between">
@@ -120,9 +119,9 @@ const BlogCard = () => {
                         >
                           <Link
                             style={{ textDecoration: 'none', color: 'black' }}
-                            href=""
+                            href={`/blogs/${filteredData.id}/${item.id}`}
                           >
-                            {item.article}
+                            Short Read
                           </Link>
                         </Typography>
                         <Typography
