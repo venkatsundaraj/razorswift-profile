@@ -1,27 +1,21 @@
 'use client';
 
-import CustomSection from '@/src/components_fbl/globalComponents/CustomContainer/CustomSection';
-import PrimaryHeading from '@/src/components_fbl/headingComponents/PrimaryHeading';
-const data = [
-  { id: 'aspirants', title: 'Aspirants Page' },
-  { id: 'business', title: 'Business Page' },
-  { id: 'partners', title: 'Partners Page' },
-];
+import Layout from '@/src/components_fbl/NavigationComponents/Layout';
+import BlogCard from '@/src/components_fbl/pageBasedComponents/blogs/BlogCard';
+import HeroSection from '@/src/components_fbl/pageBasedComponents/blogs/HeroSection';
+import { ctaData } from '@/src/constants/Blogs/ctaBlogs';
+import { Box } from '@mui/system';
 function index({ id }) {
-  const filteredData = data.find(item => item.id === id);
+  const filteredData = ctaData.find(item => item.id === id);
+  console.log(filteredData);
+  if (!filteredData) null;
   return (
-    <CustomSection
-      sx={{
-        minHeight: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
-      {filteredData ? (
-        <PrimaryHeading>{filteredData.title}</PrimaryHeading>
-      ) : null}
-    </CustomSection>
+    <Layout>
+      <Box component="main">
+        <HeroSection filteredData={filteredData} />
+        <BlogCard filteredData={filteredData} />
+      </Box>
+    </Layout>
   );
 }
 export default index;
@@ -30,7 +24,7 @@ export async function getServerSideProps(context) {
   console.log(params.slug);
   return {
     props: {
-      id: params.slug,
+      id: params.slug.toString(),
     },
   };
 }
