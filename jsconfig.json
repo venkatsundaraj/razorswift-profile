@@ -20,7 +20,8 @@
       "@/view/*": ["src/Components/View/*"],
       "@/store/*": ["src/store/*"],
       "@/src/*": ["src/*"],
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "contentlayer/generated": ["./.contentlayer/generated"]
     }
   },
   "include": ["src", "src/components/pageComponents/landing/.js"]

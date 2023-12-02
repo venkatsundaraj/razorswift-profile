@@ -52,6 +52,27 @@ code {
   background: #555;
 }
 
+.last-index {
+  top: 8%;
+  z-index: 1;
+  transform: scale(0.84);
+  transition: all 600ms linear;
+}
+
+.next-index {
+  top: 16%;
+  z-index: 2;
+  transform: scale(0.92);
+  transition: all 600ms linear;
+}
+
+.current-index {
+  z-index: 3;
+  top: 24%;
+  transform: scale(1);
+  transition: all 600ms linear;
+}
+
 .swiper-pagination-bullet {
   color: #fff;
   background: red;

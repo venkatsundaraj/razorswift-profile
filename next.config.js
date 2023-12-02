@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 
+const { withContentlayer } = require('next-contentlayer');
+
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
@@ -31,7 +33,7 @@ const advancedHeaders = [
   },
 ];
 
-module.exports = {
+module.exports = withContentlayer({
   productionBrowserSourceMaps: true,
   eslint: {
     // Warning: This allows production builds to successfully complete even if
@@ -81,4 +83,4 @@ module.exports = {
 
     return config;
   },
-};
+});

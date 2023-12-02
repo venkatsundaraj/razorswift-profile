@@ -38,6 +38,7 @@ function Aspirants() {
           dropDownData={dropDownData}
           dropDownBodyData={dropDownBodyData}
         />
+        <DiscoverSection />
 
         <FastrackSection />
         <GetStartedSection readyToStartData={readyToStartData} />

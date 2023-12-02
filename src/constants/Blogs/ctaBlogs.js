@@ -5,7 +5,7 @@ export const ctaData = [
     id: 'aspirants',
     blogType: 'RazorSwift Aspirants Blog',
     blogTitle: 'A TREASURE TROVE OF KNOWLEDGE ASPIRANTS',
-    blogTitleone:
+    blogTitleDesc:
       'Knowledge hub, written for igniting growth and fueling ambitions.',
     blogs: [
       {
@@ -45,9 +45,20 @@ export const ctaData = [
     id: 'business',
     blogType: 'RazorSwift Business Blog',
     blogTitle: 'A TREASURE TROVE OF KNOWLEDGE BUSINESS',
-    blogTitleone:
+    blogTitleDesc:
       'Knowledge hub, written for igniting growth and fueling ambitions.',
     blogs: [
+      {
+        id: 'how-we-built-razorswift-innovations-a-talent-marketplace-for-the-future',
+        individualBlogTitle:
+          'How We Built Razorswift Innovations: A Talent Marketplace for the Future',
+        individualBlogDescription:
+          'We are Aravind Sridharan, Priyanka Sakuru, Sandhya Reddy, and Parag Bhagwat, the co-founders of Razorswift Innovations, a platform that connects aspirants and business clients in the talent management industry. We are passionate about innovation and transforming the way talent is discovered, engaged, and developed. In this blog post, we want to share with you our story of how we built Razorswift Innovations from scratch and what challenges we faced along the way.',
+        individualImageData: '',
+        more: 'Read More',
+        image: blog.blogplace2,
+        date: `21 May 2023`,
+      },
       {
         id: 'how-we-built-razorswift-innovations-a-talent-marketplace-for-the-future',
         individualBlogTitle:
@@ -65,7 +76,7 @@ export const ctaData = [
     id: 'partners',
     blogType: 'RazorSwift Partners Blog',
     blogTitle: 'A TREASURE TROVE OF KNOWLEDGE PARTNERS',
-    blogTitleone:
+    blogTitleDesc:
       'Knowledge hub, written for igniting growth and fueling ambitions.',
     blogs: [
       {
