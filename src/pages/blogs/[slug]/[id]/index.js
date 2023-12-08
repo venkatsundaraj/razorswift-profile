@@ -1,4 +1,5 @@
 import Layout from '@/src/components_fbl/NavigationComponents/Layout';
+import BlogBody from '@/src/components_fbl/pageBasedComponents/blogs/BlogBody';
 import IndividualBlogBanner from '@/src/components_fbl/pageBasedComponents/blogs/IndividualBlogBanner';
 import { Box } from '@mui/material';
 import { allBlogs } from 'contentlayer/generated';
@@ -10,6 +11,7 @@ function index({ data }) {
     <Layout>
       <Box component="main">
         <IndividualBlogBanner blog={blog} />
+        <BlogBody blog={blog} />
       </Box>
     </Layout>
   );
@@ -29,6 +31,8 @@ export async function getStaticPaths() {
   const ids = allBlogs.map(item => ({
     params: { slug: item.parent, id: item.slugAsParams },
   }));
+
+  console.log(ids);
 
   return { paths: ids, fallback: false };
 }

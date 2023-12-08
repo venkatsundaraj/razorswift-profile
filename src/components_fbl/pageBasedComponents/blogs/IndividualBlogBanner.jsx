@@ -1,7 +1,7 @@
+import ParagraphHeading from '@/components_fbl/headingComponents/ParagraphHeading';
+import PrimaryHeading from '@/components_fbl/headingComponents/PrimaryHeading';
 import { Box, Container, Stack } from '@mui/material';
-import Image from 'next/image';
-import ParagraphHeading from '../../headingComponents/ParagraphHeading';
-import PrimaryHeading from '../../headingComponents/PrimaryHeading';
+import CustomImage from '../../globalComponents/CustomImage/CustomImage';
 
 function IndividualBlogBanner({ blog }) {
   console.log(blog);
@@ -9,13 +9,14 @@ function IndividualBlogBanner({ blog }) {
     <Box
       component="section"
       sx={{
-        minHeight: { xs: '130vh', sm: '100vh', lg: '130vh', xl: '100vh' },
+        minHeight: { xs: '130vh', sm: '80vh', lg: '130vh', xl: '100vh' },
 
         pt: 16,
         pb: 4,
         background: {
           xs: `linear-gradient(to bottom, #A62973 90%, #fff 30%)`,
-          xl: `linear-gradient(to bottom, #A62973 90%, #fff 10%)`,
+          sm: `#A62973`,
+          lg: `linear-gradient(to bottom, #A62973 90%, #fff 10%)`,
         },
       }}
     >
@@ -23,8 +24,9 @@ function IndividualBlogBanner({ blog }) {
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          gap: 4,
           alignItems: 'center',
+          justifyContent: 'center',
+          gap: 4,
         }}
       >
         {blog.title ? (
@@ -47,17 +49,17 @@ function IndividualBlogBanner({ blog }) {
           sx={{
             width: '100%',
             backgroundColor: 'violetPalette.dark',
-            padding: 2,
-            borderRadius: 4,
+            py: { xs: 4, lg: 8, xl: 10 },
+            borderRadius: 9,
           }}
           alignItems="center"
           justifyContent="center"
         >
           {blog.image ? (
-            <Image
+            <CustomImage
               src={blog.image.filePath.replace('../../public', '')}
-              width={350}
-              height={350}
+              width="clamp(300px, 25vw, 400px)"
+              aspectRatio="1/1"
               alt="hello"
             />
           ) : null}

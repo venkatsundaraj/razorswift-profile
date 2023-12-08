@@ -10,7 +10,7 @@ function EdTechScroller() {
       sx={{
         width: '100vw',
         backgroundColor: 'primaryPalette.white',
-        padding: { xs: '16px 16px', sm: '24px 24px', lg: '64px 24px' },
+        padding: { xs: '16px 16px', sm: '24px 24px' },
       }}
     >
       <Container>
@@ -20,10 +20,17 @@ function EdTechScroller() {
           spacing={3}
           sx={{ color: 'primaryPalette.black' }}
         >
-          <Grid item xs={12} sm={6}>
-            <ParagraphHeading>{edTechData.description}</ParagraphHeading>
+          <Grid item xs={12} sm={12}>
+            <ParagraphHeading sx={{ textAlign: 'center' }}>
+              {edTechData.description}
+            </ParagraphHeading>
           </Grid>
-          <Grid item xs={12} sm={6} sx={{ overflow: 'hidden' }}>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            sx={{ overflow: 'hidden', display: 'none' }}
+          >
             <ParagraphHeading>{edTechData.edTechCopy}</ParagraphHeading>
             <InfiniteScroll edTechData={edTechData.techLogos} />
           </Grid>
