@@ -252,28 +252,36 @@ const Footer = ({}) => {
             >
               2023 Razorswift. All rights reserved.
             </ParagraphHeading>
-            <Link
-              style={{ textDecoration: 'none', color: 'inherit' }}
-              href="termsofservices"
+            <Stack
+              flexDirection="row"
+              alignItems="center"
+              gap={4}
+              sx={{ width: { xs: '100%', sm: 'initial' } }}
+              justifyContent={{ xs: 'space-between', sm: 'center' }}
             >
-              <ParagraphHeading
-                style={{ fontSize: '14px' }}
-                sx={{ color: 'inherit' }}
+              <Link
+                style={{ textDecoration: 'none', color: 'inherit' }}
+                href="termsofservices"
               >
-                Terms of Services
-              </ParagraphHeading>
-            </Link>
-            <Link
-              style={{ textDecoration: 'none', color: 'inherit' }}
-              href="/privacypolicy"
-            >
-              <ParagraphHeading
-                style={{ fontSize: '14px' }}
-                sx={{ color: 'inherit' }}
+                <ParagraphHeading
+                  style={{ fontSize: '14px' }}
+                  sx={{ color: 'inherit' }}
+                >
+                  Terms of Services
+                </ParagraphHeading>
+              </Link>
+              <Link
+                style={{ textDecoration: 'none', color: 'inherit' }}
+                href="/privacypolicy"
               >
-                Privacy Policy
-              </ParagraphHeading>
-            </Link>
+                <ParagraphHeading
+                  style={{ fontSize: '14px' }}
+                  sx={{ color: 'inherit' }}
+                >
+                  Privacy Policy
+                </ParagraphHeading>
+              </Link>
+            </Stack>
           </Stack>
         </Container>
       </Box>

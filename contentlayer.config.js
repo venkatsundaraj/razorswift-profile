@@ -15,6 +15,9 @@ const Blog = defineDocumentType(() => ({
       type: 'string',
       required: true,
     },
+    bannerData: {
+      type: 'string',
+    },
     description: {
       type: 'string',
       required: true,
