@@ -16,4 +16,5 @@ export const edTechData = {
     { id: 3, logo: coursesPageImagePaths.google },
     { id: 4, logo: coursesPageImagePaths.google },
   ],
+  qrImage: coursesPageImagePaths.qrImage,
 };

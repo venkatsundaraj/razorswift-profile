@@ -1,7 +1,9 @@
-import React from 'react';
+import { useRouter } from 'next/navigation';
 
 function index() {
-  return <div>Blogs Duplicate</div>;
+  const router = useRouter();
+  router.push('/blogs/aspirants');
+  return <div></div>;
 }
 
 export default index;
