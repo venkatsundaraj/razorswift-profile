@@ -114,7 +114,7 @@ const MeettheTeam = () => {
         </motion.div>
       </motion.div>
       <Grid
-        sx={{ width: '100%', marginTop: '50px' }}
+        sx={{ marginTop: '50px' }}
         container
         justifyContent="center"
         alignItems="center"
@@ -131,75 +131,94 @@ const MeettheTeam = () => {
             md={6}
             key={i}
           >
-            <motion.div transition={{ staggerChildren: 1.9 }}>
-              <motion.div
-                variants={secondsec}
-                initial={'offscreen'}
-                whileInView={'onscreen'}
-                viewport={{ once: true }}
-              >
-                <Link
-                  ref={leftclickRef}
-                  href={`/aboutus/${item.slug}`}
-                  style={secstyle}
-                  onClick={e => {
-                    console.log(e);
-                    if (e.ctrlKey) {
-                      // If Ctrl (or Cmd) key is held, open the link in a new tab
-                      return;
-                    }
-                    e.preventDefault();
-                    handleLinkClick(item.id);
-                  }}
+            <Stack alignItems="center" justifyContent="center">
+              <motion.div transition={{ staggerChildren: 1.9 }}>
+                <motion.div
+                  variants={secondsec}
+                  initial={'offscreen'}
+                  whileInView={'onscreen'}
+                  viewport={{ once: true }}
                 >
-                  <Stack flexDirection="column" gap={1} sx={{ width: '100%' }}>
-                    <Image
-                      alt="personimage"
-                      style={{
-                        width: '500px',
-                        height: 'auto',
-                        alignSelf: 'center',
-                        paddingBottom: '20px',
-                        borderBottom: '1px solid #707070',
-                        aspectRatio: '1/1',
-                        objectFit: 'cover',
-                      }}
-                      src={item.img}
-                    />
-
-                    <Box
+                  <Link
+                    ref={leftclickRef}
+                    href={`/aboutus/${item.slug}`}
+                    style={secstyle}
+                    onClick={e => {
+                      console.log(e);
+                      if (e.ctrlKey) {
+                        // If Ctrl (or Cmd) key is held, open the link in a new tab
+                        return;
+                      }
+                      e.preventDefault();
+                      handleLinkClick(item.id);
+                    }}
+                  >
+                    <Stack
+                      flexDirection="column"
+                      gap={1}
+                      // className="gradient-overlay"
                       sx={{
-                        margin: {
-                          xs: '-120px 0px 0',
-                          sm: '-120px 150px 0',
-                          md: '-120px 45px 0',
+                        width: 'fit-content',
+                        position: 'relative',
+                        '&:before': {
+                          content: "''",
+                          position: 'absolute',
+                          inset: '0',
+                          background:
+                            'linear-gradient(to top, black, transparent 50%)',
                         },
                       }}
                     >
-                      <Typography
+                      <Stack sx={{}}>
+                        <Image
+                          style={{
+                            width: '500px',
+                            height: 'auto',
+                            alignSelf: 'center',
+                            borderBottom: '1px solid #707070',
+                            aspectRatio: '1/1',
+                            objectFit: 'cover',
+                          }}
+                          src={item.img}
+                        />
+                      </Stack>
+                      <Box
                         sx={{
-                          fontSize: '36px',
-                          fontWeight: '600',
-                          color: 'white',
-                          cursor: 'pointer',
+                          // margin: {
+                          //   xs: '-120px 0px 0',
+                          //   sm: '-120px 150px 0',
+                          //   md: '-120px 45px 0',
+                          // },
+                          position: 'absolute',
+                          bottom: '20px',
+                          left: '20px',
                         }}
                       >
-                        {item.name}
-                      </Typography>
-                      <Typography
-                        sx={{
-                          fontSize: '24px',
-                          color: 'white',
-                          cursor: 'pointer',
-                        }}
-                      >
-                        {item.designation}
-                      </Typography>
-                    </Box>
-                  </Stack>
-                </Link>
+                        <Typography
+                          sx={{
+                            fontSize: '36px',
+                            fontWeight: '600',
+                            color: 'white',
+                            cursor: 'pointer',
+                          }}
+                        >
+                          {item.name}
+                        </Typography>
+                        <Typography
+                          sx={{
+                            fontSize: '24px',
+                            color: 'white',
+                            cursor: 'pointer',
+                          }}
+                        >
+                          {item.designation}
+                        </Typography>
+                      </Box>
+                    </Stack>
+                  </Link>
+                </motion.div>
               </motion.div>
-            </motion.div>
+            </Stack>
           </Grid>
         ))}
       </Grid>

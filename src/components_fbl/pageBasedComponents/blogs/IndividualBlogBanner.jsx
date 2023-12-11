@@ -1,6 +1,6 @@
 import ParagraphHeading from '@/components_fbl/headingComponents/ParagraphHeading';
 import PrimaryHeading from '@/components_fbl/headingComponents/PrimaryHeading';
-import { Box, Container, Stack } from '@mui/material';
+import { Box, Container } from '@mui/material';
 import CustomImage from '../../globalComponents/CustomImage/CustomImage';
 
 function IndividualBlogBanner({ blog }) {
@@ -45,7 +45,7 @@ function IndividualBlogBanner({ blog }) {
             {blog.description}
           </ParagraphHeading>
         ) : null}
-        <Stack
+        {/* <Stack
           sx={{
             width: '100%',
             backgroundColor: 'violetPalette.dark',
@@ -54,16 +54,17 @@ function IndividualBlogBanner({ blog }) {
           }}
           alignItems="center"
           justifyContent="center"
-        >
-          {blog.image ? (
-            <CustomImage
-              src={blog.image.filePath.replace('../../public', '')}
-              width="clamp(300px, 25vw, 400px)"
-              aspectRatio="1/1"
-              alt="hello"
-            />
-          ) : null}
-        </Stack>
+        > */}
+        {blog.image ? (
+          <CustomImage
+            src={blog.image.filePath.replace('../../public', '')}
+            width="100%"
+            aspectRatio="200/81"
+            alt="hello"
+            style={{ borderRadius: '50px', border: '5px solid white' }}
+          />
+        ) : null}
+        {/* </Stack> */}
       </Container>
     </Box>
   );

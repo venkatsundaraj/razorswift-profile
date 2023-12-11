@@ -1,8 +1,7 @@
-import { FormControl, MenuItem, Select } from '@mui/material';
-import { useState } from 'react';
-
 import CustomDropDownIcon from '@/components_fbl/globalComponents/CustomDropDown/CustomDropDownIcon';
 import TertiaryHeading from '@/components_fbl/headingComponents/TertiaryHeading';
+import { FormControl, MenuItem, Select } from '@mui/material';
+import { useState } from 'react';
 
 function CareerDropDown({ dropDownData, changeHandler }) {
   const [profession, setProfession] = useState('1');
@@ -40,7 +39,7 @@ function CareerDropDown({ dropDownData, changeHandler }) {
             md: theme.spacing(1, 4),
           }),
           boxShadow: '0px 10px 15px -3px rgba(0,0,0,0.1)',
-          backgroundColor: 'primaryPalette.white',
+          backgroundColor: 'red',
           borderRadius: theme => theme.spacing(5),
           color: 'blue',
           position: 'relative',
@@ -72,6 +71,7 @@ function CareerDropDown({ dropDownData, changeHandler }) {
               padding: 2,
               textAlign: 'center',
               textAlign: 'center',
+              backgroundColor: 'red',
             }}
           >
             <TertiaryHeading
