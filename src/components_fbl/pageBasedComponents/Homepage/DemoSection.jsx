@@ -36,7 +36,7 @@ const DemoSection = () => {
         alignItems: 'center',
         height: { xs: '100%', sm: '', md: '' },
         justifyContent: 'center',
-        padding: '40px 0',
+        padding: { xl: '40px 0', lg: '0 0 40px 0', xs: '40px 0' },
       }}
     >
       <Box
