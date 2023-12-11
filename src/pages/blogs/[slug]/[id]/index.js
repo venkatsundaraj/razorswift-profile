@@ -32,7 +32,5 @@ export async function getStaticPaths() {
     params: { slug: item.parent, id: item.slugAsParams },
   }));
 
-  console.log(ids);
-
   return { paths: ids, fallback: false };
 }

@@ -6,7 +6,10 @@ import SubtitleHeading from '@/components_fbl/headingComponents/SubtitleHeading'
 import { LoadingContext } from '@/reUsableComponents/LoadingComponents/LoadingContext';
 import Layout from '@/src/components_fbl/NavigationComponents/Layout';
 import CustomSection from '@/src/components_fbl/globalComponents/CustomContainer/CustomSection';
+import CustomImage from '@/src/components_fbl/globalComponents/CustomImage/CustomImage';
+import { edTechData } from '@/src/constants/Courses/coursesPageData';
 import { AccountApi } from '@/swagger_api/*';
+import { submitEnrollUserData } from '@/utils/enrollUser';
 import { getCourseList, getSelectedCourse } from '@/utils/getCourseList';
 import {
   alphabetsValidationSchema,
@@ -69,7 +72,6 @@ const initialState = {
   description: 'python course',
 };
 function EnrollForm({ data }) {
-  console.log(data);
   const { loading, setLoading } = useContext(LoadingContext);
   const [course, setCourse] = useState(data);
 
@@ -90,9 +92,11 @@ function EnrollForm({ data }) {
         },
       };
 
-      const response = await new Promise(resolve => setTimeout(resolve, 2000));
+      // const response = await new Promise(resolve => setTimeout(resolve, 2000));
 
-      console.log(opts);
+      const result = await submitEnrollUserData(opts.body);
+
+      console.log(opts.body, result);
       resetForm();
     } catch (err) {
       if (err instanceof AxiosError) {
@@ -109,8 +113,16 @@ function EnrollForm({ data }) {
       <Box component="main">
         <CustomSection>
           <Container>
-            <Grid container>
-              <Grid item xs={12} sm={6}></Grid>
+            <Grid container alignItems="center" justifyContent="center">
+              <Grid item xs={12} sm={6}>
+                <Stack sx={{ width: '100%' }}>
+                  <CustomImage
+                    src={edTechData.qrImage}
+                    width="80%"
+                    aspectRatio="1/1"
+                  />
+                </Stack>
+              </Grid>
               <Grid item xs={12} sm={6}>
                 <Box>
                   <Formik

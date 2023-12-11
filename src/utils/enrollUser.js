@@ -1,6 +1,6 @@
 import axios, { AxiosError } from 'axios';
 
-export const enrollUser = async function (userData) {
+export const submitEnrollUserData = async function (userData) {
   try {
     const { data } = await axios.post(
       'https://asia-south1-razorswift.cloudfunctions.net/enrollCourse',
