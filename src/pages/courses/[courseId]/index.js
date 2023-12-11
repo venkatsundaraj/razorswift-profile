@@ -9,7 +9,6 @@ import CustomSection from '@/src/components_fbl/globalComponents/CustomContainer
 import CustomImage from '@/src/components_fbl/globalComponents/CustomImage/CustomImage';
 import { edTechData } from '@/src/constants/Courses/coursesPageData';
 import { AccountApi } from '@/swagger_api/*';
-import { submitEnrollUserData } from '@/utils/enrollUser';
 import { getCourseList, getSelectedCourse } from '@/utils/getCourseList';
 import {
   alphabetsValidationSchema,
@@ -35,6 +34,7 @@ import * as Yup from 'yup';
 const INITIAL_FORM_STATE = {
   fullName: '',
   email: '',
+  transactionNumber: '',
   mobileNumber: '',
   existedUser: '',
   acceptTermsAndConditions: true,
@@ -60,6 +60,7 @@ const FORM_VALIDATION = Yup.object().shape({
   email: emailValidation('Email', true),
   mobileNumber: validateContactNumber('Mobile Number', true),
   existedUser: alphabetsValidationSchema('Existed User', false),
+  transactionNumber: Yup.number().required('Transaction ID is required'),
   acceptTermsAndConditions: Yup.boolean().oneOf(
     [true],
     'The acceptance of Terms and Conditions is required.'
@@ -88,15 +89,16 @@ function EnrollForm({ data }) {
           fullName: values.fullName.trim(),
           email: values.email.trim(),
           existedUser: values.existedUser ? values.existedUser : '',
+          transactionNumber: values.transactionNumber,
           ...course,
         },
       };
 
-      // const response = await new Promise(resolve => setTimeout(resolve, 2000));
+      const response = await new Promise(resolve => setTimeout(resolve, 2000));
 
       const result = await submitEnrollUserData(opts.body);
 
-      console.log(opts.body, result);
+      console.log(opts.body);
       resetForm();
     } catch (err) {
       if (err instanceof AxiosError) {
@@ -111,14 +113,87 @@ function EnrollForm({ data }) {
   return (
     <Layout>
       <Box component="main">
-        <CustomSection>
+        <CustomSection style={{ padding: '96px 0' }}>
           <Container>
-            <Grid container alignItems="center" justifyContent="center">
+            <Grid container>
+              <Grid item lg={12}>
+                <Stack
+                  flexDirection="row"
+                  justifyContent="space-between"
+                  alignItems="center"
+                  sx={{ mb: 2 }}
+                >
+                  <Box
+                    sx={{
+                      color: 'primaryPalette.black',
+                      flexBasis: { xs: '70%', sm: '80%' },
+                    }}
+                  >
+                    <ParagraphHeading sx={{ mb: 0.4 }}>
+                      Course Chosen
+                    </ParagraphHeading>
+                    <SubtitleHeading style={{ fontWeight: 'bold' }}>
+                      {course.name}
+                    </SubtitleHeading>
+                  </Box>
+                  <Box
+                    sx={{
+                      color: 'primaryPalette.black',
+                      justifySelf: 'flex-end',
+                    }}
+                  >
+                    <ParagraphHeading sx={{ mb: 0.4, textAlign: 'end' }}>
+                      Course ID
+                    </ParagraphHeading>
+                    <SubtitleHeading
+                      style={{ fontWeight: 'bold', textAlign: 'end' }}
+                    >
+                      {course.id}
+                    </SubtitleHeading>
+                  </Box>
+                </Stack>
+              </Grid>
+
+              <Grid item sm={12}>
+                <Typography
+                  sx={{
+                    color: '#000000',
+                    textAlign: 'center',
+                    fontWeight: 'bold',
+                    fontSize: 'clamp(24px, 2vw, 32px)',
+                    mb: 2,
+                  }}
+                >
+                  Welcome to your Upskilling journey!
+                </Typography>
+              </Grid>
+              <Grid item sm={12}>
+                <ParagraphHeading
+                  sx={{
+                    textAlign: 'center',
+                    color: '3A3A3A',
+                  }}
+                >
+                  Buy your course in a few simple steps! Scan the QR Code given
+                  below, pay and enter your transaction number below, and submit
+                  the form. We will contact you in a couple of hours with more
+                  details on your course. Happy Learning!
+                </ParagraphHeading>
+              </Grid>
+            </Grid>
+
+            <Grid container alignItems="end">
               <Grid item xs={12} sm={6}>
-                <Stack sx={{ width: '100%' }}>
+                <Stack
+                  sx={{
+                    width: '100%',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
                   <CustomImage
                     src={edTechData.qrImage}
-                    width="80%"
+                    width="clamp(300px, 40vw, 390px)"
                     aspectRatio="1/1"
                   />
                 </Stack>
@@ -142,61 +217,10 @@ function EnrollForm({ data }) {
                     }) => (
                       <Form style={{ padding: 'clamp(12px,4vw,40px)' }}>
                         <Stack
-                          flexDirection="row"
-                          justifyContent="space-between"
-                          alignItems="center"
-                          sx={{ mb: 2 }}
-                        >
-                          <Box
-                            sx={{
-                              color: 'primaryPalette.black',
-                              flexBasis: { xs: '70%', sm: '80%' },
-                            }}
-                          >
-                            <ParagraphHeading sx={{ mb: 0.4 }}>
-                              Course Chosen
-                            </ParagraphHeading>
-                            <SubtitleHeading style={{ fontWeight: 'bold' }}>
-                              {course.name}
-                            </SubtitleHeading>
-                          </Box>
-                          <Box
-                            sx={{
-                              color: 'primaryPalette.black',
-                              justifySelf: 'flex-end',
-                            }}
-                          >
-                            <ParagraphHeading
-                              sx={{ mb: 0.4, textAlign: 'end' }}
-                            >
-                              Course ID
-                            </ParagraphHeading>
-                            <SubtitleHeading
-                              style={{ fontWeight: 'bold', textAlign: 'end' }}
-                            >
-                              {course.id}
-                            </SubtitleHeading>
-                          </Box>
-                        </Stack>
-                        <Stack
                           flexDirection="column"
                           alingItems="center"
                           gap={3}
                         >
-                          <Stack
-                            alingItems="center"
-                            justifyContent="space-between"
-                          ></Stack>
-                          <Typography
-                            sx={{
-                              color: '#000000',
-                              textAlign: 'center',
-                              fontWeight: 'bold',
-                              fontSize: 'clamp(24px, 2vw, 32px)',
-                            }}
-                          >
-                            Welcome to your Upskilling journey!
-                          </Typography>
                           <Grid
                             container
                             spacing={3}
@@ -376,6 +400,44 @@ function EnrollForm({ data }) {
                                 type="text"
                                 variant="filled"
                                 name="existedUser"
+                                label=""
+                                InputProps={{
+                                  disableUnderline: true,
+                                  sx: { borderRadius: '40px' },
+                                }}
+                              />
+                            </Grid>
+
+                            <Grid item xs={12}>
+                              <InputLabel
+                                htmlFor="filled-hidden-label-small"
+                                sx={{
+                                  mb: 1.4,
+                                  fontSize: 'clamp(16px, 1.6vw, 18px)',
+                                  color: 'primaryPalette.black',
+                                  fontWeight: '500',
+                                }}
+                              >
+                                Transaction ID
+                              </InputLabel>
+                              <InputField
+                                sx={{
+                                  borderRadius: '100vw',
+                                  outline: 'none',
+                                  backgroundColor: '#dedede',
+                                  '& fieldset': { border: 'none' },
+                                }}
+                                fullWidth
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                value={values.transactionNumber}
+                                error={errors.transactionNumber}
+                                hiddenLabel
+                                id="filled-hidden-label-small"
+                                type="text"
+                                variant="filled"
+                                x
+                                name="transactionNumber"
                                 label=""
                                 InputProps={{
                                   disableUnderline: true,
