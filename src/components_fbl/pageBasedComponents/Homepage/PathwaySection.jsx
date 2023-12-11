@@ -7,8 +7,8 @@ import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import Link from '@mui/material/Link';
-import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
 import { Box } from '@mui/system';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
@@ -191,7 +191,7 @@ export default function PathwaySection() {
       sx={{
         backgroundColor: 'primary.main',
         padding: { xs: '40px 15px', lg: '30px 0' },
-        height: { xl: '100vh' },
+        height: { lg: '100vh' },
         display: 'flex',
         alignItems: 'center',
       }}
@@ -442,7 +442,7 @@ export default function PathwaySection() {
                   >
                     <Box
                       sx={{
-                        padding: '20px 0',
+                        padding: { xs: '20px 0', lg: '10px 0', xl: '20px 0' },
                         '&:hover': {
                           color: '#EE5064',
                         },
