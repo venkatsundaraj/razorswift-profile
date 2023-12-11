@@ -10,12 +10,12 @@ export const ctaData = [
     blogs: [
       {
         id: 'tips-to-write-a-great-resume',
-        individualBlogTitle: 'Tips to write a great resume',
+        individualBlogTitle: 'Tips to write a great resumes',
         individualBlogDescription:
           'Writing a great resume is essential for landing your dream job. A resume is a summary of your career, showcasing the jobs you’ve held and currently hold, the responsibilities you’ve taken on, the skills you’ve developed, and the qualities you bring to the table as an employee. ',
         individualImageData: '',
         more: 'Read More',
-        image: blog.blogplace2,
+        image: blog.blogaspirants1,
         date: `21 May 2023`,
       },
       {
@@ -25,7 +25,7 @@ export const ctaData = [
           'Most freshers are unaware of what questions will be asked in the HR round. The purpose of an HR interview is to get to know the applicants better and assess their communication skills. The interviewer wants to understand your personality, qualifications, and skills. Interviews are designed and structured so the interviewer can gain insights into how you think and respond in different situations. ',
         individualImageData: '',
         more: 'Read More',
-        image: blog.blogplace2,
+        image: blog.blogaspirants2,
         date: `21 May 2023`,
       },
       {
@@ -36,7 +36,7 @@ export const ctaData = [
           'Salary or hourly wage: Assess the income your potential employer offers and compare it to your financial needs.',
         individualImageData: '',
         more: 'Read More',
-        image: blog.blogplace2,
+        image: blog.blogaspirants3,
         date: `21 May 2023`,
       },
     ],
