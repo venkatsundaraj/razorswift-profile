@@ -61,8 +61,7 @@ function IndividualBlogBanner({ blog }) {
             width="100%"
             aspectRatio="200/81"
             alt="hello"
-            borderRadius="50px"
-            border="5px solid white"
+            style={{ borderRadius: '50px', border: '5px solid white' }}
           />
         ) : null}
         {/* </Stack> */}
