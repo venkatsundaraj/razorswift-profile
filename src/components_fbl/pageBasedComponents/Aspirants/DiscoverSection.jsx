@@ -19,7 +19,7 @@ function DiscoverSection() {
     >
       <PrimaryHeading>{discoverSectionData.title}</PrimaryHeading>
       <PrimaryFillButton
-        href="/hello"
+        href="/blogs/aspirants"
         variant="contained"
         sx={{
           backgroundColor: theme => theme.palette.violetPalette.dark,

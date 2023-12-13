@@ -3,6 +3,7 @@ import BlogCardCopy from '@/src/components_fbl/pageBasedComponents/blogs/BlogCar
 import HeroSectionCopy from '@/src/components_fbl/pageBasedComponents/blogs/HeroSectionCopy';
 import { ctaData } from '@/src/constants/Blogs/ctaBlogs';
 import { Box } from '@mui/material';
+import { allBlogs } from 'contentlayer/generated';
 
 const courses = [
   { id: '1', name: 'aspirants' },
@@ -13,13 +14,21 @@ const courses = [
 function index({ slug }) {
   // console.log(slug, allBlogs);
   const filteredData = ctaData.find(item => item.id === slug);
+  const filteredBlogData = allBlogs.filter(item => item.parent === slug);
 
+  console.log(filteredBlogData, filteredData);
   if (!filteredData) null;
   return (
     <Layout>
       <Box component="main">
-        <HeroSectionCopy filteredData={filteredData} />
-        <BlogCardCopy filteredData={filteredData} />
+        <HeroSectionCopy
+          filteredBlogData={filteredBlogData}
+          filteredData={filteredData}
+        />
+        <BlogCardCopy
+          filteredData={filteredData}
+          filteredBlogData={filteredBlogData}
+        />
       </Box>
     </Layout>
   );

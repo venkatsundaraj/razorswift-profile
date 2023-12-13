@@ -33,7 +33,7 @@ function Aspirants() {
         />
         <StaticScrollSection stickySliderData={stickySliderData} />
         <CareerSection />
-        <DiscoverSection />
+
         <DropdownSection
           dropDownData={dropDownData}
           dropDownBodyData={dropDownBodyData}

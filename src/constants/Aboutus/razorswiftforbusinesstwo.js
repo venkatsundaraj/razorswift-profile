@@ -10,7 +10,7 @@ const razorswiftforbusiness = [
   },
   {
     id: '2',
-    percentage: '67%',
+    percentage: '90%',
     image: Aboutusimagepathway.improvementinmatches,
     description: 'Improvement in best candidate matches',
     bgColor: 'primary.redpinkthree',
