@@ -182,7 +182,7 @@ function EnrollForm({ data }) {
               </Grid>
             </Grid>
 
-            <Grid container alignItems="end">
+            <Grid container alignItems="center">
               <Grid item xs={12} sm={6}>
                 <Stack
                   sx={{

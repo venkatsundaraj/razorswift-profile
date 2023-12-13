@@ -16,6 +16,7 @@ function HeroSectionCopy({ filteredData, filteredBlogData }) {
   useEffect(() => {
     const timeOut = setInterval(() => {
       setValue(prev => {
+        if (filteredBlogData.length === 1) return;
         return prev >= filteredBlogData.length - 1 ? 0 : prev + 1;
       });
     }, 6000);
@@ -29,7 +30,13 @@ function HeroSectionCopy({ filteredData, filteredBlogData }) {
     <Box
       component="section"
       sx={{
-        minHeight: { xs: '130vh', sm: '60vh', lg: '120vh', xl: '100vh' },
+        minHeight: {
+          xs: '130vh',
+          sm: '75vh',
+          md: '100vh',
+          lg: '130vh',
+          xl: '100vh',
+        },
 
         pt: 16,
         pb: 8,
@@ -43,22 +50,25 @@ function HeroSectionCopy({ filteredData, filteredBlogData }) {
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          gap: 4,
+          gap: { xs: 2, sm: 3, lg: 3, xl: 4 },
           alignItems: 'center',
         }}
       >
         <SubtitleHeading
-          sx={{ color: 'primaryPalette.white', texAlign: 'center' }}
+          sx={{ color: 'primaryPalette.white', textAlign: 'center' }}
         >
           {filteredBlogData[0].headText}
         </SubtitleHeading>
         <PrimaryHeading
-          sx={{ color: 'primaryPalette.white', texAlign: 'center' }}
+          sx={{ color: 'primaryPalette.white', textAlign: 'center' }}
         >
           {filteredBlogData[0].mainText}
         </PrimaryHeading>
         <ParagraphHeading
-          sx={{ color: 'primaryPalette.white', texAlign: 'center' }}
+          sx={{
+            color: 'primaryPalette.white',
+            textAlign: 'center',
+          }}
         >
           {filteredBlogData[0].subText}
         </ParagraphHeading>
@@ -67,11 +77,12 @@ function HeroSectionCopy({ filteredData, filteredBlogData }) {
           sx={{
             position: 'relative',
             width: '100%',
-            minHeight: { sx: '300px', md: '300px' },
+            minHeight: { sx: '300px', sm: '500px', md: '300px' },
           }}
         >
           {filteredBlogData.map((item, index) => {
             let position = 'next-index';
+            if (filteredBlogData.length === 1) position = 'current-index';
             if (value === index) {
               position = 'current-index';
             }
@@ -97,6 +108,7 @@ function HeroSectionCopy({ filteredData, filteredBlogData }) {
                   borderRadius: 8,
                   width: '100%',
                   left: '0',
+                  minHeight: { xs: '600px', sm: '300px' },
                 }}
               >
                 <Grid xs={12} sm={6}>
@@ -107,7 +119,7 @@ function HeroSectionCopy({ filteredData, filteredBlogData }) {
                     sx={{ padding: 2 }}
                   >
                     <TertiaryHeading
-                      style={{ lineHeight: '42px' }}
+                      style={{ lineHeight: 'clamp(26px,3.2vw,47px)' }}
                       sx={{
                         borderBottom: `1px solid #A62973`,
                         display: 'block',
@@ -130,12 +142,14 @@ function HeroSectionCopy({ filteredData, filteredBlogData }) {
                   </Stack>
                 </Grid>
                 <Grid xs={12} sm={6}>
-                  <CustomImage
-                    aspectRatio="350/260"
-                    width="100%"
-                    alt={item.individualBlogTitle}
-                    src={item.image.filePath.replace('../../public', '')}
-                  />
+                  <Stack alignItems="center" justifyContent="center">
+                    <CustomImage
+                      aspectRatio="350/260"
+                      width="clamp(300px,40vw,450px)"
+                      alt={item.individualBlogTitle}
+                      src={item.image.filePath.replace('../../public', '')}
+                    />
+                  </Stack>
                 </Grid>
               </Grid>
             );

@@ -27,6 +27,9 @@ const Blog = defineDocumentType(() => ({
     subText: {
       type: 'string',
     },
+    date: {
+      type: 'string',
+    },
     description: {
       type: 'string',
       required: true,
