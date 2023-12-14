@@ -1,13 +1,9 @@
 import CustomImage from '@/src/components_fbl/globalComponents/CustomImage/CustomImage';
-import {
-  default as Container,
-  Stack,
-  default as Typography,
-} from '@mui/material';
+import { Container, Stack, Typography } from '@mui/material';
 import CustomSection from '../../globalComponents/CustomContainer/CustomSection';
 import SecondaryHeading from '../../headingComponents/SecondaryHeading';
 
-const BlogTitleCompnent = ({}) => {
+const BlogTitleComponent = ({}) => {
   return (
     <CustomSection component="section">
       <Container sx={{ overflowX: 'hidden' }}>
@@ -69,4 +65,4 @@ const BlogTitleCompnent = ({}) => {
   );
 };
 
-export default BlogTitleCompnent;
+export default BlogTitleComponent;

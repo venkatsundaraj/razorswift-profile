@@ -1,6 +1,6 @@
 import Layout from '@/src/components_fbl/NavigationComponents/Layout';
 import BlogCardCopy from '@/src/components_fbl/pageBasedComponents/blogs/BlogCardCopy';
-import BlogTitleCompnent from '@/src/components_fbl/pageBasedComponents/blogs/BlogTitleCompnent';
+import BlogTitleComponent from '@/src/components_fbl/pageBasedComponents/blogs/BlogTitleComponent';
 import HeroSectionCopy from '@/src/components_fbl/pageBasedComponents/blogs/HeroSectionCopy';
 import { Box } from '@mui/material';
 import { allBlogs } from 'contentlayer/generated';
@@ -21,7 +21,7 @@ function index({ slug }) {
     <Layout>
       <Box component="main">
         <HeroSectionCopy filteredBlogData={filteredBlogData} />
-        <BlogTitleCompnent />
+        <BlogTitleComponent />
         <BlogCardCopy filteredBlogData={filteredBlogData} />
       </Box>
     </Layout>
