@@ -24,7 +24,7 @@ const initialValues = {
   mobileNumber: '',
   companyName: '',
   moreInfo: '',
-  reason: '',
+  reason: 'Aspirant',
 };
 
 const validationSchema = Yup.object().shape({
@@ -36,7 +36,6 @@ const validationSchema = Yup.object().shape({
 });
 
 function FormSection() {
-  console.log(solutionsData);
   return (
     <Box sx={{ padding: '16px 0' }}>
       <Formik

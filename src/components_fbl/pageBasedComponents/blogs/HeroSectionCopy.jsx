@@ -102,10 +102,11 @@ function HeroSectionCopy({ filteredData, filteredBlogData }) {
                 alignItems="center"
                 sx={{
                   backgroundColor: `${backgroundColor[index]}`,
-                  padding: 2,
+
                   color: '#212121',
                   position: 'absolute',
                   borderRadius: 8,
+                  overflow: 'hidden',
                   width: '100%',
                   left: '0',
                   minHeight: { xs: '600px', sm: '300px' },
@@ -116,7 +117,7 @@ function HeroSectionCopy({ filteredData, filteredBlogData }) {
                     alignItems="start"
                     flexDirection="column"
                     gap={2}
-                    sx={{ padding: 2 }}
+                    sx={{ padding: 4 }}
                   >
                     <TertiaryHeading
                       style={{ lineHeight: 'clamp(26px,3.2vw,47px)' }}
@@ -142,10 +143,14 @@ function HeroSectionCopy({ filteredData, filteredBlogData }) {
                   </Stack>
                 </Grid>
                 <Grid xs={12} sm={6}>
-                  <Stack alignItems="center" justifyContent="center">
+                  <Stack
+                    alignItems="center"
+                    justifyContent="center"
+                    sx={{ width: '100%' }}
+                  >
                     <CustomImage
                       aspectRatio="350/260"
-                      width="clamp(300px,40vw,450px)"
+                      width="100%"
                       alt={item.individualBlogTitle}
                       src={item.image.filePath.replace('../../public', '')}
                     />

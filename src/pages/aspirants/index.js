@@ -38,7 +38,7 @@ function Aspirants() {
           dropDownData={dropDownData}
           dropDownBodyData={dropDownBodyData}
         />
-        <DiscoverSection />
+        <DiscoverSection cta={'aspirants'} title={'DISCOVER, LEARN, GROW'} />
 
         <FastrackSection />
         <GetStartedSection readyToStartData={readyToStartData} />

@@ -1,10 +1,17 @@
 import PrimaryFillButton from '@/components_fbl/buttonComponents/PrimaryFillButton';
-import DiscoverCardLists from '@/components_fbl/CardComponents/AspirantCards/DiscoverCardLists';
 import CustomSection from '@/components_fbl/globalComponents/CustomContainer/CustomSection';
 import PrimaryHeading from '@/components_fbl/headingComponents/PrimaryHeading';
-import { discoverSectionData } from '@/constants/Aspirants/aspirantPageData';
+import BlogCardCopy from '@/src/components_fbl/pageBasedComponents/blogs/BlogCardCopy';
+import { allBlogs } from 'contentlayer/generated';
+import { useRouter } from 'next/router';
 
-function DiscoverSection() {
+function DiscoverSection({ cta, title }) {
+  const router = useRouter();
+
+  console.log(router);
+  const filteredBlogData = allBlogs.filter(item => item.parent === cta);
+
+  if (!filteredBlogData) null;
   return (
     <CustomSection
       sx={{
@@ -17,22 +24,22 @@ function DiscoverSection() {
         color: 'violetPalette.dark',
       }}
     >
-      <PrimaryHeading>{discoverSectionData.title}</PrimaryHeading>
+      <PrimaryHeading>{title}</PrimaryHeading>
       <PrimaryFillButton
-        href="/blogs/aspirants"
+        href={`/blogs/${cta}`}
         variant="contained"
         sx={{
           backgroundColor: theme => theme.palette.violetPalette.dark,
           color: theme => theme.palette.primaryPalette.white,
-          mb: 8,
           '&:hover': {
             backgroundColor: theme => theme.palette.violetPalette.dark,
           },
         }}
       >
-        {discoverSectionData.buttonTitle}
+        View All Blogs
       </PrimaryFillButton>
-      <DiscoverCardLists cardData={discoverSectionData.cards} />
+      {/* <DiscoverCardLists cardData={discoverSectionData.cards} /> */}
+      <BlogCardCopy filteredBlogData={filteredBlogData} />
     </CustomSection>
   );
 }

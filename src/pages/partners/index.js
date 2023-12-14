@@ -8,6 +8,7 @@ import {
   readyToStartData,
 } from '@/constants/Partners/partnersPageData';
 import Layout from '@/src/components_fbl/NavigationComponents/Layout';
+import DiscoverSection from '@/src/components_fbl/pageBasedComponents/Aspirants/DiscoverSection';
 import { Box } from '@mui/material';
 
 export const metadata = {
@@ -27,6 +28,10 @@ function Partners() {
           heroSectionData={heroSectionData}
         />
         <BusinessDropDownBody dropDownBodyData={partnersDropDownBodyData} />
+        <DiscoverSection
+          cta={'partners'}
+          title={'How can you use RazorSwift at its fullest ?'}
+        />
         <GetStartedSection readyToStartData={readyToStartData} />
       </Box>
     </Layout>

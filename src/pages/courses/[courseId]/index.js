@@ -4,6 +4,7 @@ import SubmitButton from '@/components_fbl/FormComponents/FormUI/SubmitButton/Su
 import ParagraphHeading from '@/components_fbl/headingComponents/ParagraphHeading';
 import SubtitleHeading from '@/components_fbl/headingComponents/SubtitleHeading';
 import { LoadingContext } from '@/reUsableComponents/LoadingComponents/LoadingContext';
+import CoursesPageSelectWrapper from '@/src/components_fbl/FormComponents/FormUI/Select/CoursesSelectWrapper';
 import Layout from '@/src/components_fbl/NavigationComponents/Layout';
 import CustomSection from '@/src/components_fbl/globalComponents/CustomContainer/CustomSection';
 import CustomImage from '@/src/components_fbl/globalComponents/CustomImage/CustomImage';
@@ -38,6 +39,7 @@ const INITIAL_FORM_STATE = {
   mobileNumber: '',
   existedUser: '',
   acceptTermsAndConditions: true,
+  paymentMethod: 'Paytm',
 };
 
 const CustomCheckBox = styled(Link)(({ theme }) => ({
@@ -59,7 +61,7 @@ const FORM_VALIDATION = Yup.object().shape({
   fullName: alphabetsValidationSchema('Full Name', true),
   email: emailValidation('Email', true),
   mobileNumber: validateContactNumber('Mobile Number', true),
-  existedUser: alphabetsValidationSchema('Existed User', false),
+  existedUser: Yup.string().max(200),
   transactionNumber: Yup.number().required('Transaction ID is required'),
   acceptTermsAndConditions: Yup.boolean().oneOf(
     [true],
@@ -67,11 +69,6 @@ const FORM_VALIDATION = Yup.object().shape({
   ),
 });
 
-const initialState = {
-  id: '1',
-  title: 'Python',
-  description: 'python course',
-};
 function EnrollForm({ data }) {
   const { loading, setLoading } = useContext(LoadingContext);
   const [course, setCourse] = useState(data);
@@ -90,13 +87,14 @@ function EnrollForm({ data }) {
           email: values.email.trim(),
           existedUser: values.existedUser ? values.existedUser : '',
           transactionNumber: values.transactionNumber,
+          paymentMethod: values.paymentMethod,
           ...course,
         },
       };
 
       const response = await new Promise(resolve => setTimeout(resolve, 2000));
 
-      const result = await submitEnrollUserData(opts.body);
+      // const result = await submitEnrollUserData(opts.body);
 
       console.log(opts.body);
       resetForm();
@@ -420,30 +418,87 @@ function EnrollForm({ data }) {
                               >
                                 Transaction ID
                               </InputLabel>
-                              <InputField
-                                sx={{
-                                  borderRadius: '100vw',
-                                  outline: 'none',
-                                  backgroundColor: '#dedede',
-                                  '& fieldset': { border: 'none' },
-                                }}
-                                fullWidth
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                value={values.transactionNumber}
-                                error={errors.transactionNumber}
-                                hiddenLabel
-                                id="filled-hidden-label-small"
-                                type="text"
-                                variant="filled"
-                                x
-                                name="transactionNumber"
-                                label=""
-                                InputProps={{
-                                  disableUnderline: true,
-                                  sx: { borderRadius: '40px' },
-                                }}
-                              />
+                              <Grid container spacing={2}>
+                                <Grid item xs={6}>
+                                  <InputField
+                                    sx={{
+                                      borderRadius: '100vw',
+                                      outline: 'none',
+                                      backgroundColor: '#dedede',
+                                      '& fieldset': { border: 'none' },
+                                    }}
+                                    fullWidth
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    value={values.transactionNumber}
+                                    error={errors.transactionNumber}
+                                    hiddenLabel
+                                    id="filled-hidden-label-small"
+                                    type="text"
+                                    variant="filled"
+                                    name="transactionNumber"
+                                    label=""
+                                    InputProps={{
+                                      disableUnderline: true,
+                                      sx: { borderRadius: '40px' },
+                                    }}
+                                  />
+                                </Grid>
+                                <Grid item xs={6}>
+                                  <CoursesPageSelectWrapper
+                                    placeholder="Payment Method"
+                                    name="paymentMethod"
+                                    label="paymentMethod"
+                                    textlabel="Payment Method"
+                                    required
+                                    sx={{
+                                      color: 'pinkPalette.dark',
+                                      position: 'relative',
+                                      background: 'transparent',
+                                      '& .MuiSelect-icon': {
+                                        transition: 'all 0.265s ease',
+                                        top: 'calc(50% - 16px)',
+                                        width: '16px',
+                                      },
+                                      '.MuiSelect-outlined': {
+                                        background: 'transparent',
+                                      },
+                                      '.MuiTypography-root': {
+                                        color: 'pinkPalette.dark',
+                                      },
+                                      '.MuiOutlinedInput-notchedOutline': {
+                                        border: 0,
+                                      },
+                                      '&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline':
+                                        {
+                                          border: 0,
+                                        },
+                                      '&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline':
+                                        {
+                                          border: 0,
+                                        },
+                                      '& .MuiSelect-icon': {
+                                        top: 'calc(50% - 14px)',
+
+                                        transition: 'all 0.265s ease',
+                                        width: '20px',
+                                      },
+                                      '&:after': {
+                                        content: "''",
+                                        position: 'absolute',
+                                        width: '108%',
+                                        transform: 'translate(-50%,-50%)',
+                                        zIndex: '-1',
+                                        backgroundColor: 'pinkPalette.navLight',
+                                        height: '100%',
+                                        top: '50%',
+                                        left: '50%',
+                                        borderRadius: 4,
+                                      },
+                                    }}
+                                  />
+                                </Grid>
+                              </Grid>
                             </Grid>
 
                             <Grid item xs={12}>

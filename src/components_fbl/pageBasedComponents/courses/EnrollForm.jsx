@@ -2,6 +2,7 @@ import CheckboxWrapper from '@/components_fbl/FormComponents/FormUI/Checkbox/Che
 import InputField from '@/components_fbl/FormComponents/FormUI/InputField/InputField';
 import SubmitButton from '@/components_fbl/FormComponents/FormUI/SubmitButton/SubmitButton';
 import ParagraphHeading from '@/components_fbl/headingComponents/ParagraphHeading';
+import SubtitleHeading from '@/components_fbl/headingComponents/SubtitleHeading';
 import { LoadingContext } from '@/reUsableComponents/LoadingComponents/LoadingContext';
 import { AccountApi } from '@/swagger_api/*';
 import {
@@ -17,7 +18,6 @@ import Link from 'next/link';
 import { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import * as Yup from 'yup';
-import SubtitleHeading from '../../headingComponents/SubtitleHeading';
 
 const INITIAL_FORM_STATE = {
   fullName: '',
