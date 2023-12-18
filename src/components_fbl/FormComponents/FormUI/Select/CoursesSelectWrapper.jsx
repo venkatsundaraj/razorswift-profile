@@ -31,7 +31,7 @@ const CoursesPageSelectWrapper = function ({
     setFieldValue(name, getData.data);
   };
   return (
-    <FormControl>
+    <FormControl sx={{ width: '100%' }}>
       <Select
         {...props}
         onChange={handleChange}

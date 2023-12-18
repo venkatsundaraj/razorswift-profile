@@ -1,5 +1,4 @@
 import TickerComponent from '@/components_fbl/TickerComponent/TickerComponent';
-import CustomSection from '@/components_fbl/globalComponents/CustomContainer/CustomSection';
 import CustomImage from '@/components_fbl/globalComponents/CustomImage/CustomImage';
 import SuperText from '@/components_fbl/headingComponents/SuperText';
 import { TickerBoxData } from '@/src/constants/Aspirants/aspirantPageData';
@@ -7,13 +6,23 @@ import { Box } from '@mui/material';
 
 function BannerSection({ bannerData }) {
   return (
-    <CustomSection style={{ padding: '0px', height: '100vh' }}>
+    <Box
+      component="section"
+      sx={{
+        padding: '0px',
+        height: { xs: '50vh', md: '100dvh' },
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'end',
+        flexDirection: 'column',
+      }}
+    >
       <Box
         sx={{
           display: 'flex',
           flexDirection: 'column',
           position: 'relative',
-          height: 'calc(100vh - 65px)',
+          height: { md: 'calc(100% - 65px)' },
           width: '100%',
           alignItems: 'center',
           justifyContent: { xs: 'end' },
@@ -49,7 +58,7 @@ function BannerSection({ bannerData }) {
           alt="Courses page banner"
           src={bannerData.bannerImage}
           aspectRatio="1358/593"
-          width="clamp(300px, 55vw, 800px)"
+          width="clamp(300px, 46vw, 800px)"
         />
       </Box>
       <TickerComponent
@@ -61,7 +70,7 @@ function BannerSection({ bannerData }) {
           justifyContent: 'center',
         }}
       />
-    </CustomSection>
+    </Box>
   );
 }
 

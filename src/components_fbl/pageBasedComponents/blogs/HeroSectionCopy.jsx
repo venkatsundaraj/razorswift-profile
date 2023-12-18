@@ -30,9 +30,10 @@ function HeroSectionCopy({ filteredData, filteredBlogData }) {
     <Box
       component="section"
       sx={{
+        paddingBottom: { sm: '0', md: '64px' },
         minHeight: {
-          xs: '130vh',
-          sm: '75vh',
+          xs: '130dvh',
+          sm: '40vh',
           md: '100vh',
           lg: '130vh',
           xl: '100vh',

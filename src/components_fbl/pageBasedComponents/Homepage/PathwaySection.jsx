@@ -7,8 +7,8 @@ import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import Link from '@mui/material/Link';
-import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
+import { styled } from '@mui/material/styles';
 import { Box } from '@mui/system';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
@@ -327,7 +327,11 @@ export default function PathwaySection() {
                             selectedItemId === item.id ? 'block' : 'none',
                         }}
                       >
-                        <Link style={fontaspithree} href={item.link}>
+                        <Link
+                          style={fontaspithree}
+                          // href={item.link}
+                          href="/aspirants/#pathways"
+                        >
                           <Typography
                             sx={{
                               color: 'common.white',

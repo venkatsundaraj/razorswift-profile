@@ -7,7 +7,7 @@ import { Button, Container, Stack } from '@mui/material';
 
 function CareerSection() {
   return (
-    <CustomSection>
+    <CustomSection id="pathways">
       <Container>
         <PrimaryHeading sx={{ color: 'violetPalette.dark' }}>
           {CareerData.heading}

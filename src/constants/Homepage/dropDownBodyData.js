@@ -9,12 +9,12 @@ const dropDownBodyData = [
     description:
       'AI driven automation for Large scale hiring with efficient cost and time',
     image: homePageImagePaths.business,
-    // buttonData: {
-    //   title: 'Ask for Demo',
-    //   backgroundColor: '#FFFFFF',
-    //   color: '#A62973',
-    //   link: '/contact-us',
-    // },
+    buttonData: {
+      title: 'Ask for Demo',
+      backgroundColor: '#FFFFFF',
+      color: '#A62973',
+      link: '/contact-us',
+    },
     whatToExpect: [
       {
         id: 1,
@@ -55,12 +55,12 @@ const dropDownBodyData = [
     description: `"Whether you're a student or an experienced professional,
     everything possible through our corporate cohorts."`,
     image: homePageImagePaths.aspirants,
-    // buttonData: {
-    //   title: 'Create your Profile',
-    //   backgroundColor: '#FFFFFF',
-    //   color: '#A62973',
-    //   link: '/profile',
-    // },
+    buttonData: {
+      title: 'Create your Profile',
+      backgroundColor: '#FFFFFF',
+      color: '#A62973',
+      link: '/profile',
+    },
     whatToExpect: [
       {
         id: 1,
@@ -97,12 +97,12 @@ const dropDownBodyData = [
     description:
       'Collaborate with us to create a robust AI talent marketplace.',
     image: homePageImagePaths.partners,
-    // buttonData: {
-    //   title: 'Partner with Us',
-    //   backgroundColor: '#FFFFFF',
-    //   color: '#A62973',
-    //   link: '/partners',
-    // },
+    buttonData: {
+      title: 'Partner with Us',
+      backgroundColor: '#FFFFFF',
+      color: '#A62973',
+      link: '/partners',
+    },
     whatToExpect: [
       {
         id: 1,

@@ -1,5 +1,4 @@
-import aspirantPageImagePaths from '../ImagePaths/Aspirants/aspirantPageImagePaths'
-import businessPageImagePaths from '../ImagePaths/Business/businessPageImagePaths'
+import businessPageImagePaths from '../ImagePaths/Business/businessPageImagePaths';
 
 export const heroSectionData = {
   heading: {
@@ -11,7 +10,7 @@ export const heroSectionData = {
   description: 'A dynamic ecosystem where talent and opportunities converge',
   buttonContent: 'Ask for Demo',
   bannerImage: businessPageImagePaths.heroSection.banner,
-}
+};
 
 export const businessDropDownBodyData = {
   id: 1,
@@ -57,7 +56,7 @@ export const businessDropDownBodyData = {
         'Enhanced exposure and increased recognition among aspirants with corporate pathways',
     },
   ],
-}
+};
 
 export const whyRazorswiftSection = {
   title: 'WHY RAZORSWIFT',
@@ -68,42 +67,40 @@ export const whyRazorswiftSection = {
   cardsRight: [
     {
       id: 1,
-      percentage: '93%',
+      percentage: '70%',
       bgColor: '#EBC8DD',
-      description:
-        'Of millennials find skill development crucial for their career',
+      description: 'Faster onboarding process',
     },
     {
       id: 2,
-      percentage: '53%',
+      percentage: '90%',
       bgColor: '#FFE3E3',
-      description: 'Disappointed by lack of training when starting new job',
+      description: 'Improvement in best candidate matches',
     },
   ],
 
   cardsLeft: [
     {
       id: 1,
-      percentage: '79%',
+      percentage: '70%',
       bgColor: '#FFCCC9',
-      description: 'Millennials see mentoring as crucial for success',
+      description: 'Improvement in new hire retention',
     },
     {
       id: 2,
-      percentage: '87%',
+      percentage: '70%',
       bgColor: '#EDD8F2',
-      description:
-        'Millennials with mentors felt empowered and had greater confidence at work',
+      description: 'Reduction and removing human bias',
     },
   ],
-}
+};
 
 export const readyToStartData = {
   title: 'READY TO GET STARTED?',
   description: 'Hire at scale with the click of a button',
   mainImage: businessPageImagePaths.readyToGetStarted.mainImage,
   buttonText: 'Get a Demo',
-}
+};
 
 export const quickTalentDiscoveryData = {
   mainTitle: 'Razorswift PATHWAYS - QUICK TALENT DISCOVERY',
@@ -147,4 +144,4 @@ export const quickTalentDiscoveryData = {
       mainImage: businessPageImagePaths.dropDownSection.mainImage4,
     },
   ],
-}
+};

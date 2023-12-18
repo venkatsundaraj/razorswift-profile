@@ -22,7 +22,10 @@ function index({ slug }) {
       <Box component="main">
         <HeroSectionCopy filteredBlogData={filteredBlogData} />
         <BlogTitleComponent />
-        <BlogCardCopy filteredBlogData={filteredBlogData} />
+        <BlogCardCopy
+          filteredBlogData={filteredBlogData}
+          style={{ paddingTop: '0' }}
+        />
       </Box>
     </Layout>
   );
@@ -37,6 +40,7 @@ export default index;
 //       id: params.slug.toString(),
 //     },
 //   };
+
 // }
 
 export async function getStaticProps(context) {

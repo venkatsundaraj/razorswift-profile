@@ -35,7 +35,7 @@ function CourseList() {
         <Grid container spacing={{ xs: 4 }}>
           {coursesList.length ? (
             coursesList.map(list => (
-              <Grid item xs={12} sm={3} lg={4} key={list.id} sx={{}}>
+              <Grid item xs={12} sm={6} lg={4} key={list.id} sx={{}}>
                 <Stack sx={{ boxShadow: '0px 10px 15px -3px rgba(0,0,0,0.1)' }}>
                   <ParagraphHeading
                     sx={{
@@ -73,23 +73,6 @@ function CourseList() {
                       justifyContent="space-between"
                       sx={{ width: '100%' }}
                     >
-                      <PrimaryFillButton
-                        href={`/courses/${list.id}`}
-                        sx={{
-                          backgroundColor: '#A62973',
-                          color: '#ffffff',
-                          borderRadius: '50px',
-                          padding: '10px 20px',
-                          textDecoration: 'none',
-                          '&:hover': {
-                            backgroundColor: '#A62973',
-                            color: '#ffffff',
-                            boxShadow: '0px 3px 6px #00000029',
-                          },
-                        }}
-                      >
-                        Enroll Now
-                      </PrimaryFillButton>
                       <Button
                         style={{
                           padding: 0,
@@ -112,6 +95,23 @@ function CourseList() {
                       >
                         More Details
                       </Button>
+                      <PrimaryFillButton
+                        href={`/courses/${list.id}`}
+                        sx={{
+                          backgroundColor: '#A62973',
+                          color: '#ffffff',
+                          borderRadius: '50px',
+                          padding: '10px 20px',
+                          textDecoration: 'none',
+                          '&:hover': {
+                            backgroundColor: '#A62973',
+                            color: '#ffffff',
+                            boxShadow: '0px 3px 6px #00000029',
+                          },
+                        }}
+                      >
+                        Enroll Now
+                      </PrimaryFillButton>
                     </Stack>
                   </Stack>
                 </Stack>

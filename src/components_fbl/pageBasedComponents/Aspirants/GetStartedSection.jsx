@@ -9,6 +9,7 @@ import { Container, Grid } from '@mui/material';
 function GetStartedSection({ readyToStartData }) {
   return (
     <CustomSection
+      id="get-started"
       sx={{
         display: 'flex',
         flexDirection: 'column',

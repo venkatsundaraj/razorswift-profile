@@ -5,7 +5,10 @@ import SecondaryHeading from '../../headingComponents/SecondaryHeading';
 
 const BlogTitleComponent = ({}) => {
   return (
-    <CustomSection component="section">
+    <CustomSection
+      style={{ padding: '0', paddingTop: '24px' }}
+      component="section"
+    >
       <Container sx={{ overflowX: 'hidden' }}>
         <Stack
           alignItems="center"

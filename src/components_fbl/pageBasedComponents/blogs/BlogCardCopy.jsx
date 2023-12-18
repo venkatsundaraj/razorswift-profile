@@ -9,7 +9,7 @@ const initialState = {
   isHovering: false,
   index: 0,
 };
-function BlogCardCopy({ filteredData, filteredBlogData }) {
+function BlogCardCopy({ filteredData, filteredBlogData, ...props }) {
   const [hoverState, setHoverState] = useState(initialState);
 
   const mouseEnterHandler = function (index) {
@@ -20,11 +20,11 @@ function BlogCardCopy({ filteredData, filteredBlogData }) {
   };
 
   return (
-    <CustomSection component="section">
+    <CustomSection component="section" {...props}>
       <Container sx={{ overflowX: 'hidden' }}>
         <Grid container alignItems="start" spacing={2}>
           {filteredBlogData.map((item, index) => (
-            <Grid key={index} item xs={12} md={4}>
+            <Grid key={index} item xs={12} sm={6} md={4}>
               <Link
                 href={`/blogs/${item.parent}/${item.slugAsParams}`}
                 style={{ textDecoration: 'none' }}
