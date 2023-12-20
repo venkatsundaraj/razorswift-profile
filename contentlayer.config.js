@@ -21,6 +21,9 @@ const Blog = defineDocumentType(() => ({
     headText: {
       type: 'string',
     },
+    author: {
+      type: 'string',
+    },
     mainText: {
       type: 'string',
     },

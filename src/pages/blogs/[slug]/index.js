@@ -2,6 +2,7 @@ import Layout from '@/src/components_fbl/NavigationComponents/Layout';
 import BlogCardCopy from '@/src/components_fbl/pageBasedComponents/blogs/BlogCardCopy';
 import BlogTitleComponent from '@/src/components_fbl/pageBasedComponents/blogs/BlogTitleComponent';
 import HeroSectionCopy from '@/src/components_fbl/pageBasedComponents/blogs/HeroSectionCopy';
+import { compareDates } from '@/src/utils/helpers/compareDate';
 import { Box } from '@mui/material';
 import { allBlogs } from 'contentlayer/generated';
 
@@ -12,9 +13,11 @@ const courses = [
 ];
 
 function index({ slug }) {
-  // console.log(slug, allBlogs);
+  const filteredBlogData = allBlogs
+    .filter(item => item.parent === slug)
+    .sort(compareDates);
 
-  const filteredBlogData = allBlogs.filter(item => item.parent === slug);
+  console.log(filteredBlogData);
 
   if (!filteredBlogData) null;
   return (

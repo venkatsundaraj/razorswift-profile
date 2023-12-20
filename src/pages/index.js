@@ -13,6 +13,7 @@ import { heroSectionData } from '../constants/Homepage/heroTabContents';
 export const metadata = {
   title: 'Home | Razorswift',
 };
+
 export default function Home() {
   return (
     <Layout>

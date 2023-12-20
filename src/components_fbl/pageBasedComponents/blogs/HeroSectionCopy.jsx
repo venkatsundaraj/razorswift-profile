@@ -113,7 +113,7 @@ function HeroSectionCopy({ filteredData, filteredBlogData }) {
                   minHeight: { xs: '600px', sm: '300px' },
                 }}
               >
-                <Grid xs={12} sm={6}>
+                <Grid item xs={12} sm={6}>
                   <Stack
                     alignItems="start"
                     flexDirection="column"

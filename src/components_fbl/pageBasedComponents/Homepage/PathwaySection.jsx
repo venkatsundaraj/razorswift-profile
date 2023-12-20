@@ -330,7 +330,7 @@ export default function PathwaySection() {
                         <Link
                           style={fontaspithree}
                           // href={item.link}
-                          href="/aspirants/#pathways"
+                          href="/aspirants#pathways"
                         >
                           <Typography
                             sx={{

@@ -7,6 +7,11 @@ const blog = {
   blogaspirants1: require('/public/images/blogs/blogaspirants1.png').default,
   blogaspirants2: require('/public/images/blogs/blogaspirants2.png').default,
   blogaspirants3: require('/public/images/blogs/blogaspirants3.png').default,
+
+  facebook: require('/public/images/blogs/facebook.svg').default,
+  linkedin: require('/public/images/blogs/linkedin.svg').default,
+  twitter: require('/public/images/blogs/twitter.svg').default,
+  link: require('/public/images/blogs/link.svg').default,
 };
 
 export default blog;

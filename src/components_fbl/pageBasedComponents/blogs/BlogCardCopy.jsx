@@ -1,6 +1,7 @@
 import CustomSection from '@/src/components_fbl/globalComponents/CustomContainer/CustomSection';
 import CustomImage from '@/src/components_fbl/globalComponents/CustomImage/CustomImage';
 import ExtraParagraphHeading from '@/src/components_fbl/headingComponents/ExtraParagraphHeading';
+import { formatDate } from '@/src/utils/helpers/compareDate';
 import { Box, Container, Grid, Stack, Typography } from '@mui/material';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -87,7 +88,7 @@ function BlogCardCopy({ filteredData, filteredBlogData, ...props }) {
                         Short Read
                       </Typography>
                       <Typography sx={{ color: '#333', fontSize: '14px' }}>
-                        {item.date}
+                        {formatDate(item.date)}
                       </Typography>
                     </Stack>
                   </Box>
