@@ -148,7 +148,6 @@ function FormSection() {
                 value={values.fullName}
                 label="Full Name"
                 variant="standard"
-                required
                 error={errors.fullName}
               />
 
@@ -171,7 +170,6 @@ function FormSection() {
                 value={values.email}
                 label="Email ID"
                 variant="standard"
-                required
                 error={errors.email}
               />
 
@@ -184,7 +182,6 @@ function FormSection() {
                   );
                 }}
                 onBlur={handleBlur}
-                required
                 type="tel"
                 sx={{
                   '& input[type=number]::-webkit-outer-spin-button': {
@@ -207,7 +204,6 @@ function FormSection() {
                 name="moreInfo"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                required
                 type="text"
                 multiline
                 rows={4}

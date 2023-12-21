@@ -2,12 +2,27 @@ import CustomImage from '@/components_fbl/globalComponents/CustomImage/CustomIma
 import ParagraphHeading from '@/components_fbl/headingComponents/ParagraphHeading';
 import PrimaryHeading from '@/components_fbl/headingComponents/PrimaryHeading';
 import SubtitleHeading from '@/components_fbl/headingComponents/SubtitleHeading';
-import { socialMediaiIconsData } from '@/src/constants/Blogs/individualBlogsData';
+import {
+  clickToCopy,
+  socialMediaiIconsData,
+} from '@/src/constants/Blogs/individualBlogsData';
 import { formatDate } from '@/utils/helpers/compareDate';
-import { Box, Container, Stack } from '@mui/material';
+import { Box, Button, Container, Stack } from '@mui/material';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 
 function IndividualBlogBanner({ blog }) {
+  const [originUrl, setOriginUrl] = useState(
+    process.env.NEXT_PUBLIC_APP_PROD_URL
+  );
+
+  const router = useRouter();
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setOriginUrl(window.location.origin);
+    }
+  }, []);
   return (
     <Box
       component="section"
@@ -59,7 +74,9 @@ function IndividualBlogBanner({ blog }) {
             >
               <Box>
                 <SubtitleHeading sx={{ color: 'white' }}>
-                  {`By ${blog.author}, Published on ${formatDate(blog.date)}`}
+                  {`By ${blog.author}   , Published on ${formatDate(
+                    blog.date
+                  )}`}
                 </SubtitleHeading>
               </Box>
               <Stack
@@ -77,6 +94,25 @@ function IndividualBlogBanner({ blog }) {
                     />
                   </Link>
                 ))}
+                <Button
+                  onClick={() => {
+                    navigator.clipboard.writeText(
+                      `${originUrl}${router.asPath}`
+                    );
+                  }}
+                  sx={{
+                    width: '30px',
+                    height: '30px',
+                    padding: '0',
+                    display: 'block',
+                  }}
+                >
+                  <CustomImage
+                    src={clickToCopy}
+                    width="30px"
+                    aspectRatio="1/1"
+                  />
+                </Button>
               </Stack>
             </Stack>
             <CustomImage

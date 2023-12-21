@@ -19,7 +19,7 @@ function DiscoverSection({ cta, title }) {
         flexDirection: 'column',
         alignItems: 'center',
         gap: 2,
-        minHeight: '100vh',
+        minHeight: { xs: '100vh', lg: '80vh' },
         justifyContent: 'start',
         color: 'violetPalette.dark',
       }}

@@ -41,7 +41,13 @@ function CareerDropDown({ dropDownData, changeHandler }) {
           boxShadow: '0px 10px 15px -3px rgba(0,0,0,0.1)',
           backgroundColor: 'primaryPalette.white',
           borderRadius: theme => theme.spacing(5),
-          color: 'blue',
+          backgroundColor: 'primaryPalette.white',
+          '&:hover': {
+            backgroundColor: 'violetPalette.dark',
+            '.MuiTypography-root': {
+              color: 'white',
+            },
+          },
           position: 'relative',
           '.MuiTypography-root': {
             color: 'violetPalette.dark',
@@ -59,6 +65,9 @@ function CareerDropDown({ dropDownData, changeHandler }) {
             right: { xs: '12px', md: '24px' },
             transition: 'all 0.265s ease',
           },
+          '& .MuiSelect-select': {
+            backgroundColor: 'transparent',
+          },
         }}
       >
         {dropDownData?.map(item => (
@@ -71,7 +80,6 @@ function CareerDropDown({ dropDownData, changeHandler }) {
               padding: 2,
               textAlign: 'center',
               textAlign: 'center',
-              // backgroundColor: 'red',
             }}
           >
             <TertiaryHeading

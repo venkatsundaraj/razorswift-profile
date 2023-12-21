@@ -27,5 +27,6 @@ export const socialMediaiIconsData = [
     icon: blog.linkedin,
     link: 'https://www.linkedin.com/',
   },
-  { id: 4, icon: blog.link, link: '/' },
 ];
+
+export const clickToCopy = blog.link;

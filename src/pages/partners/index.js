@@ -30,7 +30,7 @@ function Partners() {
         <BusinessDropDownBody dropDownBodyData={partnersDropDownBodyData} />
         <DiscoverSection
           cta={'partners'}
-          title={'How can you use RazorSwift at its fullest ?'}
+          title={'Unlocking Opportunities with RazorSwift'}
         />
         <GetStartedSection readyToStartData={readyToStartData} />
       </Box>

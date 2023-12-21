@@ -1,11 +1,10 @@
 import TickerComponent from '@/components_fbl/TickerComponent/TickerComponent';
 import PrimaryFillButton from '@/components_fbl/buttonComponents/PrimaryFillButton';
 import CustomImage from '@/components_fbl/globalComponents/CustomImage/CustomImage';
-import ExtraSuperText from '@/components_fbl/headingComponents/ExtraSuperText';
 import ParagraphHeading from '@/components_fbl/headingComponents/ParagraphHeading';
 import SuperText from '@/components_fbl/headingComponents/SuperText';
 import { TickerBoxData } from '@/src/constants/Aspirants/aspirantPageData';
-import { Box, Grid, Stack, Typography } from '@mui/material';
+import { Box, Grid, Stack } from '@mui/material';
 import { useMotionValueEvent, useScroll } from 'framer-motion';
 import { useRef, useState } from 'react';
 import HeroSectionSlider from './HeroSectionSlider';
@@ -98,44 +97,28 @@ const HeroSectionCopy = ({ heroSectionData }) => {
               >
                 <SuperText
                   style={{
-                    fontSize: 'clamp(28px,5.8vw,84px)',
                     lineHeight: '1.0',
                   }}
                   sx={{
                     textAlign: { xs: 'left' },
-                    color: 'pinkPalette.dark',
+                    color: '#EE5164',
                     textWrap: 'nowrap',
                   }}
                 >
-                  EMPOWERING{' '}
-                  <Typography
-                    sx={{ fontSize: 'inherit', fontFamily: 'inherit' }}
-                    color="#672376"
-                    component="span"
-                  >
-                    TALENT.
-                  </Typography>
+                  Empowering Talent.
                 </SuperText>
-                <ExtraSuperText
+                <SuperText
                   style={{
-                    fontSize: 'clamp(28px,5.4vw,80px)',
                     lineHeight: '1.0',
                   }}
                   sx={{
                     textAlign: { xs: 'left' },
-                    color: 'pinkPalette.dark',
+                    color: '#672376',
                     textWrap: 'nowrap',
                   }}
                 >
-                  ENABLING{' '}
-                  <Typography
-                    sx={{ fontSize: 'inherit', fontFamily: 'inherit' }}
-                    color="#672376"
-                    component="span"
-                  >
-                    GROWTH.
-                  </Typography>
-                </ExtraSuperText>
+                  Enabling Growth.
+                </SuperText>
                 <ParagraphHeading
                   sx={{
                     textAlign: { xs: 'left' },

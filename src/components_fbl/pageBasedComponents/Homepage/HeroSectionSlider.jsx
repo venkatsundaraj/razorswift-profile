@@ -1,3 +1,8 @@
+import PrimaryFillButton from '@/src/components_fbl/buttonComponents/PrimaryFillButton';
+import CustomImage from '@/src/components_fbl/globalComponents/CustomImage/CustomImage';
+import ExtraParagraphHeading from '@/src/components_fbl/headingComponents/ExtraParagraphHeading';
+import PrimaryHeading from '@/src/components_fbl/headingComponents/PrimaryHeading';
+import SubtitleHeading from '@/src/components_fbl/headingComponents/SubtitleHeading';
 import {
   mainColors,
   pseudoColors,
@@ -7,11 +12,6 @@ import {
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 import { Box, Container, Grid, Stack, Tab } from '@mui/material';
 import { useEffect, useState } from 'react';
-import PrimaryFillButton from '../../buttonComponents/PrimaryFillButton';
-import CustomImage from '../../globalComponents/CustomImage/CustomImage';
-import ExtraParagraphHeading from '../../headingComponents/ExtraParagraphHeading';
-import PrimaryHeading from '../../headingComponents/PrimaryHeading';
-import SubtitleHeading from '../../headingComponents/SubtitleHeading';
 
 const LODING_STATE_VALUE = 4000;
 
@@ -105,7 +105,10 @@ const HeroSectionSlider = ({}) => {
                     <ExtraParagraphHeading sx={{ color: 'pinkPalette.dark' }}>
                       {item.for}
                     </ExtraParagraphHeading>
-                    <PrimaryHeading sx={{ color: 'violetPalette.dark' }}>
+                    <PrimaryHeading
+                      style={{ fontSize: 'clamp(32px,6vw,74px)' }}
+                      sx={{ color: 'violetPalette.dark' }}
+                    >
                       {item.title}
                     </PrimaryHeading>
                     <SubtitleHeading sx={{ color: 'pinkPalette.dark' }}>

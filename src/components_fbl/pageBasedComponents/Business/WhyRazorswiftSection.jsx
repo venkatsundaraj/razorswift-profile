@@ -16,8 +16,8 @@ function WhyRazorswiftSection() {
           backgroundColor: '#D9B6E1',
           borderRadius: 4,
 
-          py: { xs: 4, md: 5 },
-          px: { xs: 2, md: 3 },
+          py: { xs: 4, md: 6 },
+          px: { xs: 2, md: 6 },
         }}
       >
         <Grid container spacing={2} sx={{}}>
@@ -111,42 +111,3 @@ function WhyRazorswiftSection() {
 }
 
 export default WhyRazorswiftSection;
-
-{
-  /* <Grid item xs={12} md={6}>
-  <Grid
-    container
-    spacing={{ xs: 0, md: 2 }}
-    alignItems="center"
-    justifyContent="center"
-    sx={{ height: '100%', mt: { xs: 2, md: 0 } }}
-  >
-    <Grid item xs={12} md={6} sx={{ height: { xs: 'fit-content', md: '80%' } }}>
-      <Stack
-        sx={{ height: '100%', gap: 2 }}
-        alignItems={{ xs: 'center', md: 'end' }}
-        justifyContent="start"
-        flexDirection="column"
-      >
-        <FastrackCardLists
-          sx={{ alignSelf: 'start' }}
-          lists={whyRazorswiftSection.cardsLeft}
-        />
-      </Stack>
-    </Grid>
-    <Grid item xs={12} md={6} sx={{ height: { xs: 'fit-content', md: '80%' } }}>
-      <Stack
-        sx={{ height: '100%', gap: 2 }}
-        alignItems={{ xs: 'center', md: 'start' }}
-        justifyContent="end"
-        flexDirection="column"
-      >
-        <FastrackCardLists
-          sx={{ alignSelf: 'start' }}
-          lists={whyRazorswiftSection.cardsRight}
-        />
-      </Stack>
-    </Grid>
-  </Grid>
-</Grid>; */
-}
