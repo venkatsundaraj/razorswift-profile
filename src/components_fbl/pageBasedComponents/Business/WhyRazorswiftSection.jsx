@@ -1,5 +1,5 @@
-import FastrackCardLists from '@/components_fbl/CardComponents/AspirantCards/FastrackCardLists';
 import PrimaryFillButton from '@/components_fbl/buttonComponents/PrimaryFillButton';
+import FastrackCardLists from '@/components_fbl/CardComponents/AspirantCards/FastrackCardLists';
 import DropDownWrapper from '@/components_fbl/dropDownComponents/DropDownWrapper';
 import ParagraphHeading from '@/components_fbl/headingComponents/ParagraphHeading';
 import PrimaryHeading from '@/components_fbl/headingComponents/PrimaryHeading';

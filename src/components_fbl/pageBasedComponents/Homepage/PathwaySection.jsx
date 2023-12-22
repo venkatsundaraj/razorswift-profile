@@ -335,7 +335,7 @@ export default function PathwaySection() {
                               width: 'fit-content',
                               padding: '5px 15px',
                               borderRadius: '50px',
-                              margin: '15px 0 15px 0',
+                              margin: '15px 0 20px 0',
                               cursor: 'pointer',
                               fontSize: {
                                 xs: '12px',
@@ -370,7 +370,6 @@ export default function PathwaySection() {
                 margin: '0 10px',
               }}
             >
-              New 4:49
               {pathwayheads.map((item, index) => (
                 <>
                   <Typography
