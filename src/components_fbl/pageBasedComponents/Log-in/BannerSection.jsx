@@ -21,7 +21,7 @@ function BannerSection() {
         ease: 'easeInOut',
         damping: 9.8,
         stiffness: 100,
-        delay: 0.2,
+        delay: 0.3,
       },
     },
   };
