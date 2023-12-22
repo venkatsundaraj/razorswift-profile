@@ -18,6 +18,21 @@ const Blog = defineDocumentType(() => ({
     bannerData: {
       type: 'string',
     },
+    headText: {
+      type: 'string',
+    },
+    author: {
+      type: 'string',
+    },
+    mainText: {
+      type: 'string',
+    },
+    subText: {
+      type: 'string',
+    },
+    date: {
+      type: 'string',
+    },
     description: {
       type: 'string',
       required: true,

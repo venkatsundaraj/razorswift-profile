@@ -1,5 +1,5 @@
-import ParagraphHeading from '@/components_fbl/headingComponents/ParagraphHeading';
 import TickerComponent from '@/components_fbl/TickerComponent/TickerComponent';
+import ParagraphHeading from '@/components_fbl/headingComponents/ParagraphHeading';
 import { TickerBoxData } from '@/constants/Homepage/TickerBoxData';
 import { bebasNeue } from '@/utils/themes/typography';
 import styled from '@emotion/styled';

@@ -2,6 +2,8 @@ const homePageImagePaths = {
   navbar: require('/public/images/Homepage/secondary-logo.png').default,
   navbarlogin: require('/public/images/Homepage/login-icon-3036.png').default,
   bannerImage: require('/public/images/Homepage/banner-img-2.svg').default,
+  revisedBannerImage:
+    require('/public/images/Homepage/revised-banner-image.svg').default,
   secsecpyth: require('/public/images/Homepage/Arrow.png').default,
   aspiratvect: require('/public/images/Homepage/aspirants-vector.svg').default,
   internmain: require('/public/images/Homepage/placeholder-image.png').default,
@@ -64,6 +66,13 @@ const homePageImagePaths = {
   aspirants: require('/public/images/Homepage/aspirants.webp').default,
   business: require('/public/images/Homepage/business.webp').default,
   partners: require('/public/images/Homepage/partners.webp').default,
-}
 
-export default homePageImagePaths
+  tabAspirants: require('/public/images/Homepage/aspirants-caricature-1.png')
+    .default,
+  tabBusiness: require('/public/images/Homepage/businesses-caricature-2.png')
+    .default,
+  tabPartners: require('/public/images/Homepage/partners-caricature.svg')
+    .default,
+};
+
+export default homePageImagePaths;

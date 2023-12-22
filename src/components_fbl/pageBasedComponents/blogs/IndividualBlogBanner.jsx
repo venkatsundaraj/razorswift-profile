@@ -1,10 +1,28 @@
+import CustomImage from '@/components_fbl/globalComponents/CustomImage/CustomImage';
 import ParagraphHeading from '@/components_fbl/headingComponents/ParagraphHeading';
 import PrimaryHeading from '@/components_fbl/headingComponents/PrimaryHeading';
-import { Box, Container, Stack } from '@mui/material';
-import CustomImage from '../../globalComponents/CustomImage/CustomImage';
+import SubtitleHeading from '@/components_fbl/headingComponents/SubtitleHeading';
+import {
+  clickToCopy,
+  socialMediaiIconsData,
+} from '@/src/constants/Blogs/individualBlogsData';
+import { formatDate } from '@/utils/helpers/compareDate';
+import { Box, Button, Container, Stack } from '@mui/material';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 
 function IndividualBlogBanner({ blog }) {
-  console.log(blog);
+  const [originUrl, setOriginUrl] = useState(
+    process.env.NEXT_PUBLIC_APP_PROD_URL
+  );
+
+  const router = useRouter();
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setOriginUrl(window.location.origin);
+    }
+  }, []);
   return (
     <Box
       component="section"
@@ -45,25 +63,68 @@ function IndividualBlogBanner({ blog }) {
             {blog.description}
           </ParagraphHeading>
         ) : null}
-        <Stack
-          sx={{
-            width: '100%',
-            backgroundColor: 'violetPalette.dark',
-            py: { xs: 4, lg: 8, xl: 10 },
-            borderRadius: 9,
-          }}
-          alignItems="center"
-          justifyContent="center"
-        >
-          {blog.image ? (
+
+        {blog.image ? (
+          <>
+            <Stack
+              alignItems="center"
+              sx={{ width: '100%', color: '#fff' }}
+              flexDirection="row"
+              justifyContent="space-between"
+            >
+              <Box>
+                <SubtitleHeading sx={{ color: 'white' }}>
+                  {`By ${blog.author}   , Published on ${formatDate(
+                    blog.date
+                  )}`}
+                </SubtitleHeading>
+              </Box>
+              <Stack
+                flexDirection="row"
+                alignItems="center"
+                justifyContent="center"
+                gap={1.4}
+              >
+                {socialMediaiIconsData.map(item => (
+                  <Link key={item.id} href={item.link}>
+                    <CustomImage
+                      src={item.icon}
+                      width="30px"
+                      aspectRatio="1/1"
+                    />
+                  </Link>
+                ))}
+                <Button
+                  onClick={() => {
+                    navigator.clipboard.writeText(
+                      `${originUrl}${router.asPath}`
+                    );
+                  }}
+                  sx={{
+                    width: '30px',
+                    height: '30px',
+                    padding: '0',
+                    display: 'block',
+                  }}
+                >
+                  <CustomImage
+                    src={clickToCopy}
+                    width="30px"
+                    aspectRatio="1/1"
+                  />
+                </Button>
+              </Stack>
+            </Stack>
             <CustomImage
               src={blog.image.filePath.replace('../../public', '')}
-              width="clamp(300px, 25vw, 400px)"
-              aspectRatio="1/1"
+              width="100%"
+              aspectRatio="200/81"
               alt="hello"
+              style={{ borderRadius: '50px', border: '5px solid white' }}
             />
-          ) : null}
-        </Stack>
+          </>
+        ) : null}
+        {/* </Stack> */}
       </Container>
     </Box>
   );

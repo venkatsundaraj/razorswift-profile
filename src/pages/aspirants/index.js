@@ -33,12 +33,12 @@ function Aspirants() {
         />
         <StaticScrollSection stickySliderData={stickySliderData} />
         <CareerSection />
-        <DiscoverSection />
+
         <DropdownSection
           dropDownData={dropDownData}
           dropDownBodyData={dropDownBodyData}
         />
-        <DiscoverSection />
+        <DiscoverSection cta={'aspirants'} title={'DISCOVER, LEARN, GROW'} />
 
         <FastrackSection />
         <GetStartedSection readyToStartData={readyToStartData} />

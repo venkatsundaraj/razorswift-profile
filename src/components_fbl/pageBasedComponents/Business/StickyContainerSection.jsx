@@ -1,5 +1,4 @@
 import CustomImage from '@/components_fbl/globalComponents/CustomImage/CustomImage';
-import ExtraParagraphHeading from '@/components_fbl/headingComponents/ExtraParagraphHeading';
 import ParagraphHeading from '@/components_fbl/headingComponents/ParagraphHeading';
 import PrimaryHeading from '@/components_fbl/headingComponents/PrimaryHeading';
 import SubtitleHeading from '@/components_fbl/headingComponents/SubtitleHeading';
@@ -160,15 +159,16 @@ function StickyContainerSection() {
                           aspectRatio="1/1"
                         />
                       </Box>
-                      <ExtraParagraphHeading
+                      <PrimaryHeading
+                        style={{ fontSize: 'clamp(24px,3vw,46px)' }}
                         sx={{
-                          mb: { xs: 2, md: 4 },
+                          mb: { xs: 2, md: 2 },
                           color: 'primaryPalette.black',
                           textAlign: { xs: 'center', md: 'left' },
                         }}
                       >
                         {item.title}
-                      </ExtraParagraphHeading>
+                      </PrimaryHeading>
                       <SubtitleHeading
                         sx={{
                           textAlign: { xs: 'center', md: 'left' },

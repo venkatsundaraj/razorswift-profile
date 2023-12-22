@@ -7,8 +7,7 @@ export const bannerData = {
 };
 
 export const edTechData = {
-  description:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.',
+  description: `Explore RazorSwift's extensive course catalogue aimed at empowering you with updated skills and continued relevance. Enjoy a variety of options at subsidized rates, adding a fun and enriching dimension to your learning journey!`,
   edTechCopy: 'Trusted Edtech platforms Partnering with us',
   techLogos: [
     { id: 1, logo: coursesPageImagePaths.google },

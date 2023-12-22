@@ -27,8 +27,6 @@ function SelectWrapper({
       item => item.id.toString() === event.target.value.toString()
     );
 
-    console.log(getData);
-
     setFieldValue(name, getData.data);
   };
 

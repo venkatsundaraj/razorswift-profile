@@ -1,8 +1,10 @@
 import Layout from '@/src/components_fbl/NavigationComponents/Layout';
 import BlogCardCopy from '@/src/components_fbl/pageBasedComponents/blogs/BlogCardCopy';
+import BlogTitleComponent from '@/src/components_fbl/pageBasedComponents/blogs/BlogTitleComponent';
 import HeroSectionCopy from '@/src/components_fbl/pageBasedComponents/blogs/HeroSectionCopy';
-import { ctaData } from '@/src/constants/Blogs/ctaBlogs';
+import { compareDates } from '@/src/utils/helpers/compareDate';
 import { Box } from '@mui/material';
+import { allBlogs } from 'contentlayer/generated';
 
 const courses = [
   { id: '1', name: 'aspirants' },
@@ -11,15 +13,22 @@ const courses = [
 ];
 
 function index({ slug }) {
-  // console.log(slug, allBlogs);
-  const filteredData = ctaData.find(item => item.id === slug);
+  const filteredBlogData = allBlogs
+    .filter(item => item.parent === slug)
+    .sort(compareDates);
 
-  if (!filteredData) null;
+  console.log(filteredBlogData);
+
+  if (!filteredBlogData) null;
   return (
     <Layout>
       <Box component="main">
-        <HeroSectionCopy filteredData={filteredData} />
-        <BlogCardCopy filteredData={filteredData} />
+        <HeroSectionCopy filteredBlogData={filteredBlogData} />
+        <BlogTitleComponent />
+        <BlogCardCopy
+          filteredBlogData={filteredBlogData}
+          style={{ paddingTop: '0' }}
+        />
       </Box>
     </Layout>
   );
@@ -34,6 +43,7 @@ export default index;
 //       id: params.slug.toString(),
 //     },
 //   };
+
 // }
 
 export async function getStaticProps(context) {

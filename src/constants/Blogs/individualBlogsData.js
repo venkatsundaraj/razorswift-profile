@@ -1,3 +1,5 @@
+import blog from '@/src/constants/ImagePaths/blog/blog';
+
 export const IndividualBlogData = [
   {
     id: 'tips-to-write-a-great-resume',
@@ -7,8 +9,24 @@ export const IndividualBlogData = [
     pageData: [
       {
         title: 'Choose the right format',
-        lists,
       },
     ],
   },
 ];
+
+export const socialMediaiIconsData = [
+  { id: 1, icon: blog.facebook, link: 'https://www.facebook.com/' },
+  {
+    id: 2,
+    icon: blog.twitter,
+
+    link: 'https://twitter.com/',
+  },
+  {
+    id: 3,
+    icon: blog.linkedin,
+    link: 'https://www.linkedin.com/',
+  },
+];
+
+export const clickToCopy = blog.link;

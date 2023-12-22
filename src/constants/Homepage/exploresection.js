@@ -8,9 +8,9 @@ const exploreSection = [
   {
     id: '2',
     percentage: '70%',
-    description: 'Improvement in best candidate matches',
+    description: 'Reduction and removing human bias',
     bgColor: 'primary.redpinktwo',
   },
-]
+];
 
-export default exploreSection
+export default exploreSection;

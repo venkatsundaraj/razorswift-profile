@@ -10,7 +10,7 @@ function EdTechScroller() {
       sx={{
         width: '100vw',
         backgroundColor: 'primaryPalette.white',
-        padding: { xs: '16px 16px', sm: '24px 24px' },
+        padding: { xs: '16px 16px', sm: '40px 24px 0' },
       }}
     >
       <Container>
