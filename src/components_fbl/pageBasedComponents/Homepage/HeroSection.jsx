@@ -347,6 +347,10 @@ const HeroSection = () => {
             ease: 'easeInOut',
             delay: 2,
           }}
+          style={{
+            position: 'sticky !important',
+            top: '0 !important',
+          }}
         >
           <TickerComponent
             variant="div"

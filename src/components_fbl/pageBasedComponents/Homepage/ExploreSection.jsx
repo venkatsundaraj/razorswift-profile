@@ -63,7 +63,7 @@ const ExploreSection = ({ ...props }) => {
       sx={{
         display: 'flex',
         flexDirection: { xs: 'column', md: 'row', lg: 'row' },
-        height: { xs: '', md: '100vh', xl: '' },
+        height: { xs: '', md: '', xl: '100vh' },
         pl: '15px',
         pr: '15px',
         justifyContent: {
