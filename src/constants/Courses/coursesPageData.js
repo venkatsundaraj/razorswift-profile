@@ -1,4 +1,4 @@
-import coursesPageImagePaths from '@/constants//ImagePaths/Courses/coursesPageImagePaths';
+import coursesPageImagePaths from '@/constants/ImagePaths/Courses/coursesPageImagePaths';
 
 export const bannerData = {
   mainHeaderOne: 'Upskill with',

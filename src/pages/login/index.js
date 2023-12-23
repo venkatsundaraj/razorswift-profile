@@ -19,7 +19,7 @@ const Login = () => {
   return (
     <Container maxWidth="xl" disableGutters>
       <AuthNavbar
-        text="Don’t have an account yet?"
+        text="Don't have an account yet?"
         linkText="Sign up"
         workingFunctions={ButtonFunctions}
       />

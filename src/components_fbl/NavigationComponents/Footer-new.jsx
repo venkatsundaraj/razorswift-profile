@@ -1,6 +1,7 @@
 'use client';
 import homePageImagePaths from '@/constants/ImagePaths/Homepage/homePageImagePaths';
 import { socialIcons } from '@/src/constants/Aspirants/aspirantPageData';
+import { navFooterItems } from '@/src/constants/Navigation/navDataComponents';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import LaunchIcon from '@mui/icons-material/Launch';
 import {
@@ -16,14 +17,6 @@ import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import CustomImage from '../globalComponents/CustomImage/CustomImage';
 import ParagraphHeading from '../headingComponents/ParagraphHeading';
-const navFooterItems = [
-  { id: 1, item: 'Aspirant', link: '/aspirants' },
-  { id: 2, item: 'Business', link: '/business' },
-  { id: 3, item: 'Partners', link: '/partners' },
-  { id: 4, item: 'Courses', link: '/courses' },
-  { id: 5, item: 'Company', link: '/company' },
-  { id: 6, item: 'Contact', link: '/contact-us' },
-];
 
 const initialState = {
   id: 0,

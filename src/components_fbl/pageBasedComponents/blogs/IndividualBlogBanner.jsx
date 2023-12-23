@@ -27,7 +27,7 @@ function IndividualBlogBanner({ blog }) {
     <Box
       component="section"
       sx={{
-        minHeight: { xs: '130vh', sm: '80vh', lg: '130vh', xl: '100vh' },
+        minHeight: { xs: '80vh', sm: '80vh', lg: '130vh', xl: '100vh' },
 
         pt: 16,
         pb: 4,
