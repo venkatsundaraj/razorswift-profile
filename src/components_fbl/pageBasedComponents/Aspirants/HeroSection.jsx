@@ -16,7 +16,7 @@ function HeroSection({ heroSectionData, TickerBoxData }) {
           display: 'flex',
           flexDirection: 'column',
           position: 'relative',
-          height: 'calc(100vh - 65px)',
+          height: 'calc(100dvh - 65px)',
           width: '100%',
           alignItems: 'center',
 
@@ -45,9 +45,6 @@ function HeroSection({ heroSectionData, TickerBoxData }) {
               }}
             >
               <SuperText
-                // initial={{ opacity: 0, y: 100 }}
-                // whileInView={{ opacity: 1, y: 0 }}
-                // as={motion.div}
                 sx={{
                   textAlign: { xs: 'left' },
                   color: heroSectionData.heading.secondaryColor,

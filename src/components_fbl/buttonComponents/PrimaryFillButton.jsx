@@ -5,6 +5,9 @@ import NextLink from 'next/link';
 const FillButton = styled(Link)(({ theme }) => ({
   borderRadius: theme.spacing(3),
   padding: theme.spacing(1, 3),
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
   fontSize: '16px',
   lineHeight: '27px',
   textTransform: 'inherit',

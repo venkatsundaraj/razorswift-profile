@@ -32,7 +32,7 @@ function HeroSectionCopy({ filteredData, filteredBlogData }) {
       sx={{
         paddingBottom: { sm: '0', md: '64px' },
         minHeight: {
-          xs: '130dvh',
+          xs: 'calc(95vh + 700px)',
           sm: '40vh',
           md: '100vh',
           lg: '130vh',
@@ -41,6 +41,7 @@ function HeroSectionCopy({ filteredData, filteredBlogData }) {
 
         pt: 16,
         pb: 8,
+        // background: 'blue',
         background: {
           xs: `linear-gradient(to bottom, #A62973 70%, #fff 30%)`,
           xl: `linear-gradient(to bottom, #A62973 90%, #fff 10%)`,
@@ -78,7 +79,7 @@ function HeroSectionCopy({ filteredData, filteredBlogData }) {
           sx={{
             position: 'relative',
             width: '100%',
-            minHeight: { sx: '300px', sm: '500px', md: '300px' },
+            minHeight: { xs: '95vh', sm: '500px', md: '400px' },
           }}
         >
           {filteredBlogData.map((item, index) => {
@@ -98,19 +99,17 @@ function HeroSectionCopy({ filteredData, filteredBlogData }) {
               <Grid
                 className={position}
                 container
-                // spacing={2}
                 key={index}
                 alignItems="center"
                 sx={{
                   backgroundColor: `${backgroundColor[index]}`,
-
                   color: '#212121',
                   position: 'absolute',
                   borderRadius: 8,
                   overflow: 'hidden',
                   width: '100%',
                   left: '0',
-                  minHeight: { xs: '600px', sm: '300px' },
+                  height: { xs: '100%', sm: '100%' },
                 }}
               >
                 <Grid item xs={12} sm={6}>

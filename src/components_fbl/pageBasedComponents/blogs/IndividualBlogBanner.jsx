@@ -1,3 +1,4 @@
+import PrimaryFillButton from '@/components_fbl/buttonComponents/PrimaryFillButton';
 import CustomImage from '@/components_fbl/globalComponents/CustomImage/CustomImage';
 import ParagraphHeading from '@/components_fbl/headingComponents/ParagraphHeading';
 import PrimaryHeading from '@/components_fbl/headingComponents/PrimaryHeading';
@@ -7,12 +8,14 @@ import {
   socialMediaiIconsData,
 } from '@/src/constants/Blogs/individualBlogsData';
 import { formatDate } from '@/utils/helpers/compareDate';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { Box, Button, Container, Stack } from '@mui/material';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
 function IndividualBlogBanner({ blog }) {
+  console.log(blog);
   const [originUrl, setOriginUrl] = useState(
     process.env.NEXT_PUBLIC_APP_PROD_URL
   );
@@ -47,6 +50,17 @@ function IndividualBlogBanner({ blog }) {
           gap: 4,
         }}
       >
+        <PrimaryFillButton
+          href={`/blogs/${blog.parent}`}
+          sx={{
+            color: 'violetPalette.dark',
+            backgroundColor: 'primaryPalette.white',
+            alignSelf: 'start',
+          }}
+        >
+          <ArrowBackIosIcon />
+          All Blogs
+        </PrimaryFillButton>
         {blog.title ? (
           <PrimaryHeading sx={{ color: 'primaryPalette.white' }}>
             {blog.title}
@@ -72,12 +86,21 @@ function IndividualBlogBanner({ blog }) {
               flexDirection="row"
               justifyContent="space-between"
             >
-              <Box>
-                <SubtitleHeading sx={{ color: 'white' }}>
-                  {`By ${blog.author}   , Published on ${formatDate(
-                    blog.date
-                  )}`}
-                </SubtitleHeading>
+              <Box
+                sx={{
+                  display: 'flex',
+                  gap: { xs: 0, sm: 2 },
+                  alignItems: 'center',
+                  justifyContent: 'start',
+                  flexWrap: { xs: 'wrap', sm: 'nowrap' },
+                }}
+              >
+                <SubtitleHeading
+                  sx={{ color: 'white' }}
+                >{`By ${blog.author},`}</SubtitleHeading>
+                <SubtitleHeading
+                  sx={{ color: 'white' }}
+                >{`Published on ${formatDate(blog.date)}`}</SubtitleHeading>
               </Box>
               <Stack
                 flexDirection="row"

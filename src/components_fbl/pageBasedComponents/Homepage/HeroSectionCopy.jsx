@@ -55,13 +55,14 @@ const HeroSectionCopy = ({ heroSectionData }) => {
             alignItems: 'center',
             position: 'relative',
             justifyContent: { xs: 'end' },
+            overFlowY: 'hidden',
             pt: { xs: 12 },
           }}
         >
           <Box
             sx={{
               width: '100%',
-              height: '75vh',
+              height: { sm: 'max-content', md: '75vh' },
               position: 'absolute',
               backgroundColor: 'white',
               transition: 'transform 300ms ease',

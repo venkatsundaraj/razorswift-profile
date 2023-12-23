@@ -74,7 +74,7 @@ const HeroSectionSlider = ({}) => {
                       item.id === value
                         ? 'translateX(0%)'
                         : 'translateX(-100%)',
-                    transition: `transform 4000ms linear`,
+                    transition: `transform ${LODING_STATE_VALUE.toString()}ms linear`,
                   },
                 }}
               />
@@ -166,7 +166,7 @@ const HeroSectionSlider = ({}) => {
                     <CustomImage
                       src={item.image}
                       alt={item.title}
-                      width="400px"
+                      width="clamp(300px, 40vw, 400px)"
                       aspectRatio="457/504"
                     />
                   </Stack>
