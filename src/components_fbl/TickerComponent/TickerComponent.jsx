@@ -1,18 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import Link from 'next/link'
-import Image from 'next/image'
-import {
-  List,
-  ListItem,
-  Box,
-  IconButton,
-  ListItemText,
-  Typography,
-} from '@mui/material'
-import styled from '@emotion/styled'
-import { TickerBoxData } from '@/constants/Aspirants/aspirantPageData'
-import ParagraphHeading from '../headingComponents/ParagraphHeading'
-import ExtraParagraphHeading from '../headingComponents/ExtraParagraphHeading'
+import { TickerBoxData } from '@/constants/Aspirants/aspirantPageData';
+import styled from '@emotion/styled';
+import { Box, List } from '@mui/material';
+import Image from 'next/image';
+import Link from 'next/link';
+import React, { useEffect, useState } from 'react';
+import ExtraParagraphHeading from '../headingComponents/ExtraParagraphHeading';
 
 const TickerBox = styled(List)(({ theme }) => ({
   width: '100%',
@@ -22,22 +14,22 @@ const TickerBox = styled(List)(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'center',
   overflow: 'hidden',
-}))
+}));
 function TickerComponent({ data }) {
-  const [value, setValue] = useState(0)
-  const [courses, setCourses] = useState(data.slidingValue)
+  const [value, setValue] = useState(0);
+  const [courses, setCourses] = useState(data.slidingValue);
 
   useEffect(() => {
     const timeOut = setInterval(() => {
-      setValue((prev) => {
-        return prev >= courses.length - 1 ? 0 : prev + 1
-      })
-    }, 2800)
+      setValue(prev => {
+        return prev >= courses.length - 1 ? 0 : prev + 1;
+      });
+    }, 2800);
 
     return () => {
-      clearTimeout(timeOut)
-    }
-  }, [value])
+      clearTimeout(timeOut);
+    };
+  }, [value]);
 
   return (
     <TickerBox>
@@ -52,16 +44,16 @@ function TickerComponent({ data }) {
         }}
       >
         {courses.map((item, itemIndex) => {
-          let position = 'slide nextSlide'
+          let position = 'slide nextSlide';
           if (value === itemIndex) {
-            position = 'slide activeSlide'
+            position = 'slide activeSlide';
           }
 
           if (
             itemIndex === value - 1 ||
             (value === 0 && itemIndex === courses.length - 1)
           ) {
-            position = 'slide lastSlide'
+            position = 'slide lastSlide';
           }
 
           return (
@@ -92,11 +84,11 @@ function TickerComponent({ data }) {
                 src={TickerBoxData.tickerArrow}
               />
             </ExtraParagraphHeading>
-          )
+          );
         })}
       </Box>
     </TickerBox>
-  )
+  );
 }
 
-export default TickerComponent
+export default TickerComponent;
