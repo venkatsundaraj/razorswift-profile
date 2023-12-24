@@ -14,6 +14,7 @@ function DiscoverSection({ cta, title }) {
   if (!filteredBlogData) null;
   return (
     <CustomSection
+      style={{ padding: 'clamp(16px,3vw,32px) 0', minHeight: 'max-content' }}
       sx={{
         display: 'flex',
         flexDirection: 'column',
@@ -24,7 +25,9 @@ function DiscoverSection({ cta, title }) {
         color: 'violetPalette.dark',
       }}
     >
-      <PrimaryHeading>{title}</PrimaryHeading>
+      <PrimaryHeading sx={{ color: 'violetPalette.dark', textAlign: 'center' }}>
+        {title}
+      </PrimaryHeading>
       <PrimaryFillButton
         href={`/blogs/${cta}`}
         variant="contained"

@@ -21,7 +21,11 @@ function BlogCardCopy({ filteredData, filteredBlogData, ...props }) {
   };
 
   return (
-    <CustomSection component="section" {...props}>
+    <CustomSection
+      component="section"
+      style={{ padding: 'clamp(16px,3vw,32px) 0' }}
+      {...props}
+    >
       <Container sx={{ overflowX: 'hidden' }}>
         <Grid container alignItems="start" spacing={2}>
           {filteredBlogData.map((item, index) => (

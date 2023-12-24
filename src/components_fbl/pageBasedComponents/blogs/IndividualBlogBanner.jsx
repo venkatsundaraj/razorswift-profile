@@ -70,6 +70,7 @@ function IndividualBlogBanner({ blog }) {
           <ParagraphHeading
             sx={{
               color: 'primaryPalette.white',
+              marginBottom: { xs: '-10px', sm: 'initial' },
               textAlign: 'center',
               maxWidth: '700px',
             }}

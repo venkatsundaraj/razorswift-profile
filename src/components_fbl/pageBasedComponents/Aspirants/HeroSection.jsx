@@ -122,7 +122,11 @@ function HeroSection({ heroSectionData, TickerBoxData }) {
 
                   <PrimaryFillButton
                     varient="contained"
-                    href="/login"
+                    href={
+                      heroSectionData.buttonUrl
+                        ? heroSectionData.buttonUrl
+                        : '/login'
+                    }
                     sx={{
                       width: 'max-content',
                       marginTop: '18px',

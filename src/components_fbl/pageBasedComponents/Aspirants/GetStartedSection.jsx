@@ -28,6 +28,7 @@ function GetStartedSection({ readyToStartData }) {
   };
   return (
     <CustomSection
+      style={{ padding: 'clamp(16px,3vw,32px) 0' }}
       id="get-started"
       sx={{
         display: 'flex',
@@ -59,6 +60,7 @@ function GetStartedSection({ readyToStartData }) {
             <SuperText
               sx={{
                 color: 'violetPalette.dark',
+                textAlign: 'center',
               }}
             >
               {readyToStartData.title}

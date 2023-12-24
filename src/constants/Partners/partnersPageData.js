@@ -1,6 +1,5 @@
-import aspirantPageImagePaths from '../ImagePaths/Aspirants/aspirantPageImagePaths'
-import businessPageImagePaths from '../ImagePaths/Business/businessPageImagePaths'
-import partnersPageImagePaths from '../ImagePaths/Partners/partnersPageImagePaths'
+import businessPageImagePaths from '../ImagePaths/Business/businessPageImagePaths';
+import partnersPageImagePaths from '../ImagePaths/Partners/partnersPageImagePaths';
 
 export const heroSectionData = {
   heading: {
@@ -11,8 +10,9 @@ export const heroSectionData = {
   },
   description: 'A dynamic ecosystem where talent and opportunities converge',
   buttonContent: 'Partner with us',
+  buttonUrl: '/contact-us',
   bannerImage: partnersPageImagePaths.heroSection.banner,
-}
+};
 
 export const partnersDropDownBodyData = {
   id: 1,
@@ -58,7 +58,7 @@ export const partnersDropDownBodyData = {
       description: 'AI based recommendation of your services to aspirants',
     },
   ],
-}
+};
 
 export const readyToStartData = {
   title: 'WHY PARTNER WITH US?',
@@ -67,4 +67,4 @@ export const readyToStartData = {
   buttonText: 'Partner with us',
   longDescription: `Razorswift Innovations' commitment to innovation and strategic partnerships creates a harmonious ecosystem where businesses and candidates can thrive. By integrating with key players in the talent marketplace, we ensure that the hiring process is efficient, credible, and beneficial for all involved.
   `,
-}
+};
