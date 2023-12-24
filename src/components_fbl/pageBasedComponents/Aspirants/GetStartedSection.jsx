@@ -28,7 +28,7 @@ function GetStartedSection({ readyToStartData }) {
   };
   return (
     <CustomSection
-      style={{ padding: 'clamp(16px,3vw,32px) 0' }}
+      style={{ padding: 'clamp(16px,3vw,32px) 0', minHeight: 'max-content' }}
       id="get-started"
       sx={{
         display: 'flex',
