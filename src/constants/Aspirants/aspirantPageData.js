@@ -122,7 +122,7 @@ export const TickerBoxData = {
     },
     {
       id: 5,
-      title: "Don't have a RazorSwift profile yet. Sign up now",
+      title: "Don't have a RazorSwift profile yet? Sign up now",
       link: '/signup',
     },
   ],

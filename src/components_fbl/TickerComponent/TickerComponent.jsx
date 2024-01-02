@@ -62,11 +62,15 @@ function TickerComponent({ data }) {
               key={item.id}
               sx={{
                 position: 'absolute',
-                top: { xs: '0', sm: '32.5%', md: '22.5%' },
+                // top: { xs: '0', sm: '32.5%', md: '22.5%' },
                 textAlign: 'center',
                 cursor: 'pointer',
                 px: '20px',
                 width: '100%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                height: '100%',
                 color: 'primaryPalette.black',
               }}
               align="center"
