@@ -3,8 +3,8 @@ import HeroSection from '@/components_fbl/pageBasedComponents/Aspirants/HeroSect
 import BusinessDropDownBody from '@/components_fbl/pageBasedComponents/Business/BusinessDropDownBody';
 import StickyContainerSection from '@/components_fbl/pageBasedComponents/Business/StickyContainerSection';
 import WhyRazorswiftSection from '@/components_fbl/pageBasedComponents/Business/WhyRazorswiftSection';
-import { TickerBoxData } from '@/constants/Aspirants/aspirantPageData';
 import {
+  TickerBoxData,
   businessDropDownBodyData,
   heroSectionData,
   readyToStartData,

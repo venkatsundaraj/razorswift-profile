@@ -1,11 +1,12 @@
 import GetStartedSection from '@/components_fbl/pageBasedComponents/Aspirants/GetStartedSection';
 import HeroSection from '@/components_fbl/pageBasedComponents/Aspirants/HeroSection';
 import BusinessDropDownBody from '@/components_fbl/pageBasedComponents/Business/BusinessDropDownBody';
-import { TickerBoxData } from '@/constants/Aspirants/aspirantPageData';
+
 import {
   heroSectionData,
   partnersDropDownBodyData,
   readyToStartData,
+  TickerBoxData,
 } from '@/constants/Partners/partnersPageData';
 import Layout from '@/src/components_fbl/NavigationComponents/Layout';
 import DiscoverSection from '@/src/components_fbl/pageBasedComponents/Aspirants/DiscoverSection';

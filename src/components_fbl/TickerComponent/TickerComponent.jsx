@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { Box, List } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import ExtraParagraphHeading from '../headingComponents/ExtraParagraphHeading';
 
 const TickerBox = styled(List)(({ theme }) => ({
@@ -35,7 +35,7 @@ function TickerComponent({ data }) {
     <TickerBox>
       <Box
         sx={{
-          width: '550px',
+          width: '850px',
           height: '100%',
           position: 'relative',
           display: 'flex',
@@ -74,7 +74,7 @@ function TickerComponent({ data }) {
             >
               <Link
                 style={{ textDecoration: 'none', color: 'inherit' }}
-                href="/"
+                href={item.link}
               >
                 {item.title}
               </Link>

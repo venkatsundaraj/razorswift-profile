@@ -2,7 +2,7 @@
 import pathwayheads from '@/constants/Homepage/pathwayheads.js';
 import { bebasNeue } from '@/utils/themes/typography';
 import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
-import { Grid } from '@mui/material';
+import { Grid, Stack } from '@mui/material';
 import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
@@ -302,6 +302,7 @@ export default function PathwaySection() {
                           >
                             {item.title}
                           </Typography>
+
                           <Typography
                             sx={{
                               color:
@@ -368,26 +369,45 @@ export default function PathwaySection() {
               sx={{
                 display: 'flex',
                 flexDirection: 'row',
-                justifyContent: 'space-between',
+                justifyContent: 'center',
                 borderBottom: '1px solid white',
-                padding: '0 20px 10px 20px',
+                padding: { xs: '0 20px 0px 20px', md: '0 20px 10px 20px' },
                 margin: '0 10px',
               }}
             >
-              {pathwayheads.map((item, index) => (
-                <>
-                  <Typography
+              <Stack
+                alignItems="end"
+                flexDirection="row"
+                sx={{
+                  borderRadius: '10px 10px 0 0',
+                }}
+              >
+                {pathwayheads.map((item, index) => (
+                  <Stack
+                    flexDirection="row"
+                    alignItems="center"
                     sx={{
-                      color:
-                        selectedItemId === item.id ? 'white' : 'primary.lite',
-                      fontSize: '25px',
+                      backgroundColor:
+                        selectedItemId === item.id ? item.bg : '#f0d2f8a8',
+                      padding: '10px',
+                      borderRadius: '10px 10px 0 0',
+                      height: selectedItemId === item.id ? 'auto' : '40px',
                     }}
-                    onClick={() => handleMobileClick(item.id)}
                   >
-                    {item.title}
-                  </Typography>
-                </>
-              ))}
+                    <Typography
+                      sx={{
+                        color:
+                          selectedItemId === item.id ? item.dark : item.lite,
+                        fontSize: selectedItemId === item.id ? '24px' : '18px',
+                        fontWeight: 500,
+                      }}
+                      onClick={() => handleMobileClick(item.id)}
+                    >
+                      {item.title}
+                    </Typography>
+                  </Stack>
+                ))}
+              </Stack>
             </Box>
             <Typography
               sx={{

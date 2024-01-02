@@ -13,6 +13,7 @@ import homePageImagePaths from '../../../constants/ImagePaths/Homepage/homePageI
 const TypographyOne = styled(Typography)(({ theme }) => ({}));
 
 const HeroSection = () => {
+  console.log(TickerBoxData);
   const banimg = {
     width: 'clamp(370px, 63.5vw, 1210px)',
     height: 'auto',

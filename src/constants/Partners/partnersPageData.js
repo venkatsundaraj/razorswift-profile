@@ -1,5 +1,6 @@
-import businessPageImagePaths from '../ImagePaths/Business/businessPageImagePaths';
-import partnersPageImagePaths from '../ImagePaths/Partners/partnersPageImagePaths';
+import aspirantPageImagePaths from '@/constants/ImagePaths/Aspirants/aspirantPageImagePaths';
+import businessPageImagePaths from '@/constants/ImagePaths/Business/businessPageImagePaths';
+import partnersPageImagePaths from '@/constants/ImagePaths/Partners/partnersPageImagePaths';
 
 export const heroSectionData = {
   heading: {
@@ -67,4 +68,25 @@ export const readyToStartData = {
   buttonText: 'Partner with us',
   longDescription: `Razorswift Innovations' commitment to innovation and strategic partnerships creates a harmonious ecosystem where businesses and candidates can thrive. By integrating with key players in the talent marketplace, we ensure that the hiring process is efficient, credible, and beneficial for all involved.
   `,
+};
+
+export const TickerBoxData = {
+  tickerArrow: aspirantPageImagePaths.tickerSection.arrow,
+  slidingValue: [
+    {
+      id: 1,
+      title: 'Schedule a meeting with us to know more',
+      link: '/contact-us',
+    },
+    {
+      id: 2,
+      title: 'Unlock opportunities with RazorSwift',
+      link: '/partners',
+    },
+    {
+      id: 3,
+      title: 'Plug into skill, domain and corporate pathways',
+      link: '/contact-us',
+    },
+  ],
 };

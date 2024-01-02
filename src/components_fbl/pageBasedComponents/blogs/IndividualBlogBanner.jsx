@@ -8,14 +8,12 @@ import {
   socialMediaiIconsData,
 } from '@/src/constants/Blogs/individualBlogsData';
 import { formatDate } from '@/utils/helpers/compareDate';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { Box, Button, Container, Stack } from '@mui/material';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
 function IndividualBlogBanner({ blog }) {
-  console.log(blog);
   const [originUrl, setOriginUrl] = useState(
     process.env.NEXT_PUBLIC_APP_PROD_URL
   );
@@ -52,17 +50,26 @@ function IndividualBlogBanner({ blog }) {
       >
         <PrimaryFillButton
           href={`/blogs/${blog.parent}`}
+          style={{
+            borderRadius: '0px',
+            padding: '0',
+          }}
           sx={{
-            color: 'violetPalette.dark',
-            backgroundColor: 'primaryPalette.white',
+            color: 'primaryPalette.white',
             alignSelf: 'start',
+            padding: '0',
+            borderBottom: '1px solid transparent',
+            '&:hover': {
+              borderBottom: '1px solid white',
+            },
           }}
         >
-          <ArrowBackIosIcon />
           All Blogs
         </PrimaryFillButton>
         {blog.title ? (
-          <PrimaryHeading sx={{ color: 'primaryPalette.white' }}>
+          <PrimaryHeading
+            sx={{ color: 'primaryPalette.white', textAlign: 'center' }}
+          >
             {blog.title}
           </PrimaryHeading>
         ) : null}
@@ -142,6 +149,7 @@ function IndividualBlogBanner({ blog }) {
             <CustomImage
               src={blog.image.filePath.replace('../../public', '')}
               width="100%"
+              height="clamp(220px,40vw,500px)"
               aspectRatio="200/81"
               alt="hello"
               style={{ borderRadius: '50px', border: '5px solid white' }}

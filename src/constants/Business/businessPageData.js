@@ -1,4 +1,5 @@
-import businessPageImagePaths from '../ImagePaths/Business/businessPageImagePaths';
+import aspirantPageImagePaths from '@/constants/ImagePaths/Aspirants/aspirantPageImagePaths';
+import businessPageImagePaths from '@/constants/ImagePaths/Business/businessPageImagePaths';
 
 export const heroSectionData = {
   heading: {
@@ -142,6 +143,32 @@ export const quickTalentDiscoveryData = {
       backgroundColor: '#FCC9CF',
       image: businessPageImagePaths.pathwayIcons.icon4,
       mainImage: businessPageImagePaths.dropDownSection.mainImage4,
+    },
+  ],
+};
+
+export const TickerBoxData = {
+  tickerArrow: aspirantPageImagePaths.tickerSection.arrow,
+  slidingValue: [
+    {
+      id: 1,
+      title: 'Schedule a demo with us',
+      link: '/contact-us',
+    },
+    {
+      id: 2,
+      title: 'Hire at scale with a click of a button. Start now',
+      link: '/contact-us',
+    },
+    {
+      id: 3,
+      title: 'Learn more about RazorSwift Pathways - coming soon',
+      link: '/',
+    },
+    {
+      id: 4,
+      title: 'Craft your customized pathway now',
+      link: '/contact-us',
     },
   ],
 };

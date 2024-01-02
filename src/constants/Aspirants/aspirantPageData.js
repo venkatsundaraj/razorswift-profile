@@ -99,12 +99,34 @@ export const heroSectionData = {
 export const TickerBoxData = {
   tickerArrow: aspirantPageImagePaths.tickerSection.arrow,
   slidingValue: [
-    { id: 1, title: 'Check out the newly added Python pathway1' },
-    { id: 2, title: 'Check out the newly added Python pathway2' },
-    { id: 3, title: 'Check out the newly added Python pathway3' },
+    {
+      id: 1,
+      title: 'Choose from over 35 Technical courses that are nearly Free',
+      link: '/courses',
+    },
+    {
+      id: 2,
+      title:
+        'Join 5000+ RazorSwift users and get the Verified Profile Advantage',
+      link: '/signup',
+    },
+    {
+      id: 3,
+      title: 'Create a standout easy to share RazorSwift Profile',
+      link: '/signup',
+    },
+    {
+      id: 4,
+      title: 'Learn more about RazorSwift Pathways - coming soon',
+      link: '/',
+    },
+    {
+      id: 5,
+      title: "Don't have a RazorSwift profile yet. Sign up now",
+      link: '/signup',
+    },
   ],
 };
-
 export const CareerData = {
   heading: 'power your career - coming soon',
   description:
