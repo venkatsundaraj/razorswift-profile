@@ -14,10 +14,10 @@ export const getCourseList = async function () {
       }
     );
 
+    console.log(data);
     if (!data || !data.courses) {
       throw new Error(`can't fetch the data right now`);
     }
-
     if (data.courses.length > 1) return data;
   } catch (err) {
     if (err instanceof AxiosError) {
