@@ -172,7 +172,7 @@ const MeettheTeam = () => {
                       <Stack sx={{}}>
                         <Image
                           style={{
-                            width: '500px',
+                            width: 'clamp(350px, 35vw, 500px)',
                             height: 'auto',
                             alignSelf: 'center',
                             borderBottom: '1px solid #707070',
@@ -196,7 +196,7 @@ const MeettheTeam = () => {
                       >
                         <Typography
                           sx={{
-                            fontSize: '36px',
+                            fontSize: { xs: '30px', md: '36px' },
                             fontWeight: '600',
                             color: 'white',
                             cursor: 'pointer',
@@ -231,7 +231,12 @@ const MeettheTeam = () => {
           <Box className="finalpage">
             <Container sx={{ paddingTop: '30px' }}>
               <Grid sx={{ width: '100%' }} container alignItems="center">
-                <Grid item xs={12} lg={2}>
+                <Grid
+                  sx={{ marginTop: { xs: '-25px', md: '' } }}
+                  item
+                  xs={12}
+                  lg={2}
+                >
                   <Image
                     alt="closesvg"
                     onClick={handleClosebutton}
@@ -252,20 +257,22 @@ const MeettheTeam = () => {
                       whileInView={'onscreen'}
                       viewport={{ once: true }}
                     >
-                      <Typography
-                        sx={{
-                          fontSize: '44px',
-                          textAlign: 'center',
-                          fontWeight: '600',
-                        }}
-                      >
-                        {content.person[0].title}
-                      </Typography>
-                      <Typography
-                        sx={{ fontSize: '36px', textAlign: 'center' }}
-                      >
-                        {content.person[0].designation}
-                      </Typography>
+                      <Box sx={{ marginTop: { xs: '30px', md: '' } }}>
+                        <Typography
+                          sx={{
+                            fontSize: '44px',
+                            textAlign: 'center',
+                            fontWeight: '600',
+                          }}
+                        >
+                          {content.person[0].title}
+                        </Typography>
+                        <Typography
+                          sx={{ fontSize: '36px', textAlign: 'center' }}
+                        >
+                          {content.person[0].designation}
+                        </Typography>
+                      </Box>
                     </motion.div>
                   </motion.div>
                 </Grid>
@@ -278,7 +285,7 @@ const MeettheTeam = () => {
                   padding: '20px 0 20px 0',
                   borderTop: '1px solid #707070',
                   borderBottom: '1px solid #707070',
-                  marginTop: '80px',
+                  marginTop: '60px',
                 }}
                 container
                 justifyContent="center"
@@ -308,10 +315,15 @@ const MeettheTeam = () => {
                   </Stack>
                 </Grid>
                 <Grid item xs={12} lg={6}>
-                  <Stack sx={{ paddingLeft: '25px' }}>
-                    <Typography sx={{ fontSize: '24px' }}>
+                  <Stack
+                    sx={{
+                      paddingLeft: { xs: '', md: '25px' },
+                      marginTop: { xs: '40px', md: '' },
+                    }}
+                  >
+                    {/* <Typography sx={{ fontSize: '24px' }}>
                       {content.person[0].content}
-                    </Typography>
+                    </Typography> */}
                     <Typography sx={{ fontSize: '20px' }}>
                       {content.person[0].description}
                     </Typography>

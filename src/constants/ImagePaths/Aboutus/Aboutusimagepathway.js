@@ -6,8 +6,8 @@ const Aboutusimagepathway = {
   close: require('/public/images/Aboutus/close.png').default,
   linkedin: require('/public/images/Aboutus/linkedin-logo.svg').default,
 
-  arvindh: require('/public/images/Aboutus/Arvindh.webp').default,
-  sandya: require('/public/images/Aboutus/Sandya.webp').default,
+  arvindh: require('/public/images/Aboutus/arvind_rsw.jpg').default,
+  sandya: require('/public/images/Aboutus/sandhya_rsw.jpg').default,
   parga: require('/public/images/Aboutus/Parga.webp').default,
   priyanka: require('/public/images/Aboutus/Priyanka.webp').default,
   newbanner: require('/public/images/Aboutus/about-us-banner@2x.jpg').default,
