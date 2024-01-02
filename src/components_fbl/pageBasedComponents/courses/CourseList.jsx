@@ -15,7 +15,7 @@ function CourseList() {
   useEffect(() => {
     const getData = async function () {
       const { courses } = await getCourseList();
-      console.log(courses)
+
       setCoursesList(courses);
     };
     getData();
