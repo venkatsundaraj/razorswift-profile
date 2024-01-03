@@ -2,14 +2,17 @@ import PrimaryFillButton from '@/components_fbl/buttonComponents/PrimaryFillButt
 import CustomSection from '@/components_fbl/globalComponents/CustomContainer/CustomSection';
 import PrimaryHeading from '@/components_fbl/headingComponents/PrimaryHeading';
 import BlogCardCopy from '@/src/components_fbl/pageBasedComponents/blogs/BlogCardCopy';
+import { compareDates } from '@/utils/helpers/compareDate';
 import { allBlogs } from 'contentlayer/generated';
 import { useRouter } from 'next/router';
 
-function DiscoverSection({ cta, title }) {
+function DiscoverSection({ cta, title, emptyButton }) {
   const router = useRouter();
 
-  console.log(router);
-  const filteredBlogData = allBlogs.filter(item => item.parent === cta);
+  const filteredBlogData = allBlogs
+    .filter(item => item.parent === cta)
+    .sort(compareDates)
+    .slice(0, 3);
 
   if (!filteredBlogData) null;
   return (
@@ -25,22 +28,28 @@ function DiscoverSection({ cta, title }) {
         color: 'violetPalette.dark',
       }}
     >
-      <PrimaryHeading sx={{ color: 'violetPalette.dark', textAlign: 'center' }}>
-        {title}
-      </PrimaryHeading>
-      <PrimaryFillButton
-        href={`/blogs/${cta}`}
-        variant="contained"
-        sx={{
-          backgroundColor: theme => theme.palette.violetPalette.dark,
-          color: theme => theme.palette.primaryPalette.white,
-          '&:hover': {
+      {title ? (
+        <PrimaryHeading
+          sx={{ color: 'violetPalette.dark', textAlign: 'center' }}
+        >
+          {title}
+        </PrimaryHeading>
+      ) : null}
+      {emptyButton ? null : (
+        <PrimaryFillButton
+          href={`/blogs/${cta}`}
+          variant="contained"
+          sx={{
             backgroundColor: theme => theme.palette.violetPalette.dark,
-          },
-        }}
-      >
-        View All Blogs
-      </PrimaryFillButton>
+            color: theme => theme.palette.primaryPalette.white,
+            '&:hover': {
+              backgroundColor: theme => theme.palette.violetPalette.dark,
+            },
+          }}
+        >
+          View All Blogs
+        </PrimaryFillButton>
+      )}
       {/* <DiscoverCardLists cardData={discoverSectionData.cards} /> */}
       <BlogCardCopy filteredBlogData={filteredBlogData} />
     </CustomSection>

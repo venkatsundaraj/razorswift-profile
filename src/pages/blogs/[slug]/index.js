@@ -17,8 +17,6 @@ function index({ slug }) {
     .filter(item => item.parent === slug)
     .sort(compareDates);
 
-  console.log(filteredBlogData);
-
   if (!filteredBlogData) null;
   return (
     <Layout>

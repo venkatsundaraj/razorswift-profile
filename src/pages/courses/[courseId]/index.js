@@ -12,7 +12,11 @@ import CustomImage from '@/src/components_fbl/globalComponents/CustomImage/Custo
 import { edTechData } from '@/src/constants/Courses/coursesPageData';
 import { AccountApi } from '@/swagger_api/*';
 import { submitEnrollUserData } from '@/utils/enrollUser';
-import { getCourseList, getSelectedCourse } from '@/utils/getCourseList';
+import {
+  getCourseList,
+  getSelectedCourse,
+  getSelectedCourseData,
+} from '@/utils/getCourseList';
 import {
   alphabetsValidationSchema,
   emailValidation,
@@ -30,7 +34,7 @@ import {
 import { AxiosError } from 'axios';
 import { Form, Formik } from 'formik';
 import Link from 'next/link';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import * as Yup from 'yup';
 
@@ -74,6 +78,16 @@ const FORM_VALIDATION = Yup.object().shape({
 function EnrollForm({ data }) {
   const { loading, setLoading } = useContext(LoadingContext);
   const [course, setCourse] = useState(data);
+  const [courseData, setCourseData] = useState({});
+
+  useEffect(() => {
+    const getData = async function () {
+      const data = await getSelectedCourseData();
+      if (!data) return;
+      setCourseData(data);
+    };
+    getData();
+  }, []);
 
   const enrollUser = async function (values, { setSubmitting, resetForm }) {
     try {
@@ -171,17 +185,18 @@ function EnrollForm({ data }) {
                   </Typography>
                 </Grid>
                 <Grid item sm={12}>
-                  <ParagraphHeading
-                    sx={{
-                      textAlign: 'center',
-                      color: '3A3A3A',
-                    }}
-                  >
-                    Buy your course in a few simple steps! Scan the QR Code
-                    given below, pay and enter your transaction number below,
-                    and submit the form. We will contact you in a couple of
-                    hours with more details on your course. Happy Learning!
-                  </ParagraphHeading>
+                  {courseData.main_text ? (
+                    <ParagraphHeading
+                      sx={{
+                        textAlign: 'center',
+                        color: '3A3A3A',
+                      }}
+                    >
+                      {courseData.main_text}
+                    </ParagraphHeading>
+                  ) : (
+                    <ParagraphHeading>Loading...</ParagraphHeading>
+                  )}
                 </Grid>
               </Grid>
 
@@ -192,9 +207,22 @@ function EnrollForm({ data }) {
                       width: '100%',
                       alignItems: 'center',
                       justifyContent: 'center',
+                      flexDirection: 'column',
                       mt: { xs: 4, md: 0 },
                     }}
                   >
+                    {courseData.title ? (
+                      <ParagraphHeading
+                        sx={{
+                          textAlign: 'center',
+                          color: '3A3A3A',
+                        }}
+                      >
+                        {courseData.title}
+                      </ParagraphHeading>
+                    ) : (
+                      <ParagraphHeading>Loading...</ParagraphHeading>
+                    )}
                     <CustomImage
                       src={edTechData.qrImage}
                       width="clamp(300px, 40vw, 390px)"

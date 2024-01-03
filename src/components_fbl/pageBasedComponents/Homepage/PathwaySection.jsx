@@ -382,31 +382,35 @@ export default function PathwaySection() {
                   borderRadius: '10px 10px 0 0',
                 }}
               >
-                {pathwayheads.map((item, index) => (
-                  <Stack
-                    flexDirection="row"
-                    alignItems="center"
-                    sx={{
-                      backgroundColor:
-                        selectedItemId === item.id ? item.bg : '#f0d2f8a8',
-                      padding: '10px',
-                      borderRadius: '10px 10px 0 0',
-                      height: selectedItemId === item.id ? 'auto' : '40px',
-                    }}
-                  >
-                    <Typography
+                {pathwayheads.map((item, index) => {
+                  console.log(selectedItemId);
+                  return (
+                    <Stack
+                      flexDirection="row"
+                      alignItems="center"
                       sx={{
-                        color:
-                          selectedItemId === item.id ? item.dark : item.lite,
-                        fontSize: selectedItemId === item.id ? '24px' : '18px',
-                        fontWeight: 500,
+                        backgroundColor:
+                          selectedItemId === item.id ? item.bg : '#f0d2f8a8',
+                        padding: '10px',
+                        borderRadius: '10px 10px 0 0',
+                        height: selectedItemId === item.id ? 'auto' : '40px',
                       }}
-                      onClick={() => handleMobileClick(item.id)}
                     >
-                      {item.title}
-                    </Typography>
-                  </Stack>
-                ))}
+                      <Typography
+                        sx={{
+                          color:
+                            selectedItemId === item.id ? item.dark : item.lite,
+                          fontSize:
+                            selectedItemId === item.id ? '24px' : '18px',
+                          fontWeight: 500,
+                        }}
+                        onClick={() => handleMobileClick(item.id)}
+                      >
+                        {item.title}
+                      </Typography>
+                    </Stack>
+                  );
+                })}
               </Stack>
             </Box>
             <Typography

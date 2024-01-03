@@ -1,4 +1,5 @@
 import Layout from '@/src/components_fbl/NavigationComponents/Layout';
+import DiscoverSection from '@/src/components_fbl/pageBasedComponents/Aspirants/DiscoverSection';
 import BlogBody from '@/src/components_fbl/pageBasedComponents/blogs/BlogBody';
 import IndividualBlogBanner from '@/src/components_fbl/pageBasedComponents/blogs/IndividualBlogBanner';
 import { Box } from '@mui/material';
@@ -7,11 +8,13 @@ import { useState } from 'react';
 
 function index({ data }) {
   const [blog, setBlog] = useState(data);
+
   return (
     <Layout>
       <Box component="main">
         <IndividualBlogBanner blog={blog} />
         <BlogBody blog={blog} />
+        <DiscoverSection cta={blog.parent} emptyButton={true} />
       </Box>
     </Layout>
   );

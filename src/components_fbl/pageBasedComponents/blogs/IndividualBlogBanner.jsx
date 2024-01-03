@@ -8,6 +8,7 @@ import {
   socialMediaiIconsData,
 } from '@/src/constants/Blogs/individualBlogsData';
 import { formatDate } from '@/utils/helpers/compareDate';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { Box, Button, Container, Stack } from '@mui/material';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -64,6 +65,7 @@ function IndividualBlogBanner({ blog }) {
             },
           }}
         >
+          <ChevronLeftIcon />
           All Blogs
         </PrimaryFillButton>
         {blog.title ? (
