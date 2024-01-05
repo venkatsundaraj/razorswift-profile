@@ -1,6 +1,8 @@
 import TickerComponent from '@/components_fbl/TickerComponent/TickerComponent';
 import ParagraphHeading from '@/components_fbl/headingComponents/ParagraphHeading';
 import { TickerBoxData } from '@/constants/Homepage/TickerBoxData';
+import heroSectionData from '@/src/constants/Homepage/heroSectionData';
+import homePageImagePaths from '@/src/constants/ImagePaths/Homepage/homePageImagePaths';
 import { bebasNeue } from '@/utils/themes/typography';
 import styled from '@emotion/styled';
 import { Stack, Typography } from '@mui/material';
@@ -8,8 +10,6 @@ import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import heroSectionData from '../../../constants/Homepage/heroSectionData';
-import homePageImagePaths from '../../../constants/ImagePaths/Homepage/homePageImagePaths';
 const TypographyOne = styled(Typography)(({ theme }) => ({}));
 
 const HeroSection = () => {

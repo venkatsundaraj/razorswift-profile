@@ -1,6 +1,6 @@
+import { Mdx } from '@/components_fbl/MdxComponents/MdxComponents';
+import ExtraParagraphHeading from '@/components_fbl/headingComponents/ExtraParagraphHeading';
 import { Box, Container } from '@mui/material';
-import { Mdx } from '../../MdxComponents/MdxComponents';
-import ExtraParagraphHeading from '../../headingComponents/ExtraParagraphHeading';
 
 function BlogBody({ blog }) {
   return (

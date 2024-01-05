@@ -130,7 +130,7 @@ export const quickTalentDiscoveryData = {
       id: 3,
       title: 'Seamless eco-sysem integration',
       description:
-        'Connect with tools and platforms of choice and Custom create an integrated solution on RazorSwift.',
+        'Connect with tools and platforms of choice and custom create an integrated solution on RazorSwift.',
       backgroundColor: '#DCBDE3',
       image: businessPageImagePaths.pathwayIcons.icon3,
       mainImage: businessPageImagePaths.dropDownSection.mainImage3,

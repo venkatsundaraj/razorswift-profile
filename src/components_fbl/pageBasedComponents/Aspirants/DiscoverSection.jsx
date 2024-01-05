@@ -42,8 +42,10 @@ function DiscoverSection({ cta, title, emptyButton }) {
           sx={{
             backgroundColor: theme => theme.palette.violetPalette.dark,
             color: theme => theme.palette.primaryPalette.white,
+            transition: 'all 300ms ease',
             '&:hover': {
               backgroundColor: theme => theme.palette.violetPalette.dark,
+              transform: 'translateY(-3px)',
             },
           }}
         >

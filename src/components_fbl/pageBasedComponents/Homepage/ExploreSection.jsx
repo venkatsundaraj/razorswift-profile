@@ -3,10 +3,10 @@ import ParagraphHeading from '@/components_fbl/headingComponents/ParagraphHeadin
 import PrimaryHeading from '@/components_fbl/headingComponents/PrimaryHeading';
 import exploreSection from '@/constants/Homepage/exploresection.js';
 import exploreSectiontwo from '@/constants/Homepage/exploresectiontwo.js';
+import data from '@/src/constants/Homepage/whyrazor.js';
 import { Box, Grid, Stack } from '@mui/material';
 import Link from '@mui/material/Link';
 import { motion } from 'framer-motion';
-import data from '../../../constants/Homepage/whyrazor.js';
 const ExploreSection = ({ ...props }) => {
   const headfont = {
     fontSize: 'clamp(50px, 4vw, 64px)',

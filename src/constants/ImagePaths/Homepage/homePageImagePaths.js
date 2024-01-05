@@ -46,7 +46,8 @@ const homePageImagePaths = {
     .default,
   trophyone: require('/public/images/Homepage/Path 485.svg').default,
   trophytwo: require('/public/images/Homepage/Group 108.svg').default,
-  trophythree: require('/public/images/Homepage/Group 108.svg').default,
+  trophythree: require('/public/images/Homepage/partners-dropdown-vector.svg')
+    .default,
   mainImage1: require('/public/images/Homepage/Mask Group 7.png').default,
 
   hiringone: require('/public/images/Homepage/job-ready-talent.svg').default,

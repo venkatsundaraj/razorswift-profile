@@ -3,11 +3,11 @@ import PrimaryFillButton from '@/components_fbl/buttonComponents/PrimaryFillButt
 import CustomImage from '@/components_fbl/globalComponents/CustomImage/CustomImage';
 import ParagraphHeading from '@/components_fbl/headingComponents/ParagraphHeading';
 import SuperText from '@/components_fbl/headingComponents/SuperText';
+import HeroSectionSlider from '@/components_fbl/pageBasedComponents/Homepage/HeroSectionSlider';
 import { TickerBoxData } from '@/src/constants/Aspirants/aspirantPageData';
 import { Box, Grid, Stack } from '@mui/material';
 import { useMotionValueEvent, useScroll } from 'framer-motion';
 import { useRef, useState } from 'react';
-import HeroSectionSlider from './HeroSectionSlider';
 
 const HeroSectionCopy = ({ heroSectionData }) => {
   const [layoutTriggered, setLayoutTriggered] = useState(false);

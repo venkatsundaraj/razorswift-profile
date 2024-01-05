@@ -2,11 +2,11 @@ import PrimaryFillButton from '@/components_fbl/buttonComponents/PrimaryFillButt
 import CustomSection from '@/components_fbl/globalComponents/CustomContainer/CustomSection';
 import ExtraParagraphHeading from '@/components_fbl/headingComponents/ExtraParagraphHeading';
 import ParagraphHeading from '@/components_fbl/headingComponents/ParagraphHeading';
+import EnrollForm from '@/components_fbl/pageBasedComponents/courses/EnrollForm';
 import { getCourseList } from '@/utils/getCourseList';
 import { Button, Container, Dialog, Grid, Stack } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import EnrollForm from './EnrollForm';
 function CourseList() {
   const [coursesList, setCoursesList] = useState([]);
   const [showForm, setShowForm] = useState(false);
@@ -34,7 +34,7 @@ function CourseList() {
     offscreen: {
       opacity: 0,
       rotate: 0,
-      y: 300,
+      y: 100,
     },
     onscreen: {
       opacity: [0.5, 0.6, 0.7, 0.8, 0.9, 1],
@@ -50,13 +50,13 @@ function CourseList() {
     },
   };
   return (
-    <CustomSection>
+    <CustomSection sx={{ overflowY: 'hidden' }}>
       <Container>
         <Grid container spacing={{ xs: 4 }}>
           {coursesList.length ? (
             coursesList.map(list => (
               <Grid item xs={12} sm={3} lg={4} key={list.id} sx={{}}>
-                <motion.div transition={{ staggerChildren: 1.9 }}>
+                <motion.div transition={{ staggerChildren: 1.9 }} id="cards">
                   <motion.div
                     variants={secondsec}
                     initial={'offscreen'}

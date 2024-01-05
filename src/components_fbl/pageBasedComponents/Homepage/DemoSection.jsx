@@ -1,11 +1,11 @@
 import ParagraphHeading from '@/components_fbl/headingComponents/ParagraphHeading';
 import SuperText from '@/components_fbl/headingComponents/SuperText';
 import demosection from '@/constants/Homepage/demosection';
+import homePageImagePaths from '@/src/constants/ImagePaths/Homepage/homePageImagePaths';
 import Link from '@mui/material/Link';
 import { Box } from '@mui/system';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import homePageImagePaths from '../../../constants/ImagePaths/Homepage/homePageImagePaths';
 const DemoSection = () => {
   console.log(demosection);
   const singlesec = {

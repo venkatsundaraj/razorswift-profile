@@ -80,6 +80,7 @@ function IndividualBlogBanner({ blog }) {
             sx={{
               color: 'primaryPalette.white',
               marginBottom: { xs: '-10px', sm: 'initial' },
+              marginTop: { xs: '-10px' },
               textAlign: 'center',
               maxWidth: '700px',
             }}

@@ -1,7 +1,7 @@
+import CustomSection from '@/components_fbl/globalComponents/CustomContainer/CustomSection';
+import SecondaryHeading from '@/components_fbl/headingComponents/SecondaryHeading';
 import CustomImage from '@/src/components_fbl/globalComponents/CustomImage/CustomImage';
 import { Container, Stack, Typography } from '@mui/material';
-import CustomSection from '../../globalComponents/CustomContainer/CustomSection';
-import SecondaryHeading from '../../headingComponents/SecondaryHeading';
 
 const BlogTitleComponent = ({}) => {
   return (

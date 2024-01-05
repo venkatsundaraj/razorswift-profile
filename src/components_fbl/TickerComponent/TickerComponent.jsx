@@ -1,10 +1,10 @@
+import ExtraParagraphHeading from '@/components_fbl/headingComponents/ExtraParagraphHeading';
 import { TickerBoxData } from '@/constants/Aspirants/aspirantPageData';
 import styled from '@emotion/styled';
 import { Box, List } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import ExtraParagraphHeading from '../headingComponents/ExtraParagraphHeading';
 
 const TickerBox = styled(List)(({ theme }) => ({
   width: '100%',

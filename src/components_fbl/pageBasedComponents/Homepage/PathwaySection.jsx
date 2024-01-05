@@ -1,5 +1,6 @@
 'use client';
 import pathwayheads from '@/constants/Homepage/pathwayheads.js';
+import datatwo from '@/src/constants/Homepage/pathwaytwo.js';
 import { bebasNeue } from '@/utils/themes/typography';
 import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
 import { Grid, Stack } from '@mui/material';
@@ -14,7 +15,6 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import * as React from 'react';
 import { useState } from 'react';
-import datatwo from '../../../constants/Homepage/pathwaytwo.js';
 const Accordion = styled(props => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({

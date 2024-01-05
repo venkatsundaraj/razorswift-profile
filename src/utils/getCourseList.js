@@ -13,7 +13,7 @@ export const getCourseList = async function () {
         },
       }
     );
-    console.log(data);
+
     if (!data || !data.courses) {
       throw new Error(`can't fetch the data right now`);
     }

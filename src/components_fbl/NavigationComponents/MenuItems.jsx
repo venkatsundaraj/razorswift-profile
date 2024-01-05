@@ -1,9 +1,9 @@
+import PrimaryFillButton from '@/components_fbl/buttonComponents/PrimaryFillButton';
+import ParagraphHeading from '@/components_fbl/headingComponents/ParagraphHeading';
 import { MenuItem, Stack, Typography } from '@mui/material';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React from 'react';
-import PrimaryFillButton from '../buttonComponents/PrimaryFillButton';
-import ParagraphHeading from '../headingComponents/ParagraphHeading';
 
 function MenuItems({ headerdData, handleClose }) {
   const router = useRouter();

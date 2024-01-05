@@ -1,11 +1,11 @@
+import CustomImage from '@/components_fbl/globalComponents/CustomImage/CustomImage';
+import ParagraphHeading from '@/components_fbl/headingComponents/ParagraphHeading';
+import PrimaryHeading from '@/components_fbl/headingComponents/PrimaryHeading';
+import SubtitleHeading from '@/components_fbl/headingComponents/SubtitleHeading';
+import TertiaryHeading from '@/components_fbl/headingComponents/TertiaryHeading';
 import { Box, Container, Grid, Stack } from '@mui/material';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import CustomImage from '../../globalComponents/CustomImage/CustomImage';
-import ParagraphHeading from '../../headingComponents/ParagraphHeading';
-import PrimaryHeading from '../../headingComponents/PrimaryHeading';
-import SubtitleHeading from '../../headingComponents/SubtitleHeading';
-import TertiaryHeading from '../../headingComponents/TertiaryHeading';
 
 const backgroundColor = ['#FFAFB9', '#DD90BE', '#DFA9EB'];
 const classes = ['current-index', 'last-index', 'next-index'];

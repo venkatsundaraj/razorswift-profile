@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 // import { TickerBoxData } from "@/constants/Aspirants/aspirantPageData";
 import ExtraParagraphHeading from '@/components_fbl/headingComponents/ExtraParagraphHeading';
 import { TickerBoxData } from '@/constants/Aspirants/aspirantPageData';
-import homePageImagePaths from '../../../constants/ImagePaths/Homepage/homePageImagePaths';
+import homePageImagePaths from '@/src/constants/ImagePaths/Homepage/homePageImagePaths';
 const TickerBox = styled(List)(({ theme }) => ({
   width: '100%',
   height: '65px',

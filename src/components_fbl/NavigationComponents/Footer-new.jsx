@@ -1,4 +1,6 @@
 'use client';
+import CustomImage from '@/components_fbl/globalComponents/CustomImage/CustomImage';
+import ParagraphHeading from '@/components_fbl/headingComponents/ParagraphHeading';
 import homePageImagePaths from '@/constants/ImagePaths/Homepage/homePageImagePaths';
 import { socialIcons } from '@/src/constants/Aspirants/aspirantPageData';
 import { navFooterItems } from '@/src/constants/Navigation/navDataComponents';
@@ -15,8 +17,6 @@ import {
 import { useInView, useMotionValueEvent, useScroll } from 'framer-motion';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
-import CustomImage from '../globalComponents/CustomImage/CustomImage';
-import ParagraphHeading from '../headingComponents/ParagraphHeading';
 
 const initialState = {
   id: 0,
