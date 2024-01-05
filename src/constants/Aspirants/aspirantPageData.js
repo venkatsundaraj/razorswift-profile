@@ -95,7 +95,7 @@ export const heroSectionData = {
   buttonContent: 'Build Your Profile',
   bannerImage: aspirantPageImagePaths.homePage.banner,
 };
-//hello world
+//hello
 export const TickerBoxData = {
   tickerArrow: aspirantPageImagePaths.tickerSection.arrow,
   slidingValue: [
