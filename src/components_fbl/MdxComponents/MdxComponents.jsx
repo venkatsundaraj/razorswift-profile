@@ -36,6 +36,7 @@ const components = {
         listStyle: 'disc',
         listStylePosition: 'inside',
         padding: '10px 0 16px',
+        marginLeft: '20px',
       }}
       {...props}
     />
@@ -47,7 +48,9 @@ const components = {
         fontSize: 'clamp(16px,1.4vw,18px)',
         color: '#3A3A3A',
         lineHeight: '1.4',
+        marginBottom: '8px',
         fontWeight: '500',
+        listStyle: 'outside',
       }}
       {...props}
     />

@@ -12,7 +12,7 @@ const pathwayheads = [
   {
     id: 2,
     title: 'Aspirants',
-    description: 'Be a niche specialist to achieve your potential',
+    description: 'Achieve your Potential',
     button: 'Choose your pathway now',
     link: '/signup',
     bg: '#FFD1CE',
