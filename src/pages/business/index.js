@@ -11,6 +11,7 @@ import {
 } from '@/constants/Business/businessPageData';
 import Layout from '@/src/components_fbl/NavigationComponents/Layout';
 import { Box } from '@mui/material';
+import Head from 'next/head';
 
 export const metadata = {
   title: 'Business | Razorswift',
@@ -19,6 +20,13 @@ export const metadata = {
 function Business() {
   return (
     <Layout>
+      <Head>
+        <title>Business | Razorswift</title>
+        <meta
+          name="description"
+          content="A dynamic ecosystem where talent and opportunities converge"
+        />
+      </Head>
       <Box component="main">
         {/* <BannerSection
         TickerBoxData={TickerBoxData}

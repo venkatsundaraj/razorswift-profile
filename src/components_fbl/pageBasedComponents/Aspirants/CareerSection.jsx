@@ -5,9 +5,9 @@ import PrimaryHeading from '@/components_fbl/headingComponents/PrimaryHeading';
 import { CareerData } from '@/constants/Aspirants/aspirantPageData';
 import { Button, Container, Stack } from '@mui/material';
 
-function CareerSection() {
+function CareerSection({ ...props }) {
   return (
-    <CustomSection id="pathways">
+    <CustomSection {...props}>
       <Container>
         <PrimaryHeading sx={{ color: 'violetPalette.dark' }}>
           {CareerData.heading}

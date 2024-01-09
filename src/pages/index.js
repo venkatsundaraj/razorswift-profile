@@ -9,6 +9,7 @@ import PathwaySection from '@/components_fbl/pageBasedComponents/Homepage/Pathwa
 import dropDownBodyData from '@/constants/Homepage/dropDownBodyData';
 import dropDownData from '@/constants/Homepage/dropDownData';
 import { heroSectionData } from '@/src/constants/Homepage/heroTabContents';
+import Head from 'next/head';
 
 export const metadata = {
   title: 'Home | Razorswift',
@@ -17,6 +18,13 @@ export const metadata = {
 export default function Home() {
   return (
     <Layout>
+      <Head>
+        <title>Homepage | Razorswift</title>
+        <meta
+          name="description"
+          content="A dynamic ecosystem where talent and opportunities converge"
+        />
+      </Head>
       <HeroSection heroSectionData={heroSectionData} />
       <main className="Topcontainer">
         <DropdownSection

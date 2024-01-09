@@ -11,6 +11,7 @@ import {
 import Layout from '@/src/components_fbl/NavigationComponents/Layout';
 import DiscoverSection from '@/src/components_fbl/pageBasedComponents/Aspirants/DiscoverSection';
 import { Box } from '@mui/material';
+import Head from 'next/head';
 
 export const metadata = {
   title: 'Partners | Razorswift',
@@ -19,6 +20,13 @@ export const metadata = {
 function Partners() {
   return (
     <Layout>
+      <Head>
+        <title>Partners | Razorswift</title>
+        <meta
+          name="description"
+          content="A dynamic ecosystem where talent and opportunities converge"
+        />
+      </Head>
       <Box component="main">
         {/* <BannerSection
         TickerBoxData={TickerBoxData}

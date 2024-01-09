@@ -5,6 +5,7 @@ import HeroSectionCopy from '@/src/components_fbl/pageBasedComponents/blogs/Hero
 import { compareDates } from '@/src/utils/helpers/compareDate';
 import { Box } from '@mui/material';
 import { allBlogs } from 'contentlayer/generated';
+import Head from 'next/head';
 
 const courses = [
   { id: '1', name: 'aspirants' },
@@ -20,8 +21,12 @@ function index({ slug }) {
   if (!filteredBlogData) null;
   return (
     <Layout>
+      <Head>
+        <title>{filteredBlogData[0].headText}</title>
+        <meta name="description" content={filteredBlogData[0].parent} />
+      </Head>
       <Box component="main">
-        <HeroSectionCopy filteredBlogData={filteredBlogData} />
+        <HeroSectionCopy filteredBlogData={filteredBlogData.slice(0, 3)} />
         <BlogTitleComponent />
         <BlogCardCopy
           filteredBlogData={filteredBlogData}

@@ -15,6 +15,7 @@ import {
 } from '@/constants/Aspirants/aspirantPageData';
 import Layout from '@/src/components_fbl/NavigationComponents/Layout';
 import { Box } from '@mui/material';
+import Head from 'next/head';
 export const metadata = {
   title: 'Aspirants | Razorswift',
 };
@@ -22,6 +23,13 @@ export const metadata = {
 function Aspirants() {
   return (
     <Layout>
+      <Head>
+        <title>Aspirants | Razorswift</title>
+        <meta
+          name="description"
+          content="A dynamic ecosystem where talent and opportunities converge"
+        />
+      </Head>
       <Box component="main">
         {/* <BannerSection
         TickerBoxData={TickerBoxData}

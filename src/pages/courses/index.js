@@ -5,6 +5,7 @@ import CourseList from '@/src/components_fbl/pageBasedComponents/courses/CourseL
 import EdTechScroller from '@/src/components_fbl/pageBasedComponents/courses/EdTechScroller';
 import coursesPageImagePaths from '@/src/constants/ImagePaths/Courses/coursesPageImagePaths';
 import { Box } from '@mui/material';
+import Head from 'next/head';
 
 export const bannerData = {
   mainHeaderOne: 'Upskill with',
@@ -15,6 +16,13 @@ export const bannerData = {
 const page = () => {
   return (
     <Layout>
+      <Head>
+        <title>Courses | Razorswift</title>
+        <meta
+          name="description"
+          content="A dynamic ecosystem where talent and opportunities converge"
+        />
+      </Head>
       <Box component="main">
         <ToastProvider>
           <BannerSection bannerData={bannerData} />

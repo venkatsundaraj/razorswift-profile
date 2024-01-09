@@ -13,6 +13,7 @@ function DropdownSection({ dropDownData, dropDownBodyData }) {
   };
   return (
     <Box
+      id="drop-down"
       component="section"
       sx={{
         width: '100vw',

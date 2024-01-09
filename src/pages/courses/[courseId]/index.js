@@ -33,6 +33,7 @@ import {
 } from '@mui/material';
 import { AxiosError } from 'axios';
 import { Form, Formik } from 'formik';
+import Head from 'next/head';
 import Link from 'next/link';
 import { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
@@ -128,6 +129,11 @@ function EnrollForm({ data }) {
   };
   return (
     <Layout>
+      <Head>
+        <title>{course.name}</title>
+
+        <meta name="description" content={course.description} />
+      </Head>
       <ToastProvider>
         <Box component="main">
           <CustomSection style={{ padding: 'clamp(96px,8vw,140px) 0 32px' }}>

@@ -4,6 +4,7 @@ import BlogBody from '@/src/components_fbl/pageBasedComponents/blogs/BlogBody';
 import IndividualBlogBanner from '@/src/components_fbl/pageBasedComponents/blogs/IndividualBlogBanner';
 import { Box } from '@mui/material';
 import { allBlogs } from 'contentlayer/generated';
+import Head from 'next/head';
 import { useState } from 'react';
 
 function index({ data }) {
@@ -11,6 +12,10 @@ function index({ data }) {
 
   return (
     <Layout>
+      <Head>
+        <title>{blog.title}</title>
+        <meta name="description" content={blog.description} />
+      </Head>
       <Box component="main">
         <IndividualBlogBanner blog={blog} />
         <BlogBody blog={blog} />
