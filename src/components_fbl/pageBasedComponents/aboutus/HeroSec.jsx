@@ -31,7 +31,7 @@ const HeroSec = () => {
     <Box>
       <Box
         sx={{
-          height: 'calc(100vh - 65px)',
+          height: { xs: 'calc(60vh - 65px)', md: 'calc(100vh - 65px)' },
           display: 'flex',
           flexDirection: 'column',
           justifyContent: { xs: 'flex-end', md: 'flex-end' },
@@ -94,7 +94,7 @@ const HeroSec = () => {
           sx={{
             display: 'flex',
             justifyContent: 'center',
-            marginTop: { xs: '120px', md: '-50px' },
+            marginTop: { xs: '', md: '-50px' },
           }}
         >
           <Image
