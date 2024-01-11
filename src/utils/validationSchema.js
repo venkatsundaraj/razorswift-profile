@@ -4,6 +4,7 @@ import {
   commonRegExp,
   letterSpaceHyphenUnderscoreRegex,
   phoneRegExp,
+  slugRegExp,
 } from '@/utils/regex';
 import { sub } from 'date-fns/fp';
 import * as Yup from 'yup';
@@ -24,6 +25,17 @@ export const alphabetsValidationSchema = (fieldName, required) => {
 
   return validation;
 };
+
+export const slugValidationSchema = (fieldName, required) => {
+  let validation = Yup.string().matches(slugRegExp, 'Enter correct url!');
+
+  if (required) {
+    validation = validation.required(`${fieldName} is required`);
+  }
+
+  return validation;
+};
+
 export const alphabetsValidationSchemaNotRequired = fieldName =>
   Yup.string()
     .nullable()

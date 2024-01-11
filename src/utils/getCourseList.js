@@ -57,8 +57,6 @@ export const getSelectedCourseData = async function () {
       }
     );
 
-    console.log(data);
-
     if (!data) {
       throw new Error(`can't fetch the data right now`);
     }
