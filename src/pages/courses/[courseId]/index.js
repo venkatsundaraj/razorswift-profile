@@ -68,8 +68,8 @@ const FORM_VALIDATION = Yup.object().shape({
   fullName: alphabetsValidationSchema('Full Name', true),
   email: emailValidation('Email', true),
   mobileNumber: validateContactNumber('Mobile Number', true),
-  existedUser: Yup.string().max(200),
-  transactionNumber: Yup.number().required('Transaction ID is required'),
+  existedUser: Yup.string().max(200).required('User profile is required'),
+  transactionNumber: Yup.string().required('Transaction ID is required'),
   acceptTermsAndConditions: Yup.boolean().oneOf(
     [true],
     'The acceptance of Terms and Conditions is required.'
@@ -112,6 +112,7 @@ function EnrollForm({ data }) {
       // const response = await new Promise(resolve => setTimeout(resolve, 2000));
 
       const result = await submitEnrollUserData(opts.body);
+      console.log(result);
       if (result.status === 'Success') {
         toast.success('We will react you soon. Thank you.');
       }
@@ -434,6 +435,7 @@ function EnrollForm({ data }) {
                                   value={values.existedUser}
                                   error={errors.existedUser}
                                   hiddenLabel
+                                  required
                                   id="filled-hidden-label-small"
                                   type="text"
                                   variant="filled"
@@ -444,6 +446,13 @@ function EnrollForm({ data }) {
                                     sx: { borderRadius: '40px' },
                                   }}
                                 />
+                              </Grid>
+
+                              <Grid item xs={12}>
+                                <ParagraphHeading>
+                                  Please Click <Link href="/signup">here</Link>{' '}
+                                  to create Profile
+                                </ParagraphHeading>
                               </Grid>
 
                               <Grid item xs={12}>

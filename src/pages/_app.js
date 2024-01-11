@@ -8,7 +8,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
-import { useEffect, useMemo } from 'react';
+import { Suspense, useEffect, useMemo } from 'react';
 import TagManager from 'react-gtm-module';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -17,6 +17,7 @@ import '../../styles/globals.css';
 import createEmotionCache from '../utils/createEmotionCache';
 import themes from '../utils/themes';
 
+import Analytics from '@/src/components_fbl/Analytics/Analytics';
 import { encryptData } from '@/utils/encryption';
 import * as swagger_api from '../swagger_api';
 
@@ -77,6 +78,9 @@ export default function MyApp({ Component, ...rest }) {
           <PersistGate persistor={store.__persistor} loading={<LogoLoader />}>
             <LoadingProvider>
               <AlertSnackbar />
+              <Suspense>
+                <Analytics />
+              </Suspense>
               <Component {...pageProps} />
               <LoadingBackdrop />
             </LoadingProvider>

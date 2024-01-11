@@ -14,9 +14,9 @@ function CourseList() {
 
   useEffect(() => {
     const getData = async function () {
-      const { courses } = await getCourseList();
-
-      setCoursesList(courses);
+      const data = await getCourseList();
+      console.log(data);
+      setCoursesList(data);
     };
     getData();
   }, []);
@@ -52,9 +52,14 @@ function CourseList() {
   return (
     <CustomSection sx={{ overflowY: 'hidden' }}>
       <Container>
+        {/* {coursesList.overview_text ? (
+          <ParagraphHeading>{coursesList.overview_text}</ParagraphHeading>
+        ) : (
+          <ParagraphHeading>Loading...</ParagraphHeading>
+        )} */}
         <Grid container spacing={{ xs: 4 }}>
-          {coursesList.length ? (
-            coursesList.map(list => (
+          {coursesList.courses?.length ? (
+            coursesList.courses.map(list => (
               <Grid item xs={12} sm={3} lg={4} key={list.id} sx={{}}>
                 <motion.div transition={{ staggerChildren: 1.9 }} id="cards">
                   <motion.div
