@@ -69,3 +69,31 @@ export const getSelectedCourseData = async function () {
     console.log(err);
   }
 };
+
+export const getSelectedCourseDataNew = async function () {
+  try {
+    const { data } = await axios.post(
+      'https://asia-south1-razorswift.cloudfunctions.net/coursePageStaticDataNew',
+      {
+        isprod: true,
+        is_html: true,
+      },
+      {
+        headers: {
+          'x-rs-key': process.env.NEXT_PUBLIC_COURSE_LIST_KEY,
+        },
+      }
+    );
+
+    if (!data) {
+      throw new Error(`can't fetch the data right now`);
+    }
+
+    return data;
+  } catch (err) {
+    if (err instanceof AxiosError) {
+      err.message = 'Something Went Wrong';
+    }
+    console.log(err);
+  }
+};

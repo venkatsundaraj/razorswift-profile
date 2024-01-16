@@ -58,6 +58,7 @@ function TickerComponent({ data }) {
 
           return (
             <ExtraParagraphHeading
+              style={{ fontSize: 'clamp(14px, 1.2vw, 18px)' }}
               className={position}
               key={item.id}
               sx={{

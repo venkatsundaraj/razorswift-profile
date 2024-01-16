@@ -8,20 +8,16 @@ import { LoadingContext } from '@/reUsableComponents/LoadingComponents/LoadingCo
 import CustomSection from '@/src/components_fbl/globalComponents/CustomContainer/CustomSection';
 import { AccountApi } from '@/swagger_api/*';
 import { submitEnrollUserData } from '@/utils/enrollUser';
-import { getSelectedCourseData } from '@/utils/getCourseList';
+import {
+  getSelectedCourseData,
+  getSelectedCourseDataNew,
+} from '@/utils/getCourseList';
 import { slugValidationSchema } from '@/utils/validationSchema';
 import styled from '@emotion/styled';
-import {
-  Box,
-  Container,
-  Grid,
-  InputLabel,
-  List,
-  ListItem,
-  Stack,
-} from '@mui/material';
+import { Box, Container, Grid, InputLabel, Stack } from '@mui/material';
 import { AxiosError } from 'axios';
 import { Form, Formik } from 'formik';
+import { Parser } from 'html-to-react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useContext, useEffect, useState } from 'react';
@@ -60,15 +56,20 @@ function CourseRegistrationForm({ data }) {
   const { loading, setLoading } = useContext(LoadingContext);
   const [course, setCourse] = useState(data);
   const [courseData, setCourseData] = useState({});
+  const [courseDataOne, setCourseDataOne] = useState({});
 
   const router = useRouter();
+  const htmlParser = new Parser();
 
   useEffect(() => {
     const getData = async function () {
       const data = await getSelectedCourseData();
+      const data1 = await getSelectedCourseDataNew();
+      console.log(data1);
 
-      if (!data.enroll_page) return;
+      if (!data.enroll_page && !data1.enroll_page) return;
       setCourseData(data.enroll_page);
+      setCourseDataOne(data1.enroll_page);
     };
     getData();
   }, []);
@@ -153,47 +154,58 @@ function CourseRegistrationForm({ data }) {
             <Grid container spacing={2}>
               <Grid item md={2}></Grid>
               <Grid item xs={8}>
-                {courseData.instructions ? (
-                  <ExtraParagraphHeading
-                    sx={{ color: 'primaryPalette.black', textAlign: 'center' }}
-                  >
-                    {courseData.instructions}
-                  </ExtraParagraphHeading>
-                ) : (
-                  <ExtraParagraphHeading
-                    sx={{ color: 'primaryPalette.black', textAlign: 'center' }}
-                  >
-                    Loading...
-                  </ExtraParagraphHeading>
-                )}
+                <Stack
+                  sx={{
+                    fontSize: 'clamp(14px, 1.4vw, 16px)',
+                    lineHeight: '1.5',
+                    py: 2,
+                    fontWeight: 'normal',
+                    color: 'primaryPalette.black',
+                  }}
+                >
+                  {courseDataOne.instructions ? (
+                    <ExtraParagraphHeading
+                      sx={{
+                        color: 'primaryPalette.black',
+                        textAlign: 'center',
+                        fontWeight: '500',
+                      }}
+                    >
+                      {htmlParser.parse(courseDataOne.instructions)}
+                    </ExtraParagraphHeading>
+                  ) : (
+                    <ExtraParagraphHeading
+                      sx={{ color: 'primaryPalette.black' }}
+                    >
+                      Loading...
+                    </ExtraParagraphHeading>
+                  )}
+                </Stack>
               </Grid>
               <Grid item md={2}></Grid>
             </Grid>
             <Grid container>
-              <Grid item xs={2}></Grid>
-              <Grid item xs={8}>
-                <List sx={{}}>
-                  {courseData?.steps?.length
-                    ? courseData.steps.map((item, i) => (
-                        <ListItem
-                          key={i}
-                          sx={{
-                            justifyContent: 'start',
-                            padding: '0',
-                            pt: 2,
-                          }}
-                        >
-                          <ParagraphHeading
-                            sx={{ color: 'primaryPalette.black' }}
-                          >
-                            {item}
-                          </ParagraphHeading>
-                        </ListItem>
-                      ))
-                    : null}
-                </List>
+              <Grid item xs={3}></Grid>
+              <Grid item xs={6}>
+                <Stack
+                  sx={{
+                    fontSize: 'clamp(14px, 1.4vw, 16px)',
+                    lineHeight: '1.5',
+                    py: 2,
+                    fontWeight: 'normal',
+                    color: 'primaryPalette.black',
+                  }}
+                >
+                  {courseDataOne.steps ? (
+                    htmlParser.parse(courseDataOne.steps)
+                  ) : (
+                    <ParagraphHeading sx={{ color: 'primaryPalette.black' }}>
+                      Loading...
+                    </ParagraphHeading>
+                  )}
+                </Stack>
               </Grid>
-              <Grid item xs={2}></Grid>
+              <Grid item xs={3}></Grid>
             </Grid>
           </Grid>
 
@@ -264,19 +276,6 @@ function CourseRegistrationForm({ data }) {
                           </Grid>
 
                           <Grid item xs={12}>
-                            <ParagraphHeading sx={{ textAlign: 'center' }}>
-                              Please Click{' '}
-                              <Link
-                                target="_blank"
-                                href="https://razorswift.page.link/upskill"
-                              >
-                                here
-                              </Link>{' '}
-                              to create Profile
-                            </ParagraphHeading>
-                          </Grid>
-
-                          <Grid item xs={12}>
                             <Stack justifyContent="center" flexDirection="row">
                               <CheckboxWrapper
                                 component={
@@ -326,45 +325,55 @@ function CourseRegistrationForm({ data }) {
 
                           <Grid container sx={{ mt: 4 }}>
                             <Grid item xs={12}>
-                              {courseData.confirmation ? (
-                                <ParagraphHeading
-                                  sx={{
-                                    color: 'primaryPalette.black',
-                                    textAlign: 'center',
-                                    mb: 1.6,
-                                  }}
-                                >
-                                  {courseData.confirmation}
-                                </ParagraphHeading>
-                              ) : (
-                                <ParagraphHeading
-                                  sx={{
-                                    color: 'primaryPalette.black',
-                                    textAlign: 'center',
-                                  }}
-                                >
-                                  Loading...
-                                </ParagraphHeading>
-                              )}
-                              {courseData.support ? (
-                                <ParagraphHeading
-                                  sx={{
-                                    color: 'primaryPalette.black',
-                                    textAlign: 'center',
-                                  }}
-                                >
-                                  {courseData.support}
-                                </ParagraphHeading>
-                              ) : (
-                                <ParagraphHeading
-                                  sx={{
-                                    color: 'primaryPalette.black',
-                                    textAlign: 'center',
-                                  }}
-                                >
-                                  Loading...
-                                </ParagraphHeading>
-                              )}
+                              <Stack
+                                sx={{
+                                  fontSize: 'clamp(14px, 1.4vw, 16px)',
+                                  lineHeight: '1.5',
+                                  py: 2,
+                                  fontWeight: 'normal',
+                                  color: 'primaryPalette.black',
+                                }}
+                              >
+                                {courseDataOne.confirmation ? (
+                                  <ExtraParagraphHeading
+                                    sx={{
+                                      color: 'primaryPalette.black',
+                                      textAlign: 'center',
+                                    }}
+                                  >
+                                    {htmlParser.parse(
+                                      courseDataOne.confirmation
+                                    )}
+                                  </ExtraParagraphHeading>
+                                ) : (
+                                  <ExtraParagraphHeading
+                                    sx={{ color: 'primaryPalette.black' }}
+                                  >
+                                    Loading...
+                                  </ExtraParagraphHeading>
+                                )}
+
+                                {courseDataOne.support ? (
+                                  <ParagraphHeading
+                                    sx={{
+                                      color: 'primaryPalette.black',
+                                      textAlign: 'center',
+                                      mt: 2,
+                                    }}
+                                  >
+                                    {htmlParser.parse(courseDataOne.support)}
+                                  </ParagraphHeading>
+                                ) : (
+                                  <ParagraphHeading
+                                    sx={{
+                                      color: 'primaryPalette.black',
+                                      textAlign: 'center',
+                                    }}
+                                  >
+                                    Loading...
+                                  </ParagraphHeading>
+                                )}
+                              </Stack>
                             </Grid>
                           </Grid>
                         </Grid>

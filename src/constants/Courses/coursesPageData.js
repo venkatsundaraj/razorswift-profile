@@ -17,3 +17,7 @@ export const edTechData = {
   ],
   qrImage: coursesPageImagePaths.qrImage,
 };
+
+export const coursePageDataString = {
+  list: ['<p>Hell world</p>', '<a href="www.google.com">Google</a>'],
+};

@@ -43,6 +43,7 @@
     "formik": "^2.2.9",
     "framer-motion": "^10.16.4",
     "github-slugger": "^2.0.0",
+    "html-to-react": "^1.7.0",
     "jsencrypt": "^3.3.2",
     "mui-one-time-password-input": "^1.1.0",
     "next": "^13.2.4",

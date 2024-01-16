@@ -7,6 +7,7 @@ import { getCourseList } from '@/utils/getCourseList';
 import { Button, Container, Dialog, Grid, Stack } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import ExtraSubtitleHeading from '../../headingComponents/ExtraSubtitleHeading';
 function CourseList() {
   const [coursesList, setCoursesList] = useState([]);
   const [showForm, setShowForm] = useState(false);
@@ -52,11 +53,15 @@ function CourseList() {
   return (
     <CustomSection sx={{ overflowY: 'hidden' }}>
       <Container>
-        {/* {coursesList.overview_text ? (
-          <ParagraphHeading>{coursesList.overview_text}</ParagraphHeading>
+        {coursesList.overview_text ? (
+          <ParagraphHeading
+            sx={{ color: 'primaryPalette.black', textAlign: 'center', mb: 3 }}
+          >
+            {coursesList.overview_text}
+          </ParagraphHeading>
         ) : (
           <ParagraphHeading>Loading...</ParagraphHeading>
-        )} */}
+        )}
         <Grid container spacing={{ xs: 4 }}>
           {coursesList.courses?.length ? (
             coursesList.courses.map(list => (
@@ -69,8 +74,30 @@ function CourseList() {
                     viewport={{ once: true }}
                   >
                     <Stack
-                      sx={{ boxShadow: '0px 10px 15px -3px rgba(0,0,0,0.1)' }}
+                      sx={{
+                        boxShadow: '0px 10px 15px -3px rgba(0,0,0,0.1)',
+                        position: 'relative',
+                        overflow: 'hidden',
+                      }}
                     >
+                      <ExtraSubtitleHeading
+                        style={{ fontSize: '12px' }}
+                        sx={{
+                          position: 'absolute',
+                          left: '-20px',
+                          top: '5px',
+                          fontWeight: '500',
+                          color: 'primaryPalette.white',
+                          width: '100px',
+                          textAlign: 'center',
+                          padding: '4px 6px',
+                          backgroundColor: '#EE5164',
+                          transform: 'rotate(-45deg)',
+                          transformOrigin: 'bottom',
+                        }}
+                      >
+                        {list.powered_by}
+                      </ExtraSubtitleHeading>
                       <ParagraphHeading
                         sx={{
                           color: '#000000',
