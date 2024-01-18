@@ -15,6 +15,7 @@ import {
 import { slugValidationSchema } from '@/utils/validationSchema';
 import styled from '@emotion/styled';
 import { Box, Container, Grid, InputLabel, Stack } from '@mui/material';
+import Modal from '@mui/material/Modal';
 import { AxiosError } from 'axios';
 import { Form, Formik } from 'formik';
 import { Parser } from 'html-to-react';
@@ -57,6 +58,8 @@ function CourseRegistrationForm({ data }) {
   const [course, setCourse] = useState(data);
   const [courseData, setCourseData] = useState({});
   const [courseDataOne, setCourseDataOne] = useState({});
+  const [enrollUrl, setEnrollUrl] = useState('');
+  const [open, setOpen] = useState(null);
 
   const router = useRouter();
   const htmlParser = new Parser();
@@ -94,7 +97,8 @@ function CourseRegistrationForm({ data }) {
       console.log(result);
       if (result.status === 'Success') {
         toast.success('We will react you soon. Thank you.');
-        router.push(result.payment_link);
+        setOpen(true);
+        setEnrollUrl(result.payment_link);
       }
 
       resetForm();
@@ -385,6 +389,36 @@ function CourseRegistrationForm({ data }) {
             </Grid>
             <Grid item xs={12} md={2}></Grid>
           </Grid>
+          <Modal
+            open={open}
+            onClose={() => setOpen(false)}
+            aria-labelledby="keep-mounted-modal-title"
+            aria-describedby="keep-mounted-modal-description"
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <Stack
+              sx={{
+                backgroundColor: 'primaryPalette.white',
+                padding: 6,
+                borderRadius: 4,
+              }}
+              flexDirection={'column'}
+              gap={2}
+            >
+              <ParagraphHeading
+                sx={{ color: 'primaryPalette.black', fontWeight: 'bold' }}
+              >
+                Click the link to pay
+              </ParagraphHeading>
+              <Link target="_blank" href={enrollUrl}>
+                {enrollUrl}
+              </Link>
+            </Stack>
+          </Modal>
         </Container>
       </CustomSection>
     </Box>
