@@ -3,7 +3,7 @@ import CustomSection from '@/components_fbl/globalComponents/CustomContainer/Cus
 import ExtraParagraphHeading from '@/components_fbl/headingComponents/ExtraParagraphHeading';
 import ParagraphHeading from '@/components_fbl/headingComponents/ParagraphHeading';
 import EnrollForm from '@/components_fbl/pageBasedComponents/courses/EnrollForm';
-import { getCourseList } from '@/utils/getCourseList';
+import { geneateUrls, getCourseList } from '@/utils/getCourseList';
 import { Button, Container, Dialog, Grid, Stack } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
@@ -135,7 +135,7 @@ function CourseList() {
                           sx={{ width: '100%' }}
                         >
                           <PrimaryFillButton
-                            href={`/courses/${list.id}`}
+                            href={`/courses/${geneateUrls(list.name)}`}
                             sx={{
                               backgroundColor: '#A62973',
                               color: '#ffffff',

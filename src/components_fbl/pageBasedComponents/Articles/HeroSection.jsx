@@ -1,9 +1,8 @@
+import CustomImage from '@/components_fbl/globalComponents/CustomImage/CustomImage';
 import { herosec } from '@/constants/Articles/articlesdata';
 import { Box, Container, Grid, Stack, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
-import React from 'react';
-const HeroSection = () => {
+const HeroSection = ({ filteredArticle }) => {
   console.log(herosec[0]);
   const firstsec = {
     offscreen: {
@@ -58,36 +57,42 @@ const HeroSection = () => {
                 whileInView={'onscreen'}
                 viewport={{ once: true }}
               >
-                <Typography
-                  sx={{
-                    fontSize: '16px',
-                    color: 'black',
-                    paddingBottom: '30px',
-                    fontWeight: '400',
-                  }}
-                >
-                  {herosec[0].name}
-                </Typography>
-                <Typography
-                  sx={{
-                    fontSize: '40px',
-                    color: 'black',
-                    paddingBottom: '30px',
-                    fontWeight: '600',
-                  }}
-                >
-                  {herosec[0].description}{' '}
-                </Typography>
-                <Typography
-                  sx={{
-                    fontSize: '20px',
-                    color: 'black',
-                    paddingBottom: '30px',
-                    fontWeight: '500',
-                  }}
-                >
-                  {herosec[0].descriptiontwo}
-                </Typography>
+                {filteredArticle.headText ? (
+                  <Typography
+                    sx={{
+                      fontSize: '16px',
+                      color: 'black',
+                      paddingBottom: '30px',
+                      fontWeight: '400',
+                    }}
+                  >
+                    {filteredArticle.headText}
+                  </Typography>
+                ) : null}
+                {filteredArticle.title ? (
+                  <Typography
+                    sx={{
+                      fontSize: '40px',
+                      color: 'black',
+                      paddingBottom: '30px',
+                      fontWeight: '600',
+                    }}
+                  >
+                    {filteredArticle.title}
+                  </Typography>
+                ) : null}
+                {filteredArticle.description ? (
+                  <Typography
+                    sx={{
+                      fontSize: '20px',
+                      color: 'black',
+                      paddingBottom: '30px',
+                      fontWeight: '500',
+                    }}
+                  >
+                    {filteredArticle.description}
+                  </Typography>
+                ) : null}
               </motion.div>
             </motion.div>
           </Grid>
@@ -101,14 +106,17 @@ const HeroSection = () => {
                 viewport={{ once: true }}
               >
                 <Stack justifyContent="center" alignItems="center">
-                  <Image
-                    style={{
-                      width: 'clamp(360px,28vw,600px)',
-                      height: 'auto',
-                    }}
-                    alt="bannerImage"
-                    src={herosec[0].img}
-                  />
+                  {filteredArticle.image ? (
+                    <CustomImage
+                      width="clamp(360px,28vw,600px)"
+                      aspectRatio={'82/69'}
+                      alt="bannerImage"
+                      src={filteredArticle.image.filePath.replace(
+                        '../../public',
+                        ''
+                      )}
+                    />
+                  ) : null}
                 </Stack>
               </motion.div>
             </motion.div>

@@ -26,12 +26,21 @@ export const getCourseList = async function () {
   }
 };
 
+export const geneateUrls = function (text) {
+  return text
+    .replace(/[^a-zA-Z0-9 ]/g, '')
+    .split(' ')
+    .filter(item => Boolean(item))
+    .join('-')
+    .toLowerCase();
+};
+
 export const getSelectedCourse = async function (courseId) {
   try {
     const { courses } = await getCourseList();
 
     const filteredCourse = courses.find(
-      item => String(item.id) === String(courseId)
+      item => geneateUrls(item.name) === String(courseId)
     );
 
     if (filteredCourse) return filteredCourse;

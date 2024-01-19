@@ -2,7 +2,11 @@ import { LoadingContext } from '@/reUsableComponents/LoadingComponents/LoadingCo
 import Layout from '@/src/components_fbl/NavigationComponents/Layout';
 import ToastProvider from '@/src/components_fbl/Provider/ToastProvider';
 import CourseRegistrationForm from '@/src/components_fbl/pageBasedComponents/courses/CourseRegistrationForm';
-import { getCourseList, getSelectedCourse } from '@/utils/getCourseList';
+import {
+  geneateUrls,
+  getCourseList,
+  getSelectedCourse,
+} from '@/utils/getCourseList';
 import Head from 'next/head';
 import { useContext, useState } from 'react';
 
@@ -57,7 +61,7 @@ export async function getStaticPaths() {
   const lists = await getCourseList();
 
   if (!lists.courses.length) return;
-  const ids = lists.courses.map(item => item.id);
+  const ids = lists.courses.map(item => geneateUrls(item.name));
 
   const paths = ids.map(id => ({ params: { courseId: id.toString() } }));
 
