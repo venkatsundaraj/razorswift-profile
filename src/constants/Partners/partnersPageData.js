@@ -13,6 +13,11 @@ export const heroSectionData = {
   buttonContent: 'Partner with us',
   buttonUrl: '/contact-us',
   bannerImage: partnersPageImagePaths.heroSection.banner,
+
+  secondaryButton: {
+    text: 'Learn More',
+    href: '/articles/partner-with-us-to-create-a-robust-talent-marketplace/',
+  },
 };
 
 export const partnersDropDownBodyData = {

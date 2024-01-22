@@ -1,12 +1,13 @@
+import TickerComponent from '@/components_fbl/TickerComponent/TickerComponent';
 import PrimaryFillButton from '@/components_fbl/buttonComponents/PrimaryFillButton';
 import CustomSection from '@/components_fbl/globalComponents/CustomContainer/CustomSection';
 import CustomImage from '@/components_fbl/globalComponents/CustomImage/CustomImage';
 import ExtraSuperText from '@/components_fbl/headingComponents/ExtraSuperText';
 import ParagraphHeading from '@/components_fbl/headingComponents/ParagraphHeading';
 import SuperText from '@/components_fbl/headingComponents/SuperText';
-import TickerComponent from '@/components_fbl/TickerComponent/TickerComponent';
 import { Box, Grid, Stack } from '@mui/material';
 import { motion } from 'framer-motion';
+import NavButton from '../../buttonComponents/NavButton';
 function HeroSection({ heroSectionData, TickerBoxData }) {
   const firstsec = {
     offscreen: {
@@ -90,9 +91,6 @@ function HeroSection({ heroSectionData, TickerBoxData }) {
                   }}
                 >
                   <SuperText
-                    // initial={{ opacity: 0, y: 100 }}
-                    // whileInView={{ opacity: 1, y: 0 }}
-                    // as={motion.div}
                     sx={{
                       textAlign: { xs: 'left' },
                       color: heroSectionData.heading.secondaryColor,
@@ -120,29 +118,56 @@ function HeroSection({ heroSectionData, TickerBoxData }) {
                     {heroSectionData.description}
                   </ParagraphHeading>
 
-                  <PrimaryFillButton
-                    varient="contained"
-                    href={
-                      heroSectionData.buttonUrl
-                        ? heroSectionData.buttonUrl
-                        : '/login'
-                    }
-                    sx={{
-                      width: 'max-content',
-                      marginTop: '18px',
-                      backgroundColor: theme => theme.palette.pinkPalette.dark,
-                      color: theme => theme.palette.primaryPalette.white,
-                      transition: 'all 300ms ease',
-                      '&:hover': {
+                  <Stack
+                    alignItems="center"
+                    justifyContent="space-between"
+                    flexDirection="row"
+                    gap={2}
+                  >
+                    <PrimaryFillButton
+                      varient="contained"
+                      href={
+                        heroSectionData.buttonUrl
+                          ? heroSectionData.buttonUrl
+                          : '/login'
+                      }
+                      sx={{
+                        width: 'max-content',
+                        marginTop: '18px',
                         backgroundColor: theme =>
                           theme.palette.pinkPalette.dark,
-                        transform: 'translateY(-3px)',
-                        boxShadow: '0px 10px 15px -3px rgba(0,0,0,0.1)',
-                      },
-                    }}
-                  >
-                    {heroSectionData.buttonContent}
-                  </PrimaryFillButton>
+                        color: theme => theme.palette.primaryPalette.white,
+                        transition: 'all 300ms ease',
+                        '&:hover': {
+                          backgroundColor: theme =>
+                            theme.palette.pinkPalette.dark,
+                          transform: 'translateY(-3px)',
+                          boxShadow: '0px 10px 15px -3px rgba(0,0,0,0.1)',
+                        },
+                      }}
+                    >
+                      {heroSectionData.buttonContent}
+                    </PrimaryFillButton>
+                    {heroSectionData.secondaryButton ? (
+                      <NavButton
+                        varient="contained"
+                        href={heroSectionData.secondaryButton.href}
+                        sx={{
+                          width: 'max-content',
+                          marginTop: '18px',
+                          backgroundColor: theme =>
+                            theme.palette.pinkPalette.dark,
+                          color: theme => theme.palette.pinkPalette.main,
+                          transition: 'all 300ms ease',
+                          '&:hover': {
+                            transform: 'translateY(-3px)',
+                          },
+                        }}
+                      >
+                        {heroSectionData.secondaryButton.text}
+                      </NavButton>
+                    ) : null}
+                  </Stack>
                 </Stack>
               </motion.div>
             </motion.div>

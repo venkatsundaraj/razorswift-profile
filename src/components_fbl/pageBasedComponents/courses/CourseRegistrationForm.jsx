@@ -12,9 +12,16 @@ import {
   getSelectedCourseData,
   getSelectedCourseDataNew,
 } from '@/utils/getCourseList';
-import { slugValidationSchema } from '@/utils/validationSchema';
+import { validateContactNumber } from '@/utils/validationSchema';
 import styled from '@emotion/styled';
-import { Box, Container, Grid, InputLabel, Stack } from '@mui/material';
+import {
+  Box,
+  Container,
+  Grid,
+  InputLabel,
+  Stack,
+  Typography,
+} from '@mui/material';
 import Modal from '@mui/material/Modal';
 import { AxiosError } from 'axios';
 import { Form, Formik } from 'formik';
@@ -26,7 +33,7 @@ import toast from 'react-hot-toast';
 import * as Yup from 'yup';
 
 const INITIAL_FORM_STATE = {
-  existedUser: '',
+  mobileNumber: '',
   acceptTermsAndConditions: true,
 };
 
@@ -46,7 +53,7 @@ const CustomCheckBox = styled(Link)(({ theme }) => ({
 }));
 
 const FORM_VALIDATION = Yup.object().shape({
-  existedUser: slugValidationSchema('Existed User', true),
+  mobileNumber: validateContactNumber('Mobile Number', true),
   acceptTermsAndConditions: Yup.boolean().oneOf(
     [true],
     'The acceptance of Terms and Conditions is required.'
@@ -68,8 +75,7 @@ function CourseRegistrationForm({ data }) {
     const getData = async function () {
       const data = await getSelectedCourseData();
       const data1 = await getSelectedCourseDataNew();
-      console.log(data1);
-
+      console.log(data, data1);
       if (!data.enroll_page && !data1.enroll_page) return;
       setCourseData(data.enroll_page);
       setCourseDataOne(data1.enroll_page);
@@ -86,15 +92,17 @@ function CourseRegistrationForm({ data }) {
 
       const opts = {
         body: {
-          candidate_slug: values.existedUser ? values.existedUser : '',
+          phone_number: values.mobileNumber ? `91${values.mobileNumber}` : '',
           course_id: +course.id,
           course_amount: +course.internal_amount,
           isprod: true,
         },
       };
 
-      const result = await submitEnrollUserData(opts.body);
+      console.log(opts.body);
 
+      const result = await submitEnrollUserData(opts.body);
+      console.log(result);
       if (result.status === 'Success') {
         toast.success('We will react you soon. Thank you.');
         setOpen(true);
@@ -242,41 +250,63 @@ function CourseRegistrationForm({ data }) {
                           justifyContent="center"
                         >
                           <Grid item xs={12}>
-                            <InputLabel
-                              htmlFor="filled-hidden-label-small"
-                              sx={{
-                                mb: 1.4,
-                                fontSize: 'clamp(16px, 1.6vw, 18px)',
-                                color: 'primaryPalette.black',
-                                fontWeight: '500',
-                              }}
-                            >
-                              Input RazorSwift Profile URL, if you are an
-                              existing user
-                            </InputLabel>
+                            {courseDataOne.textbox_label ? (
+                              <InputLabel
+                                htmlFor="filled-hidden-label-small"
+                                sx={{
+                                  mb: 1.4,
+                                  fontSize: 'clamp(16px, 1.6vw, 18px)',
+                                  color: 'primaryPalette.black',
+                                  fontWeight: '500',
+                                }}
+                              >
+                                {courseDataOne.textbox_label}
+                              </InputLabel>
+                            ) : (
+                              <ParagraphHeading
+                                sx={{ color: 'primaryPalette.black' }}
+                              >
+                                Loading...
+                              </ParagraphHeading>
+                            )}
                             <InputField
+                              name="mobileNumber"
+                              id="filled-hidden-label-small"
+                              onChange={e => {
+                                setFieldValue(
+                                  'mobileNumber',
+                                  e.target.value.replace(/[^0-9]/g, '')
+                                );
+                              }}
+                              onBlur={handleBlur}
+                              hiddenLabel
+                              InputProps={{
+                                disableUnderline: true,
+                                sx: { borderRadius: '40px' },
+                                startAdornment: (
+                                  <Typography
+                                    sx={{
+                                      fontWeight: 500,
+                                      color: '#212121',
+                                      marginRight: '5px',
+                                    }}
+                                  >
+                                    +91
+                                  </Typography>
+                                ),
+                              }}
+                              type="tel"
+                              label=""
                               sx={{
                                 borderRadius: '100vw',
                                 outline: 'none',
                                 backgroundColor: '#dedede',
                                 '& fieldset': { border: 'none' },
                               }}
-                              fullWidth
-                              onChange={handleChange}
-                              onBlur={handleBlur}
-                              value={values.existedUser}
-                              error={errors.existedUser}
-                              hiddenLabel
-                              required
-                              id="filled-hidden-label-small"
-                              type="text"
+                              max={10}
+                              value={values.mobileNumber}
                               variant="filled"
-                              name="existedUser"
-                              label=""
-                              InputProps={{
-                                disableUnderline: true,
-                                sx: { borderRadius: '40px' },
-                              }}
+                              error={errors.mobileNumber}
                             />
                           </Grid>
 
