@@ -94,7 +94,7 @@ function CourseRegistrationForm({ data }) {
       };
 
       const result = await submitEnrollUserData(opts.body);
-      console.log(result);
+
       if (result.status === 'Success') {
         toast.success('We will react you soon. Thank you.');
         setOpen(true);
@@ -106,7 +106,8 @@ function CourseRegistrationForm({ data }) {
       if (err instanceof AxiosError) {
         console.log(err);
       }
-      return toast.error('Something went wrong. Please try after some time');
+      console.log(err);
+      return toast.error(err.message);
     } finally {
       setSubmitting(false);
       setLoading(false);

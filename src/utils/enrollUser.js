@@ -14,14 +14,16 @@ export const submitEnrollUserData = async function (userData) {
     console.log(data);
 
     if (!data.status) {
-      throw new Error(`Something went Wrong, Please try after some time`);
+      throw new Error(data.message);
     }
 
     return data;
   } catch (err) {
     if (err instanceof AxiosError) {
-      err.message = 'Something Went Wrong';
+      const message =
+        (err.response && err.response.data) || err.message || err.toString();
+
+      throw new Error(message);
     }
-    console.log(err);
   }
 };
