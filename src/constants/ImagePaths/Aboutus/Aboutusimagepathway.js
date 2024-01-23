@@ -3,8 +3,9 @@ const Aboutusimagepathway = {
   statisticimage: require('/public/images/Aboutus/statistic-image.svg').default,
   lookingto: require('/public/images/Aboutus/join-us-vector.svg').default,
   teamdemo: require('/public/images/Aboutus/teamdemo.png').default,
-  close: require('/public/images/Aboutus/close.png').default,
+  close: require('/public/images/Aboutus/close1.png').default,
   linkedin: require('/public/images/Aboutus/linkedin-logo.svg').default,
+  linkedin1: require('/public/images/Aboutus/icons8-linkedin-96.png').default,
 
   arvindh: require('/public/images/Aboutus/arvind_rsw.jpg').default,
   sandya: require('/public/images/Aboutus/sandhya_rsw.jpg').default,

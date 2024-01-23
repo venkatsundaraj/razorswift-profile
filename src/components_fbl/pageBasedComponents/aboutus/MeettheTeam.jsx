@@ -167,6 +167,13 @@ const MeettheTeam = () => {
                           background:
                             'linear-gradient(to top, black, transparent 50%)',
                         },
+                        '&:hover:before': {
+                          background:
+                            'linear-gradient(to top, #a62973, transparent 50%)',
+                        },
+                        '&:hover > div': {
+                          textDecoration: 'underline white', // Underline text on hover
+                        },
                       }}
                     >
                       <Stack sx={{}}>
@@ -277,7 +284,25 @@ const MeettheTeam = () => {
                   </motion.div>
                 </Grid>
 
-                <Grid item xs={12} lg={2}></Grid>
+                <Grid
+                  sx={{
+                    display: 'flex',
+                    justifyContent: { xs: 'center', md: 'end' },
+                  }}
+                  item
+                  xs={12}
+                  lg={2}
+                >
+                  <Image
+                    alt="closesvg"
+                    style={{
+                      cursor: 'pointer',
+                      height: 'auto',
+                      width: '50px',
+                    }}
+                    src={Aboutusimagepathway.linkedin1}
+                  />
+                </Grid>
               </Grid>
 
               <Grid
