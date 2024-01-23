@@ -75,8 +75,12 @@ function FastrackSection() {
             </motion.div>
           </Grid>
           <Grid item xs={12} md={6} lg={4}>
-            <motion.div transition={{ staggerChildren: 1.9 }}>
+            <motion.div
+              transition={{ staggerChildren: 1.9 }}
+              style={{ height: '100%' }}
+            >
               <motion.div
+                style={{ height: '100%' }}
                 variants={secondsec}
                 initial={'offscreen'}
                 whileInView={'onscreen'}
@@ -97,10 +101,14 @@ function FastrackSection() {
             </motion.div>
           </Grid>
           <Grid item xs={12} md={6} lg={4}>
-            <motion.div transition={{ staggerChildren: 1.9 }}>
+            <motion.div
+              transition={{ staggerChildren: 1.9 }}
+              style={{ height: '100%' }}
+            >
               <motion.div
                 variants={secondsec}
                 initial={'offscreen'}
+                style={{ height: '100%' }}
                 whileInView={'onscreen'}
                 viewport={{ once: true }}
               >

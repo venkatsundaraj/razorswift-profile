@@ -86,7 +86,11 @@ function GetStartedSection({ readyToStartData }) {
             )}
             {readyToStartData.buttonText && (
               <NavButton
-                href="/contact-us"
+                href={
+                  readyToStartData.buttonUrl
+                    ? readyToStartData.buttonUrl
+                    : '/contact-us'
+                }
                 sx={{
                   transition: 'all 300ms linear',
                   '&:hover': {

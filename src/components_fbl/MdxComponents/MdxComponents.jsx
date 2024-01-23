@@ -60,7 +60,7 @@ const components = {
   CustomImage,
 };
 
-export function Mdx({ code }) {
+export function Mdx({ code, joinUsData }) {
   const Component = useMDXComponent(code);
   return (
     <div className="mdx">

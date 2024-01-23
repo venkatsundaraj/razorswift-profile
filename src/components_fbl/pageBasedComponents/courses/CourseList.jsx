@@ -75,7 +75,7 @@ function CourseList() {
                   >
                     <Stack
                       sx={{
-                        boxShadow: '0px 10px 15px -3px rgba(0,0,0,0.1)',
+                        boxShadow: '0px 10px 15px -3px rgba(0,0,0,0.13)',
                         position: 'relative',
                         overflow: 'hidden',
                       }}
@@ -94,6 +94,8 @@ function CourseList() {
                           backgroundColor: '#EE5164',
                           transform: 'rotate(-45deg)',
                           transformOrigin: 'bottom',
+                          opacity: '0',
+                          display: 'none',
                         }}
                       >
                         {list.powered_by}
@@ -107,6 +109,7 @@ function CourseList() {
                           textTransform: 'uppercase',
                           backgroundColor: '#EBC8DD',
                           textAlign: 'center',
+                          display: 'none',
                         }}
                       >
                         SKILL - BASED COURSE

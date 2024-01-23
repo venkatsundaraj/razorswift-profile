@@ -35,6 +35,10 @@ export const geneateUrls = function (text) {
     .toLowerCase();
 };
 
+export const capitalizeFirstletter = function (text) {
+  return `${text.charAt(0).toUpperCase()}${text.slice(1)}`;
+};
+
 export const getSelectedCourse = async function (courseId) {
   try {
     const { courses } = await getCourseList();

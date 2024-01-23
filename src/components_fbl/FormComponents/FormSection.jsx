@@ -1,7 +1,9 @@
 import SubmitButton from '@/components_fbl/FormComponents/FormUI/SubmitButton/SubmitButton';
 import { solutionsData } from '@/constants/Aspirants/aspirantPageData';
+import { LoadingContext } from '@/reUsableComponents/LoadingComponents/LoadingContext';
 import { reverseCheckAndSet } from '@/utils/CommonFunctions/Functions';
 import { callApi } from '@/utils/apirequest';
+import { capitalizeFirstletter } from '@/utils/getCourseList';
 import {
   alphabetsValidationSchema,
   emailValidation,
@@ -12,6 +14,8 @@ import {
 import { Box, Stack } from '@mui/material';
 import { AxiosError } from 'axios';
 import { Form, Formik } from 'formik';
+import { useSearchParams } from 'next/navigation';
+import { useContext } from 'react';
 import toast from 'react-hot-toast';
 import * as Yup from 'yup';
 import ExtraParagraphHeading from '../headingComponents/ExtraParagraphHeading';
@@ -27,6 +31,8 @@ const initialValues = {
   reason: 'Aspirant',
 };
 
+const queryValue = ['partner', 'business'];
+
 const validationSchema = Yup.object().shape({
   fullName: alphabetsValidationSchema('fullName', true),
   email: emailValidation('Email', true),
@@ -36,6 +42,12 @@ const validationSchema = Yup.object().shape({
 });
 
 function FormSection() {
+  const searchParams = useSearchParams();
+  const { loading, setLoading } = useContext(LoadingContext);
+  if (queryValue.includes(searchParams.get('from'))) {
+    initialValues.reason = capitalizeFirstletter(searchParams.get('from'));
+  }
+
   return (
     <Box sx={{ padding: '16px 0' }}>
       <Formik
@@ -44,6 +56,9 @@ function FormSection() {
         onSubmit={async (values, { resetForm, setSubmitting }) => {
           try {
             setSubmitting(true);
+            setLoading(true);
+
+            console.log(values);
             const response = await callApi(
               'contactRequest',
               reverseCheckAndSet(values)
@@ -62,6 +77,7 @@ function FormSection() {
             );
           } finally {
             setSubmitting(false);
+            setLoading(false);
           }
         }}
       >
@@ -90,6 +106,7 @@ function FormSection() {
               <SelectWrapper
                 placeholder="Looking for"
                 name="reason"
+                defaultState={initialValues.reason}
                 label="Reason"
                 textlabel="Reason"
                 required

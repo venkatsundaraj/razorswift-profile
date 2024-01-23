@@ -108,7 +108,7 @@ const HeroSection = ({ filteredArticle }) => {
                 <Stack justifyContent="center" alignItems="center">
                   {filteredArticle.image ? (
                     <CustomImage
-                      width="clamp(360px,28vw,600px)"
+                      width="clamp(360px,36vw,600px)"
                       aspectRatio={'82/69'}
                       alt="bannerImage"
                       src={filteredArticle.image.filePath.replace(

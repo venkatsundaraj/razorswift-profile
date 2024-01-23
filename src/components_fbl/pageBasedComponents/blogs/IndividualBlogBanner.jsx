@@ -36,7 +36,7 @@ function IndividualBlogBanner({ blog }) {
         background: {
           xs: `linear-gradient(to bottom, #A62973 90%, #fff 30%)`,
           sm: `#A62973`,
-          lg: `linear-gradient(to bottom, #A62973 90%, #fff 10%)`,
+          md: `linear-gradient(to bottom, #A62973 75%, #fff 25%)`,
         },
       }}
     >
@@ -100,7 +100,7 @@ function IndividualBlogBanner({ blog }) {
               <Box
                 sx={{
                   display: 'flex',
-                  gap: { xs: 0, sm: 2 },
+                  gap: { xs: 0, sm: 1 },
                   alignItems: 'center',
                   justifyContent: 'start',
                   flexWrap: { xs: 'wrap', sm: 'nowrap' },

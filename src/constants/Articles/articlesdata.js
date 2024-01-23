@@ -1,4 +1,4 @@
-import articlesimage from '../ImagePaths/Articles/articlesimage';
+import articlesimage from '@/constants/ImagePaths/Articles/articlesimage';
 
 export const herosec = [
   {

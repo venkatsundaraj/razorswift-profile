@@ -35,14 +35,16 @@ function JoinUsBox({ joinUsData, ...props }) {
                   width="140px"
                   aspectRatio="4/3"
                 />
-                <TertiaryHeading
-                  sx={{
-                    color: 'primaryPalette.white',
-                    textAlign: { xs: 'center', sm: 'left' },
-                  }}
-                >
-                  {joinUsData.title}
-                </TertiaryHeading>
+                {joinUsData.title ? (
+                  <TertiaryHeading
+                    sx={{
+                      color: 'primaryPalette.white',
+                      textAlign: { xs: 'center', sm: 'left' },
+                    }}
+                  >
+                    {joinUsData.title}
+                  </TertiaryHeading>
+                ) : null}
               </Stack>
             </Grid>
             <Grid item xs={12} sm={4}>
@@ -51,7 +53,11 @@ function JoinUsBox({ joinUsData, ...props }) {
                 flexDirection="row"
               >
                 <PrimaryFillButton
-                  href="/login"
+                  href={
+                    joinUsData.buttonLink
+                      ? joinUsData.buttonLink
+                      : '/contact-us'
+                  }
                   style={{
                     padding: '4px 16px',
                     borderRadius: '8px',
@@ -67,7 +73,7 @@ function JoinUsBox({ joinUsData, ...props }) {
                     },
                   }}
                 >
-                  {joinUsData.buttonText}
+                  {joinUsData.buttonText ? joinUsData.buttonText : 'Contact Us'}
                 </PrimaryFillButton>
               </Stack>
             </Grid>

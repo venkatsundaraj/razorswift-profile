@@ -72,7 +72,6 @@ const Article = defineDocumentType(() => ({
     },
     headText: {
       type: 'string',
-      required: true,
     },
     mainText: {
       type: 'string',
@@ -86,6 +85,15 @@ const Article = defineDocumentType(() => ({
     isPublished: {
       type: 'boolean',
       default: true,
+    },
+    ctaHeading: {
+      type: 'string',
+    },
+    ctaButtonText: {
+      type: 'string',
+    },
+    ctaButtonUrl: {
+      type: 'string',
     },
     image: { type: 'image', required: true },
     parent: {

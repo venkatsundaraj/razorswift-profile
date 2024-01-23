@@ -11,7 +11,7 @@ export const heroSectionData = {
   },
   description: 'A dynamic ecosystem where talent and opportunities converge',
   buttonContent: 'Partner with us',
-  buttonUrl: '/contact-us',
+  buttonUrl: '/contact-us?from=partner',
   bannerImage: partnersPageImagePaths.heroSection.banner,
 
   secondaryButton: {
@@ -29,7 +29,7 @@ export const partnersDropDownBodyData = {
     title: 'Partner with Us',
     backgroundColor: '#FFFFFF',
     color: '#EE5064',
-    link: '/contact-us',
+    link: '/contact-us?from=partner',
   },
   trophyImage: businessPageImagePaths.dropDownSection.clock,
   description:
@@ -70,7 +70,8 @@ export const readyToStartData = {
   title: 'WHY PARTNER WITH US?',
   description: 'Collaborate with us and redefine the talent landscape',
   mainImage: partnersPageImagePaths.getStartedSection.questionTag,
-  buttonText: 'Partner with us',
+  buttonText: 'Learn More',
+  buttonUrl: '/articles/partner-with-us-to-create-a-robust-talent-marketplace/',
   longDescription: `Razorswift Innovations' commitment to innovation and strategic partnerships creates a harmonious ecosystem where businesses and candidates can thrive. By integrating with key players in the talent marketplace, we ensure that the hiring process is efficient, credible, and beneficial for all involved.
   `,
 };

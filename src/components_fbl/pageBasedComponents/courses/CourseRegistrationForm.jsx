@@ -422,7 +422,6 @@ function CourseRegistrationForm({ data }) {
           </Grid>
           <Modal
             open={open}
-            onClose={() => setOpen(false)}
             aria-labelledby="keep-mounted-modal-title"
             aria-describedby="keep-mounted-modal-description"
             sx={{
@@ -441,13 +440,20 @@ function CourseRegistrationForm({ data }) {
               gap={2}
             >
               <ParagraphHeading
-                sx={{ color: 'primaryPalette.black', fontWeight: 'bold' }}
+                sx={{
+                  color: 'primaryPalette.black',
+                  fontWeight: 'bold',
+                  textAlign: 'center',
+                  maxWidth: '320px',
+                }}
               >
-                Click the link to pay
+                Thank you for choosing us. Please use the below link to enroll.
               </ParagraphHeading>
-              <Link target="_blank" href={enrollUrl}>
+              <ParagraphHeading
+                sx={{ textDecoration: 'underline', textAlign: 'center' }}
+              >
                 {enrollUrl}
-              </Link>
+              </ParagraphHeading>
             </Stack>
           </Modal>
         </Container>

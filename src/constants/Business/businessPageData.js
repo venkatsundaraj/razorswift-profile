@@ -22,7 +22,7 @@ export const businessDropDownBodyData = {
     title: 'Ask for Demo',
     backgroundColor: '#FFFFFF',
     color: '#A62973',
-    link: '/contact-us',
+    link: '/contact-us?from=business',
   },
   trophyImage: businessPageImagePaths.dropDownSection.clock,
   description:
@@ -100,6 +100,7 @@ export const readyToStartData = {
   title: 'READY TO GET STARTED?',
   description: 'Hire at scale with the click of a button',
   mainImage: businessPageImagePaths.readyToGetStarted.mainImage,
+  buttonUrl: '/contact-us?from=business',
   buttonText: 'Get a Demo',
 };
 

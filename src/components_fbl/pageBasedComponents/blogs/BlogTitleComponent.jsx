@@ -3,7 +3,7 @@ import SecondaryHeading from '@/components_fbl/headingComponents/SecondaryHeadin
 import CustomImage from '@/src/components_fbl/globalComponents/CustomImage/CustomImage';
 import { Container, Stack, Typography } from '@mui/material';
 
-const BlogTitleComponent = ({}) => {
+const BlogTitleComponent = ({ insideIndividualBlog }) => {
   return (
     <CustomSection
       style={{ padding: '0', paddingTop: '24px' }}
@@ -30,31 +30,57 @@ const BlogTitleComponent = ({}) => {
             },
           }}
         >
-          <SecondaryHeading
-            sx={{
-              color: 'violetPalette.dark',
-              display: 'inline-block',
-              fontWeight: 'normal',
-              padding: '0px 18px',
-              position: 'relative',
-              '&:after': {
-                position: 'absolute',
-                content: "''",
-                inset: '0',
-                backgroundColor: '#F4DFF8',
-                width: '100%',
-                zIndex: '-1',
-                transform: 'rotate(-2deg)',
-                borderRadius: 8,
-                height: '100%',
-              },
-            }}
-          >
-            <Typography component="span" sx={{ fontSize: 'inherit' }}>
-              All
-            </Typography>{' '}
-            Blogs
-          </SecondaryHeading>
+          {!insideIndividualBlog ? (
+            <SecondaryHeading
+              sx={{
+                color: 'violetPalette.dark',
+                display: 'inline-block',
+                fontWeight: 'normal',
+                padding: '0px 18px',
+                position: 'relative',
+                '&:after': {
+                  position: 'absolute',
+                  content: "''",
+                  inset: '0',
+                  backgroundColor: '#F4DFF8',
+                  width: '100%',
+                  zIndex: '-1',
+                  transform: 'rotate(-2deg)',
+                  borderRadius: 8,
+                  height: '100%',
+                },
+              }}
+            >
+              <Typography component="span" sx={{ fontSize: 'inherit' }}>
+                All
+              </Typography>{' '}
+              Blogs
+            </SecondaryHeading>
+          ) : (
+            <SecondaryHeading
+              style={{ fontWeight: 'normal' }}
+              sx={{
+                color: 'violetPalette.dark',
+                display: 'inline-block',
+                fontWeight: 'normal',
+                padding: '12px 24px',
+                position: 'relative',
+                '&:after': {
+                  position: 'absolute',
+                  content: "''",
+                  inset: '0',
+                  backgroundColor: '#F4DFF8',
+                  width: '100%',
+                  zIndex: '-1',
+                  transform: 'rotate(-2deg)',
+                  borderRadius: 8,
+                  height: '100%',
+                },
+              }}
+            >
+              Also Read
+            </SecondaryHeading>
+          )}
           <CustomImage
             style={{ alignSelf: 'start', backgroundColor: 'white' }}
             src="/images/Aspirants/feather-pen.svg"

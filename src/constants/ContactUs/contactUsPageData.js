@@ -1,10 +1,11 @@
-import contactUsImagePaths from '../ImagePaths/ContactUs/contactUsImagePaths'
+import contactUsImagePaths from '../ImagePaths/ContactUs/contactUsImagePaths';
 
 export const joinUsData = {
   title: 'Looking to work with us?',
   buttonText: 'Join Us',
+  buttonLink: '/contact-us',
   joinUsIcon: contactUsImagePaths.aboutIcon,
-}
+};
 
 export const contactData = {
   title: 'Looking to collaborate with us or invest in us ?',
@@ -12,7 +13,7 @@ export const contactData = {
     'we are constantly on the lookout for investors to support our goal, and create the biggest dynamic marketplace. Get in touch with us, if you wish to be part of this revolution!',
   emailId: 'johndoe@gmail.com',
   mobile: '+91 99999 99999',
-}
+};
 
 export const heroSection = {
   title: 'Connect with us',
@@ -24,4 +25,4 @@ export const heroSection = {
     { id: 4, name: 'Partner', slug: 'partners' },
   ],
   banner: contactUsImagePaths.image1,
-}
+};
