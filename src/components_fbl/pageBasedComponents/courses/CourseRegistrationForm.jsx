@@ -225,8 +225,8 @@ function CourseRegistrationForm({ data }) {
           </Grid>
 
           <Grid container alignItems="center">
-            <Grid item xs={12} md={2}></Grid>
-            <Grid item xs={12} md={8}>
+            {/* <Grid item xs={12} md={2}></Grid> */}
+            <Grid item xs={12} md={6}>
               <Box>
                 <Formik
                   initialValues={INITIAL_FORM_STATE}
@@ -256,10 +256,12 @@ function CourseRegistrationForm({ data }) {
                               <InputLabel
                                 htmlFor="filled-hidden-label-small"
                                 sx={{
-                                  mb: 1.4,
-                                  fontSize: 'clamp(16px, 1.6vw, 18px)',
+                                  mb: 2,
+                                  fontSize: 'clamp(14px, 1.6vw, 16px)',
                                   color: 'primaryPalette.black',
                                   fontWeight: '500',
+                                  textWrap: 'wrap',
+                                  display: 'flex',
                                 }}
                               >
                                 {courseDataOne.textbox_label}
@@ -420,7 +422,11 @@ function CourseRegistrationForm({ data }) {
                 </Formik>
               </Box>
             </Grid>
-            <Grid item xs={12} md={2}></Grid>
+            <Grid item xs={12} md={6}>
+              <Stack alignItems={'center'} justifyContent={'center'}>
+                <ParagraphHeading>Hello world</ParagraphHeading>
+              </Stack>
+            </Grid>
           </Grid>
           <Modal
             open={open}
