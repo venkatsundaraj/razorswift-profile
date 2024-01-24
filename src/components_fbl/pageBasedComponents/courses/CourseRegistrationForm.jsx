@@ -166,8 +166,10 @@ function CourseRegistrationForm({ data }) {
 
             <Grid container spacing={2}>
               <Grid item md={2}></Grid>
-              <Grid item xs={8}>
+              <Grid item xs={12} md={8}>
                 <Stack
+                  alignItems="center"
+                  justifyContent="center"
                   sx={{
                     fontSize: 'clamp(14px, 1.4vw, 16px)',
                     lineHeight: '1.5',
@@ -198,8 +200,8 @@ function CourseRegistrationForm({ data }) {
               <Grid item md={2}></Grid>
             </Grid>
             <Grid container>
-              <Grid item xs={3}></Grid>
-              <Grid item xs={6}>
+              <Grid item xs={1} md={3}></Grid>
+              <Grid item xs={10} md={6}>
                 <Stack
                   sx={{
                     fontSize: 'clamp(14px, 1.4vw, 16px)',
@@ -218,7 +220,7 @@ function CourseRegistrationForm({ data }) {
                   )}
                 </Stack>
               </Grid>
-              <Grid item xs={3}></Grid>
+              <Grid item xs={1} md={3}></Grid>
             </Grid>
           </Grid>
 
