@@ -21,3 +21,7 @@ export const edTechData = {
 export const coursePageDataString = {
   list: ['<p>Hell world</p>', '<a href="www.google.com">Google</a>'],
 };
+
+export const individualCoursePageImage = {
+  banner: coursesPageImagePaths.image1,
+};

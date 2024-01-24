@@ -1,11 +1,13 @@
 import CheckboxWrapper from '@/components_fbl/FormComponents/FormUI/Checkbox/CheckboxWrapper';
 import InputField from '@/components_fbl/FormComponents/FormUI/InputField/InputField';
 import SubmitButton from '@/components_fbl/FormComponents/FormUI/SubmitButton/SubmitButton';
+import CustomImage from '@/components_fbl/globalComponents/CustomImage/CustomImage';
 import ExtraParagraphHeading from '@/components_fbl/headingComponents/ExtraParagraphHeading';
 import ParagraphHeading from '@/components_fbl/headingComponents/ParagraphHeading';
 import SubtitleHeading from '@/components_fbl/headingComponents/SubtitleHeading';
 import { LoadingContext } from '@/reUsableComponents/LoadingComponents/LoadingContext';
 import CustomSection from '@/src/components_fbl/globalComponents/CustomContainer/CustomSection';
+import { individualCoursePageImage } from '@/src/constants/Courses/coursesPageData';
 import { AccountApi } from '@/swagger_api/*';
 import { submitEnrollUserData } from '@/utils/enrollUser';
 import {
@@ -423,8 +425,13 @@ function CourseRegistrationForm({ data }) {
               </Box>
             </Grid>
             <Grid item xs={12} md={6}>
-              <Stack alignItems={'center'} justifyContent={'center'}>
-                <ParagraphHeading>Hello world</ParagraphHeading>
+              <Stack alignItems="center" justifyContent="center">
+                <CustomImage
+                  alt={'Course page'}
+                  src={individualCoursePageImage.banner}
+                  width="clamp(250px,40vw,500px)"
+                  aspectRatio="203/198"
+                />
               </Stack>
             </Grid>
           </Grid>
