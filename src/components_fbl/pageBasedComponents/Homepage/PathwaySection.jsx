@@ -8,8 +8,8 @@ import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import Link from '@mui/material/Link';
-import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
 import { Box } from '@mui/system';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
@@ -331,7 +331,13 @@ export default function PathwaySection() {
                         <Link
                           style={fontaspithree}
                           // href={item.link}
-                          href="/aspirants#pathways"
+                          href={`${
+                            item.button === 'Craft your pathway now'
+                              ? '/business#pathways'
+                              : item.button === 'Choose your pathway now'
+                              ? '/aspirants#pathways'
+                              : '/'
+                          }`}
                         >
                           <Typography
                             sx={{
