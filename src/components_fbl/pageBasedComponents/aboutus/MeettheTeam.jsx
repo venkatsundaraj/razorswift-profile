@@ -1,4 +1,5 @@
 import meettheteam from '@/constants/Aboutus/meettheteam';
+import meettheteamlink from '@/constants/Aboutus/meettheteamlink';
 import teamperson from '@/constants/Aboutus/teamperson';
 import Aboutusimagepathway from '@/constants/ImagePaths/Aboutus/Aboutusimagepathway';
 import { Box, Container, Grid, Typography } from '@mui/material';
@@ -33,7 +34,7 @@ const MeettheTeam = () => {
       window.scrollTo(0, scrollPosition.current);
     }
   }
-
+  console.log(meettheteamlink);
   function handleClosebutton() {
     document.body.style.overflow = 'scroll';
     popup.current.classList.remove('display');
@@ -293,15 +294,17 @@ const MeettheTeam = () => {
                   xs={12}
                   lg={2}
                 >
-                  <Image
-                    alt="closesvg"
-                    style={{
-                      cursor: 'pointer',
-                      height: 'auto',
-                      width: '50px',
-                    }}
-                    src={Aboutusimagepathway.linkedin1}
-                  />
+                  <Link href={`${content.person[0].link}`} style={secstyle}>
+                    <Image
+                      alt="closesvg"
+                      style={{
+                        cursor: 'pointer',
+                        height: 'auto',
+                        width: '40px',
+                      }}
+                      src={Aboutusimagepathway.linkedin}
+                    />
+                  </Link>
                 </Grid>
               </Grid>
 
