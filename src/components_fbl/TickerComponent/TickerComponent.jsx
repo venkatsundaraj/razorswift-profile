@@ -73,6 +73,9 @@ function TickerComponent({ data }) {
                 justifyContent: 'center',
                 height: '100%',
                 color: 'primaryPalette.black',
+                '&:hover': {
+                  textDecoration: 'underline',
+                },
               }}
               align="center"
               variant="body1"

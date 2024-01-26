@@ -2,12 +2,13 @@ import PrimaryFillButton from '@/components_fbl/buttonComponents/PrimaryFillButt
 import CustomSection from '@/components_fbl/globalComponents/CustomContainer/CustomSection';
 import ExtraParagraphHeading from '@/components_fbl/headingComponents/ExtraParagraphHeading';
 import ParagraphHeading from '@/components_fbl/headingComponents/ParagraphHeading';
-import EnrollForm from '@/components_fbl/pageBasedComponents/courses/EnrollForm';
+// import EnrollForm from '@/components_fbl/pageBasedComponents/courses/EnrollForm';
+import ExtraSubtitleHeading from '@/components_fbl/headingComponents/ExtraSubtitleHeading';
+import RequestCourseDataForm from '@/components_fbl/pageBasedComponents/courses/RequestCourseDataForm';
 import { geneateUrls, getCourseList } from '@/utils/getCourseList';
 import { Button, Container, Dialog, Grid, Stack } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import ExtraSubtitleHeading from '../../headingComponents/ExtraSubtitleHeading';
 function CourseList() {
   const [coursesList, setCoursesList] = useState([]);
   const [showForm, setShowForm] = useState(false);
@@ -29,6 +30,13 @@ function CourseList() {
 
   const handleClose = function () {
     setShowForm(false);
+  };
+
+  const requestEmailHandler = async function () {
+    try {
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const secondsec = {
@@ -94,8 +102,6 @@ function CourseList() {
                           backgroundColor: '#EE5164',
                           transform: 'rotate(-45deg)',
                           transformOrigin: 'bottom',
-                          opacity: '0',
-                          display: 'none',
                         }}
                       >
                         {list.powered_by}
@@ -109,7 +115,6 @@ function CourseList() {
                           textTransform: 'uppercase',
                           backgroundColor: '#EBC8DD',
                           textAlign: 'center',
-                          display: 'none',
                         }}
                       >
                         SKILL - BASED COURSE
@@ -155,6 +160,7 @@ function CourseList() {
                             Enroll Now
                           </PrimaryFillButton>
                           <Button
+                            onClick={e => showPopup(list)}
                             style={{
                               padding: 0,
                               borderRadius: '0',
@@ -171,8 +177,8 @@ function CourseList() {
                                 borderBottom: '1px solid #252525',
                               },
                             }}
-                            target="_blank"
-                            href={list.link}
+                            // target="_blank"
+                            // href={list.link}
                           >
                             More Details
                           </Button>
@@ -188,7 +194,11 @@ function CourseList() {
           )}
         </Grid>
         <Dialog open={showForm} onClose={handleClose}>
-          <EnrollForm courseData={filteredData} onClose={handleClose} />
+          <RequestCourseDataForm
+            coursesList={coursesList}
+            handleClose={handleClose}
+            requestEmailHandler={requestEmailHandler}
+          />
         </Dialog>
       </Container>
     </CustomSection>
