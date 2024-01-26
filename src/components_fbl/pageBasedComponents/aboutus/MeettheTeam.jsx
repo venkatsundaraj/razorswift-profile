@@ -312,18 +312,17 @@ const MeettheTeam = () => {
                   xs={12}
                   lg={2}
                 >
-                  <Stack>
+                  <Link href={`${content.person[0].link}`} style={secstyle}>
                     <Image
                       alt="closesvg"
-                      onClick={handleClosebutton}
                       style={{
                         cursor: 'pointer',
                         height: 'auto',
-                        width: '50px',
+                        width: '40px',
                       }}
-                      src={Aboutusimagepathway.close}
+                      src={Aboutusimagepathway.linkedin}
                     />
-                  </Stack>
+                  </Link>
                 </Grid>
               </Grid>
 
