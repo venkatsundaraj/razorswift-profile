@@ -1,4 +1,4 @@
-import Aboutusimagepathway from '../ImagePaths/Aboutus/Aboutusimagepathway'
+import Aboutusimagepathway from '../ImagePaths/Aboutus/Aboutusimagepathway';
 
 const meettheteam = [
   {
@@ -29,6 +29,6 @@ const meettheteam = [
     designation: 'Co-Founder & COO',
     slug: 'priyanka-sakuru',
   },
-]
+];
 
-export default meettheteam
+export default meettheteam;
