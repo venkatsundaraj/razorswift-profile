@@ -1,5 +1,5 @@
-import TickerComponent from '@/components_fbl/TickerComponent/TickerComponent';
 import ParagraphHeading from '@/components_fbl/headingComponents/ParagraphHeading';
+import TickerComponent from '@/components_fbl/TickerComponent/TickerComponent';
 import { TickerBoxData } from '@/constants/Homepage/TickerBoxData';
 import heroSectionData from '@/src/constants/Homepage/heroSectionData';
 import homePageImagePaths from '@/src/constants/ImagePaths/Homepage/homePageImagePaths';
