@@ -12,6 +12,7 @@ import { Form, Formik } from 'formik';
 import { useContext } from 'react';
 import toast from 'react-hot-toast';
 import * as Yup from 'yup';
+import ExtraParagraphHeading from '../../headingComponents/ExtraParagraphHeading';
 
 const INITIAL_FORM_STATE = {
   fullName: '',
@@ -25,17 +26,18 @@ const FORM_VALIDATION = Yup.object().shape({
   mobileNumber: validateContactNumber('Mobile Number', true),
 });
 
-function RequestCourseDataForm({
-  coursesList,
-  requestEmailHandler,
-  handleClose,
-}) {
+function RequestCourseDataForm({ coursesList, filteredData, handleClose }) {
   const { loading, setLoading } = useContext(LoadingContext);
+
   const SubmitDetails = async function (values, { resetForm, setSubmitting }) {
     try {
       setLoading(true);
-
-      const response = await requestCourseDataFromEmail(values);
+      console.log({ ...values, course_id: filteredData.id });
+      const response = await requestCourseDataFromEmail({
+        ...values,
+        course_id: filteredData.id,
+      });
+      console.log(response);
       if (!response) throw new Error('Something went Wrong');
       if (response.status === 'Information has been sent over email.') {
         resetForm();
@@ -44,6 +46,7 @@ function RequestCourseDataForm({
       }
     } catch (err) {
       console.log(err);
+      return toast.error(err.message);
     } finally {
       setLoading(false);
     }
@@ -58,7 +61,6 @@ function RequestCourseDataForm({
     >
       {coursesList.more_info.popup_description ? (
         <ParagraphHeading
-          style={{ fontWeight: '600' }}
           sx={{
             fontSize: '18px',
             color: 'primaryPalette.black',
@@ -68,17 +70,17 @@ function RequestCourseDataForm({
           {coursesList.more_info.popup_description}
         </ParagraphHeading>
       ) : null}
-      {coursesList.more_info.popup_button_label ? (
-        <ParagraphHeading
+      {filteredData.name ? (
+        <ExtraParagraphHeading
           sx={{
-            fontSize: '18px',
             color: 'primaryPalette.black',
             textAlign: 'center',
           }}
         >
-          {coursesList.more_info.popup_button_label}
-        </ParagraphHeading>
+          {filteredData.name}
+        </ExtraParagraphHeading>
       ) : null}
+
       <Formik
         initialValues={INITIAL_FORM_STATE}
         validationSchema={FORM_VALIDATION}
@@ -236,18 +238,17 @@ function RequestCourseDataForm({
                 alignItems="center"
                 gap="14px"
               >
-                {coursesList.more_info.button_label ? (
+                {coursesList.more_info.popup_button_label ? (
                   <Button
                     disabled={isSubmitting}
                     type="submit"
-                    onClick={requestEmailHandler}
                     sx={{
                       border: '1px solid #A62973',
                       borderRadius: '25px',
                       padding: '8px 20px',
                     }}
                   >
-                    {coursesList.more_info.button_label}
+                    {coursesList.more_info.popup_button_label}
                   </Button>
                 ) : null}
               </Stack>

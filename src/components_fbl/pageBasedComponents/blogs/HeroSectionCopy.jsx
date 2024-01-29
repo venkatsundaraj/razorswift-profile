@@ -43,8 +43,8 @@ function HeroSectionCopy({ filteredData, filteredBlogData }) {
         pb: 8,
         // background: 'blue',
         background: {
-          xs: `linear-gradient(to bottom, #A62973 70%, #fff 30%)`,
-          xl: `linear-gradient(to bottom, #A62973 90%, #fff 10%)`,
+          xs: `linear-gradient(to bottom, #A62973 100vh, #fff 30%)`,
+          xl: `linear-gradient(to bottom, #A62973 100vh, #fff 10%)`,
         },
       }}
     >

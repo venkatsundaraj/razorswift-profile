@@ -32,13 +32,6 @@ function CourseList() {
     setShowForm(false);
   };
 
-  const requestEmailHandler = async function () {
-    try {
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   const secondsec = {
     offscreen: {
       opacity: 0,
@@ -159,29 +152,31 @@ function CourseList() {
                           >
                             Enroll Now
                           </PrimaryFillButton>
-                          <Button
-                            onClick={e => showPopup(list)}
-                            style={{
-                              padding: 0,
-                              borderRadius: '0',
-                            }}
-                            sx={{
-                              backgroundColor: 'transparent',
-                              color: '#252525',
-                              lineHeight: 'normal',
-                              mr: 2,
-                              transition: 'all 300ms linear',
-                              textDecoration: 'none',
-                              '&:hover': {
+                          {coursesList.more_info.button_label ? (
+                            <Button
+                              onClick={e => showPopup(list)}
+                              style={{
+                                padding: 0,
+                                borderRadius: '0',
+                              }}
+                              sx={{
                                 backgroundColor: 'transparent',
-                                borderBottom: '1px solid #252525',
-                              },
-                            }}
-                            // target="_blank"
-                            // href={list.link}
-                          >
-                            More Details
-                          </Button>
+                                color: '#252525',
+                                lineHeight: 'normal',
+                                mr: 2,
+                                transition: 'all 300ms linear',
+                                textDecoration: 'none',
+                                '&:hover': {
+                                  backgroundColor: 'transparent',
+                                  borderBottom: '1px solid #252525',
+                                },
+                              }}
+                              // target="_blank"
+                              // href={list.link}
+                            >
+                              {coursesList.more_info.button_label}
+                            </Button>
+                          ) : null}
                         </Stack>
                       </Stack>
                     </Stack>
@@ -196,8 +191,8 @@ function CourseList() {
         <Dialog open={showForm} onClose={handleClose}>
           <RequestCourseDataForm
             coursesList={coursesList}
+            filteredData={filteredData}
             handleClose={handleClose}
-            requestEmailHandler={requestEmailHandler}
           />
         </Dialog>
       </Container>
