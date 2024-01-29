@@ -23,4 +23,3 @@ const Aboutusimagepathway = {
 };
 
 export default Aboutusimagepathway;
-s;
