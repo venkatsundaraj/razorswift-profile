@@ -335,7 +335,7 @@ export default function PathwaySection() {
                             item.button === 'Craft your pathway now'
                               ? '/business#pathways'
                               : item.button === 'Choose your pathway now'
-                              ? '/aspirants#pathways'
+                              ? '/articles/specialize-with-razorswift'
                               : '/'
                           }`}
                         >

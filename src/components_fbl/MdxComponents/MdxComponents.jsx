@@ -22,7 +22,17 @@ const components = {
       {...props}
     />
   ),
-  h5: ({ ...props }) => <h5 {...props} />,
+  h5: ({ ...props }) => (
+    <h5
+      style={{
+        fontSize: 'clamp(16px, 1.2vw, 18px)',
+        fontWeight: '600',
+        marginBottom: '8px',
+        color: '#3A3A3A',
+      }}
+      {...props}
+    />
+  ),
   p: ({ ...props }) => (
     <ParagraphHeading
       sx={{ color: 'primaryPalette.black', mb: 2.8, '&:not(:first-child)': {} }}
