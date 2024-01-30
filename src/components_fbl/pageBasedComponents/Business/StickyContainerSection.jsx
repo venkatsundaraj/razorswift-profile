@@ -5,6 +5,7 @@ import SubtitleHeading from '@/components_fbl/headingComponents/SubtitleHeading'
 import { quickTalentDiscoveryData } from '@/constants/Business/businessPageData';
 import { Box, Container, Grid, Stack } from '@mui/material';
 import { useMotionValueEvent, useScroll } from 'framer-motion';
+import { useRouter } from 'next/router';
 import { useEffect, useRef, useState } from 'react';
 
 const initialState = {
@@ -58,9 +59,25 @@ function StickyContainerSection() {
     }
   });
 
+  const router = useRouter();
+  const urlSegment = router.asPath.split('#')[1];
+
+  useEffect(() => {
+    if (urlSegment && sectionRef.current) {
+      if (urlSegment === 'pathways') {
+        sectionRef.current.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+          inline: 'nearest',
+        });
+      }
+    }
+  }, [urlSegment]);
+
   return (
     <>
       <Box
+        id="pathways"
         component="section"
         ref={sectionRef}
         sx={{

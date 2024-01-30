@@ -42,7 +42,7 @@ function RequestCourseDataForm({ coursesList, filteredData, handleClose }) {
       if (response.status === 'Information has been sent over email.') {
         resetForm();
         handleClose();
-        toast.success(coursesList.more_info.confirmation_message);
+        toast.success(response.status);
       }
     } catch (err) {
       console.log(err);

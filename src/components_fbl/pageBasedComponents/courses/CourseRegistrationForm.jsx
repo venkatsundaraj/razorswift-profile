@@ -127,47 +127,9 @@ function CourseRegistrationForm({ data }) {
     <Box component="main">
       <CustomSection style={{ padding: 'clamp(96px,8vw,140px) 0 32px' }}>
         <Container>
-          <Grid container>
-            <Grid item xs={12}>
-              <Stack
-                flexDirection="row"
-                justifyContent="space-between"
-                alignItems="center"
-                sx={{ mb: 2, width: '100%' }}
-              >
-                <Box
-                  sx={{
-                    color: 'primaryPalette.black',
-                    flexBasis: { xs: '70%', sm: '80%' },
-                  }}
-                >
-                  <ParagraphHeading sx={{ mb: 0.4 }}>
-                    Course Chosen
-                  </ParagraphHeading>
-                  <SubtitleHeading style={{ fontWeight: 'bold' }}>
-                    {course.name}
-                  </SubtitleHeading>
-                </Box>
-                <Box
-                  sx={{
-                    color: 'primaryPalette.black',
-                    justifySelf: 'flex-end',
-                  }}
-                >
-                  <ParagraphHeading sx={{ mb: 0.4, textAlign: 'end' }}>
-                    Course ID
-                  </ParagraphHeading>
-                  <SubtitleHeading
-                    style={{ fontWeight: 'bold', textAlign: 'end' }}
-                  >
-                    {course.id}
-                  </SubtitleHeading>
-                </Box>
-              </Stack>
-            </Grid>
-
+          <Grid container alignItems="center">
             <Grid container spacing={2}>
-              <Grid item md={2}></Grid>
+              <Grid item xs={12} md={2}></Grid>
               <Grid item xs={12} md={8}>
                 <Stack
                   alignItems="center"
@@ -181,15 +143,19 @@ function CourseRegistrationForm({ data }) {
                   }}
                 >
                   {courseDataOne.instructions ? (
-                    <ExtraParagraphHeading
+                    <ParagraphHeading
+                      style={{
+                        fontSize: 'clamp(20px, 1.8vw, 28px)',
+                        fontWeight: 'bold',
+                      }}
                       sx={{
                         color: 'primaryPalette.black',
-                        textAlign: 'center',
                         fontWeight: '500',
+                        textAlign: 'center',
                       }}
                     >
                       {htmlParser.parse(courseDataOne.instructions)}
-                    </ExtraParagraphHeading>
+                    </ParagraphHeading>
                   ) : (
                     <ExtraParagraphHeading
                       sx={{ color: 'primaryPalette.black' }}
@@ -199,36 +165,77 @@ function CourseRegistrationForm({ data }) {
                   )}
                 </Stack>
               </Grid>
-              <Grid item md={2}></Grid>
+              <Grid item xs={12} md={2}></Grid>
             </Grid>
-            <Grid container>
-              <Grid item xs={1} md={3}></Grid>
-              <Grid item xs={10} md={6}>
-                <Stack
-                  sx={{
-                    fontSize: 'clamp(14px, 1.4vw, 16px)',
-                    lineHeight: '1.5',
-                    py: 2,
-                    fontWeight: 'normal',
-                    color: 'primaryPalette.black',
-                  }}
-                >
-                  {courseDataOne.steps ? (
-                    htmlParser.parse(courseDataOne.steps)
-                  ) : (
-                    <ParagraphHeading sx={{ color: 'primaryPalette.black' }}>
-                      Loading...
-                    </ParagraphHeading>
-                  )}
-                </Stack>
-              </Grid>
-              <Grid item xs={1} md={3}></Grid>
-            </Grid>
-          </Grid>
-
-          <Grid container alignItems="center">
-            {/* <Grid item xs={12} md={2}></Grid> */}
             <Grid item xs={12} md={6}>
+              <Grid container>
+                <Grid container>
+                  <Grid item xs={12} sm={12}>
+                    <Stack
+                      flexDirection="column"
+                      justifyContent="space-between"
+                      alignItems={{ xs: 'center', md: 'start' }}
+                      sx={{ mb: 2, width: '100%' }}
+                    >
+                      <Box
+                        sx={{
+                          color: 'primaryPalette.black',
+                          flexBasis: { xs: '70%', sm: '80%' },
+                        }}
+                      >
+                        <ParagraphHeading
+                          sx={{ mb: 0.4, display: 'flex', gap: 0.6 }}
+                        >
+                          Course Chosen -{' '}
+                          <SubtitleHeading style={{ fontWeight: 'bold' }}>
+                            {course.name}
+                          </SubtitleHeading>
+                        </ParagraphHeading>
+                      </Box>
+                      <Box
+                        sx={{
+                          color: 'primaryPalette.black',
+                          justifySelf: 'flex-end',
+                        }}
+                      >
+                        <ParagraphHeading
+                          sx={{ mb: 0.4, display: 'flex', gap: 0.6 }}
+                        >
+                          Course ID -{'  '}
+                          <SubtitleHeading style={{ fontWeight: 'bold' }}>
+                            {course.id}
+                          </SubtitleHeading>
+                        </ParagraphHeading>
+                      </Box>
+                    </Stack>
+                  </Grid>
+                </Grid>
+                <Grid container>
+                  <Grid item xs={1} md={2}></Grid>
+                  <Grid item xs={10} md={8}>
+                    <Stack
+                      sx={{
+                        fontSize: 'clamp(14px, 1.4vw, 16px)',
+                        lineHeight: '1.5',
+                        py: 2,
+                        fontWeight: 'normal',
+                        color: 'primaryPalette.black',
+                      }}
+                    >
+                      {courseDataOne.steps ? (
+                        htmlParser.parse(courseDataOne.steps)
+                      ) : (
+                        <ParagraphHeading
+                          sx={{ color: 'primaryPalette.black' }}
+                        >
+                          Loading...
+                        </ParagraphHeading>
+                      )}
+                    </Stack>
+                  </Grid>
+                  <Grid item xs={1} md={2}></Grid>
+                </Grid>
+              </Grid>
               <Box>
                 <Formik
                   initialValues={INITIAL_FORM_STATE}
@@ -249,7 +256,7 @@ function CourseRegistrationForm({ data }) {
                       <Stack flexDirection="column" alingItems="center" gap={3}>
                         <Grid
                           container
-                          spacing={3}
+                          spacing={2}
                           alingItems="center"
                           justifyContent="center"
                         >

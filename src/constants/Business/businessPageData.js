@@ -164,7 +164,7 @@ export const TickerBoxData = {
     {
       id: 3,
       title: 'Learn more about RazorSwift Pathways - coming soon',
-      link: '/',
+      link: '/contact-us',
     },
     {
       id: 4,

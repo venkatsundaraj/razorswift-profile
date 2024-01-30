@@ -1,4 +1,4 @@
-import aspirantPageImagePaths from '../ImagePaths/Aspirants/aspirantPageImagePaths';
+import aspirantPageImagePaths from '@/constants/ImagePaths/Aspirants/aspirantPageImagePaths';
 
 export const socialIcons = [
   {
@@ -118,7 +118,7 @@ export const TickerBoxData = {
     {
       id: 4,
       title: 'Learn more about RazorSwift Pathways - coming soon',
-      link: '/',
+      link: '/contact-us',
     },
     {
       id: 5,

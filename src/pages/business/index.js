@@ -28,10 +28,6 @@ function Business() {
         />
       </Head>
       <Box component="main">
-        {/* <BannerSection
-        TickerBoxData={TickerBoxData}
-        heroSectionData={heroSectionData}
-      /> */}
         <HeroSection
           TickerBoxData={TickerBoxData}
           heroSectionData={heroSectionData}

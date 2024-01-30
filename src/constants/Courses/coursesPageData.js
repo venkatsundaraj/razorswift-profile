@@ -1,3 +1,4 @@
+import aspirantPageImagePaths from '@/constants/ImagePaths/Aspirants/aspirantPageImagePaths';
 import coursesPageImagePaths from '@/constants/ImagePaths/Courses/coursesPageImagePaths';
 
 export const bannerData = {
@@ -24,4 +25,36 @@ export const coursePageDataString = {
 
 export const individualCoursePageImage = {
   banner: coursesPageImagePaths.image1,
+};
+
+export const TickerBoxData = {
+  tickerArrow: aspirantPageImagePaths.tickerSection.arrow,
+  slidingValue: [
+    {
+      id: 1,
+      title: 'Choose from over 35 Technical courses that are nearly Free',
+      link: '/courses',
+    },
+    {
+      id: 2,
+      title:
+        'Join 5000+ RazorSwift users and get the Verified Profile Advantage',
+      link: '/signup',
+    },
+    {
+      id: 3,
+      title: 'Create a standout easy to share RazorSwift Profile',
+      link: '/signup',
+    },
+    {
+      id: 4,
+      title: 'Learn more about RazorSwift Pathways - coming soon',
+      link: '/articles/specialize-with-razorswift/',
+    },
+    {
+      id: 5,
+      title: "Don't have a RazorSwift profile yet? Sign up now",
+      link: '/signup',
+    },
+  ],
 };

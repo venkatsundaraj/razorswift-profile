@@ -1,6 +1,6 @@
 import TickerComponent from '@/components_fbl/TickerComponent/TickerComponent';
 import herosec from '@/constants/Aboutus/herosec';
-import { TickerBoxData } from '@/constants/Aspirants/aspirantPageData';
+import { TickerBoxData } from '@/constants/Homepage/TickerBoxData';
 import Aboutusimagepathway from '@/constants/ImagePaths/Aboutus/Aboutusimagepathway';
 import { bebasNeue } from '@/utils/themes/typography';
 import { Box, Grid, Typography } from '@mui/material';

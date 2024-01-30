@@ -5,11 +5,28 @@ import ParagraphHeading from '@/components_fbl/headingComponents/ParagraphHeadin
 import PrimaryHeading from '@/components_fbl/headingComponents/PrimaryHeading';
 import { CareerData } from '@/constants/Aspirants/aspirantPageData';
 import { Container, Stack } from '@mui/material';
+import { useRouter } from 'next/router';
+import { useEffect, useRef } from 'react';
 
 function CareerSection({ ...props }) {
+  const router = useRouter();
+  const urlSegment = router.asPath.split('#')[1];
+  const sectionRef = useRef(null);
+  useEffect(() => {
+    if (urlSegment && sectionRef.current) {
+      if (urlSegment === 'pathways') {
+        sectionRef.current.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+          inline: 'nearest',
+        });
+      }
+    }
+  }, [urlSegment]);
+
   return (
     <CustomSection {...props}>
-      <Container>
+      <Container ref={sectionRef} id="pathways">
         <PrimaryHeading sx={{ color: 'violetPalette.dark' }}>
           {CareerData.heading}
         </PrimaryHeading>

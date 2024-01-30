@@ -1,7 +1,7 @@
 import TickerComponent from '@/components_fbl/TickerComponent/TickerComponent';
 import CustomImage from '@/components_fbl/globalComponents/CustomImage/CustomImage';
 import SuperText from '@/components_fbl/headingComponents/SuperText';
-import { TickerBoxData } from '@/src/constants/Aspirants/aspirantPageData';
+import { TickerBoxData } from '@/src/constants/Courses/coursesPageData';
 import { Box } from '@mui/material';
 
 function BannerSection({ bannerData }) {
