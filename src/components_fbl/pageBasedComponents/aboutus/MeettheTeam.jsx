@@ -283,20 +283,6 @@ const MeettheTeam = () => {
                         >
                           {content.person[0].designation}
                         </Typography>
-                        <Link
-                          href={`${content.person[0].link}`}
-                          style={secstyle}
-                        >
-                          <Image
-                            alt="closesvg"
-                            style={{
-                              cursor: 'pointer',
-                              height: 'auto',
-                              width: '40px',
-                            }}
-                            src={Aboutusimagepathway.linkedin}
-                          />
-                        </Link>
                       </Box>
                     </motion.div>
                   </motion.div>
@@ -332,7 +318,7 @@ const MeettheTeam = () => {
                   padding: '20px 0 20px 0',
                   borderTop: '1px solid #707070',
                   borderBottom: '1px solid #707070',
-                  marginTop: '60px',
+                  marginTop: '30px',
                 }}
                 container
                 justifyContent="center"
@@ -362,18 +348,33 @@ const MeettheTeam = () => {
                   </Stack>
                 </Grid>
                 <Grid item xs={12} lg={6}>
-                  <Stack
-                    sx={{
-                      paddingLeft: { xs: '', md: '25px' },
-                      marginTop: { xs: '40px', md: '' },
-                    }}
-                  >
-                    {/* <Typography sx={{ fontSize: '24px' }}>
-                      {content.person[0].content}
-                    </Typography> */}
-                    <Typography sx={{ fontSize: '20px' }}>
-                      {content.person[0].description}
-                    </Typography>
+                  <Stack>
+                    <Stack
+                      sx={{
+                        paddingLeft: { xs: '', md: '25px' },
+                        marginTop: { xs: '40px', md: '' },
+                      }}
+                    >
+                      <Typography sx={{ fontSize: '20px' }}>
+                        {content.person[0].description}
+                      </Typography>
+                      <Stack sx={{ transform: { md: 'translateY(80px)' } }}>
+                        <Link
+                          href={`${content.person[0].link}`}
+                          style={secstyle}
+                        >
+                          <Image
+                            alt="closesvg"
+                            style={{
+                              cursor: 'pointer',
+                              height: 'auto',
+                              width: '40px',
+                            }}
+                            src={Aboutusimagepathway.linkedin}
+                          />
+                        </Link>
+                      </Stack>
+                    </Stack>
                   </Stack>
                 </Grid>
               </Grid>

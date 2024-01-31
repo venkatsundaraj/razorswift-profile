@@ -105,7 +105,7 @@ function GetStartedSection({ readyToStartData }) {
             {readyToStartData.qrImage && (
               <CustomImage
                 alt={readyToStartData.title}
-                width={{ xs: '100px' }}
+                width={{ xs: '160px', md: '100px' }}
                 aspectRatio="1/1"
                 src={readyToStartData.qrImage}
               />
