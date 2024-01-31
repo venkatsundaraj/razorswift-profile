@@ -6,6 +6,7 @@ import ExtraParagraphHeading from '@/components_fbl/headingComponents/ExtraParag
 import ParagraphHeading from '@/components_fbl/headingComponents/ParagraphHeading';
 import SubtitleHeading from '@/components_fbl/headingComponents/SubtitleHeading';
 import { LoadingContext } from '@/reUsableComponents/LoadingComponents/LoadingContext';
+import PrimaryFillButton from '@/src/components_fbl/buttonComponents/PrimaryFillButton';
 import CustomSection from '@/src/components_fbl/globalComponents/CustomContainer/CustomSection';
 import { individualCoursePageImage } from '@/src/constants/Courses/coursesPageData';
 import { AccountApi } from '@/swagger_api/*';
@@ -16,6 +17,7 @@ import {
 } from '@/utils/getCourseList';
 import { validateContactNumber } from '@/utils/validationSchema';
 import styled from '@emotion/styled';
+import CloseIcon from '@mui/icons-material/Close';
 import {
   Box,
   Container,
@@ -84,6 +86,10 @@ function CourseRegistrationForm({ data }) {
     };
     getData();
   }, []);
+
+  const handleClose = function () {
+    setOpen(false);
+  };
 
   const enrollUser = async function (values, { setSubmitting, resetForm }) {
     try {
@@ -283,6 +289,7 @@ function CourseRegistrationForm({ data }) {
                               </ParagraphHeading>
                             )}
                             <InputField
+                              aria-autoComplete="off"
                               name="mobileNumber"
                               id="filled-hidden-label-small"
                               onChange={e => {
@@ -444,6 +451,7 @@ function CourseRegistrationForm({ data }) {
           </Grid>
           <Modal
             open={open}
+            onClose={handleClose}
             aria-labelledby="keep-mounted-modal-title"
             aria-describedby="keep-mounted-modal-description"
             sx={{
@@ -457,6 +465,7 @@ function CourseRegistrationForm({ data }) {
                 backgroundColor: 'primaryPalette.white',
                 padding: 6,
                 borderRadius: 4,
+                position: 'relative',
               }}
               flexDirection={'column'}
               gap={2}
@@ -469,13 +478,38 @@ function CourseRegistrationForm({ data }) {
                   maxWidth: '320px',
                 }}
               >
-                Thank you for choosing us. Please use the below link to enroll.
+                Please click the below link to proceed with your payment. You
+                will also get a message on WhatsApp with the payment link,
+                shortly.
               </ParagraphHeading>
-              <ParagraphHeading
-                sx={{ textDecoration: 'underline', textAlign: 'center' }}
+              <PrimaryFillButton
+                target="blank"
+                href={enrollUrl}
+                sx={{
+                  textDecoration: 'underline',
+                  textAlign: 'center',
+                  border: '1px solid #A62973',
+                  transition: 'all 100ms linear',
+                  '&:hover': {
+                    backgroundColor: 'pinkPalette.dark',
+                    color: 'primaryPalette.white',
+                  },
+                }}
               >
-                {enrollUrl}
-              </ParagraphHeading>
+                Click to Pay
+              </PrimaryFillButton>
+              <CloseIcon
+                onClick={handleClose}
+                sx={{
+                  position: 'absolute',
+                  top: '20px',
+                  right: '20px',
+                  cursor: 'pointer',
+                  width: '20px',
+                  height: '20px',
+                  color: 'primaryPalette.black',
+                }}
+              />
             </Stack>
           </Modal>
         </Container>
